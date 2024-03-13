@@ -33,7 +33,7 @@ namespace Pokemon
         }
 
         public void agregarTipoAlFinal(tipo t)
-        { //metodo para agregar una persona al final de la lista
+        { //método para agregar una persona al final de la lista
             nodo nuevo = new nodo();
             nuevo.setValorTipo(t);
             if (esVacia())
@@ -53,7 +53,7 @@ namespace Pokemon
         }
 
         public void agregarNombreTipoAlFinal(string t)
-        { //metodo para agregar una persona al final de la lista
+        { //método para agregar una persona al final de la lista
             nodo nuevo = new nodo();
             nuevo.setValorNombreTipo(t);
             if (esVacia())

@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pokemon
 {
-    public class pokemon
+    public class Pokemon
     {
         private int ID;
         private string nombre;
         private int nivel;
         private lista tipos;
-        //ARREGLO DE MOVIMIENTOS
         private int[] HP;
         private int[] ATK;
         private int[] ATKS;
@@ -20,7 +15,7 @@ namespace Pokemon
         private int[] DEFS;
         private int[] VEL;
 
-        public pokemon(int iD, string nombre, int nivel, string tipos, int hP, int aTK, int aTKS, int dEF, int dEFS, int vEL)
+        public Pokemon(int iD, string nombre, int nivel, string tipos, int hP, int aTK, int aTKS, int dEF, int dEFS, int vEL)
         {
             ID = iD;
             this.nombre = nombre;
@@ -34,9 +29,25 @@ namespace Pokemon
             this.VEL = new int[3];
 
             string[] arr = tipos.Split('/');
-            foreach (string s in arr)
+            tipo[] tiposArray = formSeleccionarEquipo.ObtenerTipos();
+            if (tiposArray != null)
             {
-                this.tipos.agregarTipoAlFinal(formInicio.arrTipos[tipo.determinarTipo(s)]);
+                foreach (string s in arr)
+                {
+                    int tipoIndex = tipo.determinarTipo(s);
+                    if (tipoIndex >= 0 && tipoIndex < tiposArray.Length)
+                    {
+                        this.tipos.agregarTipoAlFinal(tiposArray[tipoIndex]);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Error: Tipo {s} no encontrado.");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error: No se pudo obtener la lista de tipos de Pokémon.");
             }
 
             for (int i = 0; i < 3; i++)
@@ -108,6 +119,16 @@ namespace Pokemon
         public int getVEL(int pos)
         {
             return VEL[pos];
+        }
+
+        public override string ToString()
+        {
+            return nombre;
+        }
+
+        public int getID()
+        {
+            return ID;
         }
     }
 }

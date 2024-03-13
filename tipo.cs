@@ -126,7 +126,7 @@ namespace Pokemon
                 case "Acero":
                     return 15;
                 default:
-                    Console.WriteLine("EEEEERROOOOOOOOOOOOOOOOOOOOOOOOOR");
+                    Console.WriteLine("ERROR");
                     return 16;
             }
         }
