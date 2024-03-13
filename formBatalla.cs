@@ -12,9 +12,12 @@ namespace Pokemon
 {
     public partial class formBatalla : Form
     {
+        
         public formBatalla()
         {
             InitializeComponent();
+            pictureBox1.Image = formInicio.arrPKM[0].getImgFront();
+            pictureBox1.Parent = pictureBox2;
         }
     }
 }
