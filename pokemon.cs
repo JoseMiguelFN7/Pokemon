@@ -13,7 +13,7 @@ namespace Pokemon
         private string nombre;
         private int nivel;
         private lista tipos;
-        //ARREGLO DE MOVIMIENTOS
+        private movimiento[] movimientos;
         private int[] HP;
         private int[] ATK;
         private int[] DEF;
@@ -22,11 +22,12 @@ namespace Pokemon
         private int[] VEL;
 
         public pokemon(int iD, string nombre, int nivel, string tipos, int hP, int aTK, int dEF, int aTKS, int dEFS, int vEL)
-        {
+        {//AGREGAR MOVIMIENTOS AL ARREGLO
             ID = iD;
             this.nombre = nombre;
             this.nivel = nivel;
             this.tipos = new lista();
+            this.movimientos = new movimiento[4];
             this.HP = new int[3];
             this.ATK = new int[3];
             this.DEF = new int[3];
@@ -59,6 +60,11 @@ namespace Pokemon
         public void setNivel(int n)
         {
             nivel = n;
+        }
+
+        public void setMovimiento(movimiento move, int pos)
+        {
+            movimientos[pos] = move;
         }
 
         public void setHP(int hp, int pos)
@@ -111,6 +117,11 @@ namespace Pokemon
             return tipos;
         }
 
+        public movimiento getMovimientos(int pos)
+        {
+            return movimientos[pos];
+        }
+
         public int getHP(int pos)
         {
             return HP[pos];
@@ -141,315 +152,621 @@ namespace Pokemon
             return VEL[pos];
         }
 
-        public Image getImgFront()
+        public Image[] getImg()
         {
+            Image[] images = new Image[2];
             switch (this.ID)
             {
                 case 1:
-                    return Properties.Resources._1_bulbasaur;
+                    images[0] = Properties.Resources._1_bulbasaur;
+                    images[1] = Properties.Resources._1_bulbasaur_back;
+                    break;
                 case 2:
-                    return Properties.Resources._2_ivysaur;
+                    images[0] = Properties.Resources._2_ivysaur;
+                    images[1] = Properties.Resources._2_ivysaur_back;
+                    break;
                 case 3:
-                    return Properties.Resources._3_venusaur;
+                    images[0] = Properties.Resources._3_venusaur;
+                    images[1] = Properties.Resources._3_venusaur_back;
+                    break;
                 case 4:
-                    return Properties.Resources._4_charmander;
+                    images[0] = Properties.Resources._4_charmander;
+                    images[1] = Properties.Resources._4_charmander_back;
+                    break;
                 case 5:
-                    return Properties.Resources._5_charmeleon;
+                    images[0] = Properties.Resources._5_charmeleon;
+                    images[1] = Properties.Resources._5_charmeleon_back;
+                    break;
                 case 6:
-                    return Properties.Resources._6_charizard;
+                    images[0] = Properties.Resources._6_charizard;
+                    images[1] = Properties.Resources._6_charizard_back;
+                    break;
                 case 7:
-                    return Properties.Resources._7_squirtle;
+                    images[0] = Properties.Resources._7_squirtle;
+                    images[1] = Properties.Resources._7_squirtle_back;
+                    break;
                 case 8:
-                    return Properties.Resources._8_wartortle;
+                    images[0] = Properties.Resources._8_wartortle;
+                    images[1] = Properties.Resources._8_wartortle_back;
+                    break;
                 case 9:
-                    return Properties.Resources._9_blastoise;
+                    images[0] = Properties.Resources._9_blastoise;
+                    images[1] = Properties.Resources._9_blastoise_back;
+                    break;
                 case 10:
-                    return Properties.Resources._10_caterpie;
+                    images[0] = Properties.Resources._10_caterpie;
+                    images[1] = Properties.Resources._10_caterpie_back;
+                    break;
                 case 11:
-                    return Properties.Resources._11_metapod;
+                    images[0] = Properties.Resources._11_metapod;
+                    images[1] = Properties.Resources._11_metapod_back;
+                    break;
                 case 12:
-                    return Properties.Resources._12_butterfree;
+                    images[0] = Properties.Resources._12_butterfree;
+                    images[1] = Properties.Resources._12_butterfree_back;
+                    break;
                 case 13:
-                    return Properties.Resources._13_weedle;
+                    images[0] = Properties.Resources._13_weedle;
+                    images[1] = Properties.Resources._13_weedle_back;
+                    break;
                 case 14:
-                    return Properties.Resources._14_kakuna;
+                    images[0] = Properties.Resources._14_kakuna;
+                    images[1] = Properties.Resources._14_kakuna_back;
+                    break;
                 case 15:
-                    return Properties.Resources._15_beedrill;
+                    images[0] = Properties.Resources._15_beedrill;
+                    images[1] = Properties.Resources._15_beedrill_back;
+                    break;
                 case 16:
-                    return Properties.Resources._16_pidgey;
+                    images[0] = Properties.Resources._16_pidgey;
+
+                    break;
                 case 17:
-                    return Properties.Resources._17_pidgeotto;
+                    images[0] = Properties.Resources._17_pidgeotto;
+
+                    break;
                 case 18:
-                    return Properties.Resources._18_pidgeot;
+                    images[0] = Properties.Resources._18_pidgeot;
+
+                    break;
                 case 19:
-                    return Properties.Resources._19_rattata;
+                    images[0] = Properties.Resources._19_rattata;
+
+                    break;
                 case 20:
-                    return Properties.Resources._20_raticate;
+                    images[0] = Properties.Resources._20_raticate;
+
+                    break;
                 case 21:
-                    return Properties.Resources._21_spearow;
+                    images[0] = Properties.Resources._21_spearow;
+
+                    break;
                 case 22:
-                    return Properties.Resources._22_fearow;
+                    images[0] = Properties.Resources._22_fearow;
+
+                    break;
                 case 23:
-                    return Properties.Resources._23_ekans;
+                    images[0] = Properties.Resources._23_ekans;
+
+                    break;
                 case 24:
-                    return Properties.Resources._24_arbok;
+                    images[0] = Properties.Resources._24_arbok;
+
+                    break;
                 case 25:
-                    return Properties.Resources._25_pikachu;
+                    images[0] = Properties.Resources._25_pikachu;
+
+                    break;
                 case 26:
-                    return Properties.Resources._26_raichu;
+                    images[0] = Properties.Resources._26_raichu;
+
+                    break;
                 case 27:
-                    return Properties.Resources._27_sandshrew;
+                    images[0] = Properties.Resources._27_sandshrew;
+
+                    break;
                 case 28:
-                    return Properties.Resources._28_sandslash;
+                    images[0] = Properties.Resources._28_sandslash;
+
+                    break;
                 case 29:
-                    return Properties.Resources._29_nidoran_f;
+                    images[0] = Properties.Resources._29_nidoran_f;
+
+                    break;
                 case 30:
-                    return Properties.Resources._30_nidorina;
+                    images[0] = Properties.Resources._30_nidorina;
+
+                    break;
                 case 31:
-                    return Properties.Resources._31_nidoqueen;
+                    images[0] = Properties.Resources._31_nidoqueen;
+
+                    break;
                 case 32:
-                    return Properties.Resources._32_nidoran_m;
+                    images[0] = Properties.Resources._32_nidoran_m;
+
+                    break;
                 case 33:
-                    return Properties.Resources._33_nidorino;
+                    images[0] = Properties.Resources._33_nidorino;
+
+                    break;
                 case 34:
-                    return Properties.Resources._34_nidoking;
+                    images[0] = Properties.Resources._34_nidoking;
+
+                    break;
                 case 35:
-                    return Properties.Resources._35_clefairy;
+                    images[0] = Properties.Resources._35_clefairy;
+
+                    break;
                 case 36:
-                    return Properties.Resources._36_clefable;
+                    images[0] = Properties.Resources._36_clefable;
+
+                    break;
                 case 37:
-                    return Properties.Resources._37_vulpix;
+                    images[0] = Properties.Resources._37_vulpix;
+
+                    break;
                 case 38:
-                    return Properties.Resources._38_ninetales;
+                    images[0] = Properties.Resources._38_ninetales;
+
+                    break;
                 case 39:
-                    return Properties.Resources._39_jigglypuff;
+                    images[0] = Properties.Resources._39_jigglypuff;
+
+                    break;
                 case 40:
-                    return Properties.Resources._40_wigglytuff;
+                    images[0] = Properties.Resources._40_wigglytuff;
+
+                    break;
                 case 41:
-                    return Properties.Resources._41_zubat;
+                    images[0] = Properties.Resources._41_zubat;
+
+                    break;
                 case 42:
-                    return Properties.Resources._42_golbat;
+                    images[0] = Properties.Resources._42_golbat;
+
+                    break;
                 case 43:
-                    return Properties.Resources._43_oddish;
+                    images[0] = Properties.Resources._43_oddish;
+
+                    break;
                 case 44:
-                    return Properties.Resources._44_gloom;
+                    images[0] = Properties.Resources._44_gloom;
+
+                    break;
                 case 45:
-                    return Properties.Resources._45_vileplume;
+                    images[0] = Properties.Resources._45_vileplume;
+
+                    break;
                 case 46:
-                    return Properties.Resources._46_paras;
+                    images[0] = Properties.Resources._19_rattata;
+
+                    break;
                 case 47:
-                    return Properties.Resources._47_parasect;
+                    images[0] = Properties.Resources._47_parasect;
+
+                    break;
                 case 48:
-                    return Properties.Resources._48_venonat;
+                    images[0] = Properties.Resources._48_venonat;
+
+                    break;
                 case 49:
-                    return Properties.Resources._49_venomoth;
+                    images[0] = Properties.Resources._49_venomoth;
+
+                    break;
                 case 50:
-                    return Properties.Resources._50_diglett;
+                    images[0] = Properties.Resources._50_diglett;
+
+                    break;
                 case 51:
-                    return Properties.Resources._51_dugtrio;
+                    images[0] = Properties.Resources._51_dugtrio;
+
+                    break;
                 case 52:
-                    return Properties.Resources._52_meowth;
+                    images[0] = Properties.Resources._52_meowth;
+
+                    break;
                 case 53:
-                    return Properties.Resources._53_persian;
+                    images[0] = Properties.Resources._53_persian;
+
+                    break;
                 case 54:
-                    return Properties.Resources._54_psyduck;
+                    images[0] = Properties.Resources._54_psyduck;
+
+                    break;
                 case 55:
-                    return Properties.Resources._55_golduck;
+                    images[0] = Properties.Resources._55_golduck;
+
+                    break;
                 case 56:
-                    return Properties.Resources._56_mankey;
+                    images[0] = Properties.Resources._56_mankey;
+
+                    break;
                 case 57:
-                    return Properties.Resources._57_primeape;
+                    images[0] = Properties.Resources._57_primeape;
+
+                    break;
                 case 58:
-                    return Properties.Resources._58_growlithe;
+                    images[0] = Properties.Resources._58_growlithe;
+
+                    break;
                 case 59:
-                    return Properties.Resources._59_arcanine;
+                    images[0] = Properties.Resources._59_arcanine;
+
+                    break;
                 case 60:
-                    return Properties.Resources._60_poliwag;
+                    images[0] = Properties.Resources._60_poliwag;
+
+                    break;
                 case 61:
-                    return Properties.Resources._61_poliwhirl;
+                    images[0] = Properties.Resources._61_poliwhirl;
+
+                    break;
                 case 62:
-                    return Properties.Resources._62_poliwrath;
+                    images[0] = Properties.Resources._62_poliwrath;
+
+                    break;
                 case 63:
-                    return Properties.Resources._63_abra;
+                    images[0] = Properties.Resources._63_abra;
+
+                    break;
                 case 64:
-                    return Properties.Resources._64_kadabra;
+                    images[0] = Properties.Resources._64_kadabra;
+
+                    break;
                 case 65:
-                    return Properties.Resources._65_alakazam;
+                    images[0] = Properties.Resources._65_alakazam;
+
+                    break;
                 case 66:
-                    return Properties.Resources._66_machop;
+                    images[0] = Properties.Resources._66_machop;
+
+                    break;
                 case 67:
-                    return Properties.Resources._67_machoke;
+                    images[0] = Properties.Resources._67_machoke;
+
+                    break;
                 case 68:
-                    return Properties.Resources._68_machamp;
+                    images[0] = Properties.Resources._68_machamp;
+
+                    break;
                 case 69:
-                    return Properties.Resources._69_bellsprout;
+                    images[0] = Properties.Resources._69_bellsprout;
+
+                    break;
                 case 70:
-                    return Properties.Resources._70_weepinbell;
+                    images[0] = Properties.Resources._70_weepinbell;
+
+                    break;
                 case 71:
-                    return Properties.Resources._71_victreebel;
+                    images[0] = Properties.Resources._71_victreebel;
+
+                    break;
                 case 72:
-                    return Properties.Resources._72_tentacool;
+                    images[0] = Properties.Resources._72_tentacool;
+
+                    break;
                 case 73:
-                    return Properties.Resources._73_tentacruel;
+                    images[0] = Properties.Resources._73_tentacruel;
+
+                    break;
                 case 74:
-                    return Properties.Resources._74_geodude;
+                    images[0] = Properties.Resources._74_geodude;
+
+                    break;
                 case 75:
-                    return Properties.Resources._75_graveler;
+                    images[0] = Properties.Resources._75_graveler;
+
+                    break;
                 case 76:
-                    return Properties.Resources._76_golem;
+                    images[0] = Properties.Resources._76_golem;
+
+                    break;
                 case 77:
-                    return Properties.Resources._77_ponyta;
+                    images[0] = Properties.Resources._77_ponyta;
+
+                    break;
                 case 78:
-                    return Properties.Resources._78_rapidash;
+                    images[0] = Properties.Resources._78_rapidash;
+
+                    break;
                 case 79:
-                    return Properties.Resources._79_slowpoke;
+                    images[0] = Properties.Resources._79_slowpoke;
+
+                    break;
                 case 80:
-                    return Properties.Resources._80_slowbro;
+                    images[0] = Properties.Resources._80_slowbro;
+
+                    break;
                 case 81:
-                    return Properties.Resources._81_magnemite;
+                    images[0] = Properties.Resources._81_magnemite;
+
+                    break;
                 case 82:
-                    return Properties.Resources._82_magneton;
+                    images[0] = Properties.Resources._82_magneton;
+
+                    break;
                 case 83:
-                    return Properties.Resources._83_farfetchd;
+                    images[0] = Properties.Resources._83_farfetchd;
+
+                    break;
                 case 84:
-                    return Properties.Resources._84_doduo;
+                    images[0] = Properties.Resources._84_doduo;
+
+                    break;
                 case 85:
-                    return Properties.Resources._85_dodrio;
+                    images[0] = Properties.Resources._85_dodrio;
+
+                    break;
                 case 86:
-                    return Properties.Resources._86_seel;
+                    images[0] = Properties.Resources._86_seel;
+
+                    break;
                 case 87:
-                    return Properties.Resources._87_dewgong;
+                    images[0] = Properties.Resources._87_dewgong;
+
+                    break;
                 case 88:
-                    return Properties.Resources._88_grimer;
+                    images[0] = Properties.Resources._88_grimer;
+
+                    break;
                 case 89:
-                    return Properties.Resources._89_muk;
+                    images[0] = Properties.Resources._89_muk;
+
+                    break;
                 case 90:
-                    return Properties.Resources._90_shellder;
+                    images[0] = Properties.Resources._90_shellder;
+
+                    break;
                 case 91:
-                    return Properties.Resources._91_cloyster;
+                    images[0] = Properties.Resources._91_cloyster;
+
+                    break;
                 case 92:
-                    return Properties.Resources._92_gastly;
+                    images[0] = Properties.Resources._92_gastly;
+
+                    break;
                 case 93:
-                    return Properties.Resources._93_haunter;
+                    images[0] = Properties.Resources._93_haunter;
+
+                    break;
                 case 94:
-                    return Properties.Resources._94_gengar;
+                    images[0] = Properties.Resources._94_gengar;
+
+                    break;
                 case 95:
-                    return Properties.Resources._95_onix;
+                    images[0] = Properties.Resources._95_onix;
+
+                    break;
                 case 96:
-                    return Properties.Resources._96_drowzee;
+                    images[0] = Properties.Resources._96_drowzee;
+
+                    break;
                 case 97:
-                    return Properties.Resources._97_hypno;
+                    images[0] = Properties.Resources._97_hypno;
+
+                    break;
                 case 98:
-                    return Properties.Resources._98_krabby;
+                    images[0] = Properties.Resources._98_krabby;
+
+                    break;
                 case 99:
-                    return Properties.Resources._99_kingler;
+                    images[0] = Properties.Resources._99_kingler;
+
+                    break;
                 case 100:
-                    return Properties.Resources._100_voltorb;
+                    images[0] = Properties.Resources._100_voltorb;
+
+                    break;
                 case 101:
-                    return Properties.Resources._101_electrode;
+                    images[0] = Properties.Resources._101_electrode;
+
+                    break;
                 case 102:
-                    return Properties.Resources._102_exeggcute;
+                    images[0] = Properties.Resources._102_exeggcute;
+
+                    break;
                 case 103:
-                    return Properties.Resources._103_exeggutor;
+                    images[0] = Properties.Resources._103_exeggutor;
+
+                    break;
                 case 104:
-                    return Properties.Resources._104_cubone;
+                    images[0] = Properties.Resources._104_cubone;
+
+                    break;
                 case 105:
-                    return Properties.Resources._105_marowak;
+                    images[0] = Properties.Resources._105_marowak;
+
+                    break;
                 case 106:
-                    return Properties.Resources._106_hitmonlee;
+                    images[0] = Properties.Resources._106_hitmonlee;
+
+                    break;
                 case 107:
-                    return Properties.Resources._107_hitmonchan;
+                    images[0] = Properties.Resources._107_hitmonchan;
+
+                    break;
                 case 108:
-                    return Properties.Resources._108_lickitung;
+                    images[0] = Properties.Resources._108_lickitung;
+
+                    break;
                 case 109:
-                    return Properties.Resources._109_koffing;
+                    images[0] = Properties.Resources._109_koffing;
+
+                    break;
                 case 110:
-                    return Properties.Resources._110_weezing;
+                    images[0] = Properties.Resources._110_weezing;
+
+                    break;
                 case 111:
-                    return Properties.Resources._111_rhyhorn;
+                    images[0] = Properties.Resources._111_rhyhorn;
+
+                    break;
                 case 112:
-                    return Properties.Resources._112_rhydon;
+                    images[0] = Properties.Resources._112_rhydon;
+
+                    break;
                 case 113:
-                    return Properties.Resources._113_chansey;
+                    images[0] = Properties.Resources._113_chansey;
+
+                    break;
                 case 114:
-                    return Properties.Resources._114_tangela;
+                    images[0] = Properties.Resources._114_tangela;
+
+                    break;
                 case 115:
-                    return Properties.Resources._115_kangaskhan;
+                    images[0] = Properties.Resources._115_kangaskhan;
+
+                    break;
                 case 116:
-                    return Properties.Resources._116_horsea;
+                    images[0] = Properties.Resources._116_horsea;
+
+                    break;
                 case 117:
-                    return Properties.Resources._117_seadra;
+                    images[0] = Properties.Resources._117_seadra;
+
+                    break;
                 case 118:
-                    return Properties.Resources._118_goldeen;
+                    images[0] = Properties.Resources._118_goldeen;
+
+                    break;
                 case 119:
-                    return Properties.Resources._119_seaking;
+                    images[0] = Properties.Resources._119_seaking;
+
+                    break;
                 case 120:
-                    return Properties.Resources._120_staryu;
+                    images[0] = Properties.Resources._120_staryu;
+
+                    break;
                 case 121:
-                    return Properties.Resources._121_starmie;
+                    images[0] = Properties.Resources._121_starmie;
+
+                    break;
                 case 122:
-                    return Properties.Resources._122_mr_mime;
+                    images[0] = Properties.Resources._122_mr_mime;
+
+                    break;
                 case 123:
-                    return Properties.Resources._123_scyther;
+                    images[0] = Properties.Resources._123_scyther;
+
+                    break;
                 case 124:
-                    return Properties.Resources._124_jynx;
+                    images[0] = Properties.Resources._124_jynx;
+
+                    break;
                 case 125:
-                    return Properties.Resources._125_electabuzz;
+                    images[0] = Properties.Resources._125_electabuzz;
+
+                    break;
                 case 126:
-                    return Properties.Resources._126_magmar;
+                    images[0] = Properties.Resources._126_magmar;
+
+                    break;
                 case 127:
-                    return Properties.Resources._127_pinsir;
+                    images[0] = Properties.Resources._127_pinsir;
+
+                    break;
                 case 128:
-                    return Properties.Resources._128_tauros;
+                    images[0] = Properties.Resources._128_tauros;
+
+                    break;
                 case 129:
-                    return Properties.Resources._129_magikarp;
+                    images[0] = Properties.Resources._129_magikarp;
+
+                    break;
                 case 130:
-                    return Properties.Resources._130_gyarados;
+                    images[0] = Properties.Resources._130_gyarados;
+
+                    break;
                 case 131:
-                    return Properties.Resources._131_lapras;
+                    images[0] = Properties.Resources._131_lapras;
+
+                    break;
                 case 132:
-                    return Properties.Resources._132_ditto;
+                    images[0] = Properties.Resources._132_ditto;
+
+                    break;
                 case 133:
-                    return Properties.Resources._133_eevee;
+                    images[0] = Properties.Resources._133_eevee;
+
+                    break;
                 case 134:
-                    return Properties.Resources._134_vaporeon;
+                    images[0] = Properties.Resources._134_vaporeon;
+
+                    break;
                 case 135:
-                    return Properties.Resources._135_jolteon;
+                    images[0] = Properties.Resources._135_jolteon;
+
+                    break;
                 case 136:
-                    return Properties.Resources._136_flareon;
+                    images[0] = Properties.Resources._136_flareon;
+
+                    break;
                 case 137:
-                    return Properties.Resources._137_porygon;
+                    images[0] = Properties.Resources._137_porygon;
+
+                    break;
                 case 138:
-                    return Properties.Resources._138_omanyte;
+                    images[0] = Properties.Resources._138_omanyte;
+
+                    break;
                 case 139:
-                    return Properties.Resources._139_omastar;
+                    images[0] = Properties.Resources._139_omastar;
+
+                    break;
                 case 140:
-                    return Properties.Resources._140_kabuto;
+                    images[0] = Properties.Resources._140_kabuto;
+
+                    break;
                 case 141:
-                    return Properties.Resources._141_kabutops;
+                    images[0] = Properties.Resources._141_kabutops;
+
+                    break;
                 case 142:
-                    return Properties.Resources._142_aerodactyl;
+                    images[0] = Properties.Resources._142_aerodactyl;
+
+                    break;
                 case 143:
-                    return Properties.Resources._143_snorlax;
+                    images[0] = Properties.Resources._143_snorlax;
+
+                    break;
                 case 144:
-                    return Properties.Resources._144_articuno;
+                    images[0] = Properties.Resources._144_articuno;
+
+                    break;
                 case 145:
-                    return Properties.Resources._145_zapdos;
+                    images[0] = Properties.Resources._145_zapdos;
+
+                    break;
                 case 146:
-                    return Properties.Resources._146_moltres;
+                    images[0] = Properties.Resources._146_moltres;
+
+                    break;
                 case 147:
-                    return Properties.Resources._147_dratini;
+                    images[0] = Properties.Resources._147_dratini;
+
+                    break;
                 case 148:
-                    return Properties.Resources._148_dragonair;
+                    images[0] = Properties.Resources._148_dragonair;
+
+                    break;
                 case 149:
-                    return Properties.Resources._149_dragonite;
+                    images[0] = Properties.Resources._149_dragonite;
+
+                    break;
                 case 150:
-                    return Properties.Resources._150_mewtwo;
+                    images[0] = Properties.Resources._150_mewtwo;
+
+                    break;
                 case 151:
-                    return Properties.Resources._151_mew;
+                    images[0] = Properties.Resources._151_mew;
+
+                    break;
                 default:
-                    return null;
+                    images[0] = null;
+                    images[1] = null;
+                    break;
             }
+            return images;
         }
     }
 }

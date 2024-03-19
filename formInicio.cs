@@ -38,7 +38,7 @@ namespace Pokemon
             InitializeComponent();
         }
 
-        public static void leerTipos()
+        public void leerTipos()
         {
             string ruta = Path.Combine(Application.StartupPath, "Archivostxt\\Tipos.txt");
             string texto = archivo.leerArchivo(ruta);
@@ -54,7 +54,7 @@ namespace Pokemon
             }
         }
 
-        public static void leerPokemon()
+        public void leerPokemon()
         {
             string ruta = Path.Combine(Application.StartupPath, "Archivostxt\\PKM.txt");
             string texto = archivo.leerArchivo(ruta);
@@ -70,10 +70,27 @@ namespace Pokemon
             }
         }
 
+        /*public void leerObjetos()
+        {
+            string ruta = Path.Combine(Application.StartupPath, "Archivostxt\\Objetos.txt");
+            string texto = archivo.leerArchivo(ruta);
+
+            string[] stringObjeto = texto.Split('\n');
+
+            int i = 0;
+            foreach (String o in stringObjeto)
+            {
+                string[] datosObjeto = o.Split('/');
+                pokemon PKMNuevo = new pokemon(int.Parse(datosPKM[0]), datosPKM[1], 50, datosPKM[2], int.Parse(datosPKM[3]), int.Parse(datosPKM[4]), int.Parse(datosPKM[5]), int.Parse(datosPKM[6]), int.Parse(datosPKM[7]), int.Parse(datosPKM[8]));
+                arrPKM[i++] = PKMNuevo;
+            }
+        }*/
+
         private void button1_Click(object sender, EventArgs e)
         {
             formBatalla FB = new formBatalla();
             FB.Show();
+            this.Hide();
         }
     }
 }

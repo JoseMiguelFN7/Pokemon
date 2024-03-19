@@ -73,9 +73,29 @@ namespace Pokemon.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1_bulbasaur_back {
+            get {
+                object obj = ResourceManager.GetObject("_1_bulbasaur_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _10_caterpie {
             get {
                 object obj = ResourceManager.GetObject("_10_caterpie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _10_caterpie_back {
+            get {
+                object obj = ResourceManager.GetObject("_10_caterpie_back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,6 +213,16 @@ namespace Pokemon.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _11_metapod_back {
+            get {
+                object obj = ResourceManager.GetObject("_11_metapod_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _110_weezing {
             get {
                 object obj = ResourceManager.GetObject("_110_weezing", resourceCulture);
@@ -296,6 +326,16 @@ namespace Pokemon.Properties {
         internal static System.Drawing.Bitmap _12_butterfree {
             get {
                 object obj = ResourceManager.GetObject("_12_butterfree", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _12_butterfree_back {
+            get {
+                object obj = ResourceManager.GetObject("_12_butterfree_back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -413,6 +453,16 @@ namespace Pokemon.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _13_weedle_back {
+            get {
+                object obj = ResourceManager.GetObject("_13_weedle_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _130_gyarados {
             get {
                 object obj = ResourceManager.GetObject("_130_gyarados", resourceCulture);
@@ -516,6 +566,16 @@ namespace Pokemon.Properties {
         internal static System.Drawing.Bitmap _14_kakuna {
             get {
                 object obj = ResourceManager.GetObject("_14_kakuna", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _14_kakuna_back {
+            get {
+                object obj = ResourceManager.GetObject("_14_kakuna_back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -633,6 +693,16 @@ namespace Pokemon.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _15_beedrill_back {
+            get {
+                object obj = ResourceManager.GetObject("_15_beedrill_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _150_mewtwo {
             get {
                 object obj = ResourceManager.GetObject("_150_mewtwo", resourceCulture);
@@ -696,6 +766,16 @@ namespace Pokemon.Properties {
         internal static System.Drawing.Bitmap _2_ivysaur {
             get {
                 object obj = ResourceManager.GetObject("_2_ivysaur", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2_ivysaur_back {
+            get {
+                object obj = ResourceManager.GetObject("_2_ivysaur_back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -813,6 +893,16 @@ namespace Pokemon.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3_venusaur_back {
+            get {
+                object obj = ResourceManager.GetObject("_3_venusaur_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _30_nidorina {
             get {
                 object obj = ResourceManager.GetObject("_30_nidorina", resourceCulture);
@@ -916,6 +1006,16 @@ namespace Pokemon.Properties {
         internal static System.Drawing.Bitmap _4_charmander {
             get {
                 object obj = ResourceManager.GetObject("_4_charmander", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4_charmander_back {
+            get {
+                object obj = ResourceManager.GetObject("_4_charmander_back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1033,6 +1133,16 @@ namespace Pokemon.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _5_charmeleon_back {
+            get {
+                object obj = ResourceManager.GetObject("_5_charmeleon_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _50_diglett {
             get {
                 object obj = ResourceManager.GetObject("_50_diglett", resourceCulture);
@@ -1136,6 +1246,16 @@ namespace Pokemon.Properties {
         internal static System.Drawing.Bitmap _6_charizard {
             get {
                 object obj = ResourceManager.GetObject("_6_charizard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _6_charizard_back {
+            get {
+                object obj = ResourceManager.GetObject("_6_charizard_back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1253,6 +1373,16 @@ namespace Pokemon.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _7_squirtle_back {
+            get {
+                object obj = ResourceManager.GetObject("_7_squirtle_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _70_weepinbell {
             get {
                 object obj = ResourceManager.GetObject("_70_weepinbell", resourceCulture);
@@ -1356,6 +1486,16 @@ namespace Pokemon.Properties {
         internal static System.Drawing.Bitmap _8_wartortle {
             get {
                 object obj = ResourceManager.GetObject("_8_wartortle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8_wartortle_back {
+            get {
+                object obj = ResourceManager.GetObject("_8_wartortle_back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1473,6 +1613,16 @@ namespace Pokemon.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _9_blastoise_back {
+            get {
+                object obj = ResourceManager.GetObject("_9_blastoise_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _90_shellder {
             get {
                 object obj = ResourceManager.GetObject("_90_shellder", resourceCulture);
@@ -1571,12 +1721,292 @@ namespace Pokemon.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Bolsa1 {
+            get {
+                object obj = ResourceManager.GetObject("Bolsa1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Bolsa2 {
+            get {
+                object obj = ResourceManager.GetObject("Bolsa2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fondo_datos_PKM {
+            get {
+                object obj = ResourceManager.GetObject("Fondo_datos_PKM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Luchar1 {
+            get {
+                object obj = ResourceManager.GetObject("Luchar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Luchar2 {
+            get {
+                object obj = ResourceManager.GetObject("Luchar2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovAcero {
+            get {
+                object obj = ResourceManager.GetObject("MovAcero", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovAgua {
+            get {
+                object obj = ResourceManager.GetObject("MovAgua", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovBicho {
+            get {
+                object obj = ResourceManager.GetObject("MovBicho", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovDragon {
+            get {
+                object obj = ResourceManager.GetObject("MovDragon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovElectrico {
+            get {
+                object obj = ResourceManager.GetObject("MovElectrico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovFantasma {
+            get {
+                object obj = ResourceManager.GetObject("MovFantasma", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovFuego {
+            get {
+                object obj = ResourceManager.GetObject("MovFuego", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovHada {
+            get {
+                object obj = ResourceManager.GetObject("MovHada", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovHielo {
+            get {
+                object obj = ResourceManager.GetObject("MovHielo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovLucha {
+            get {
+                object obj = ResourceManager.GetObject("MovLucha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovNormal {
+            get {
+                object obj = ResourceManager.GetObject("MovNormal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovPlanta {
+            get {
+                object obj = ResourceManager.GetObject("MovPlanta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovPsiquico {
+            get {
+                object obj = ResourceManager.GetObject("MovPsiquico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovRoca {
+            get {
+                object obj = ResourceManager.GetObject("MovRoca", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovTierra {
+            get {
+                object obj = ResourceManager.GetObject("MovTierra", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovVeneno {
+            get {
+                object obj = ResourceManager.GetObject("MovVeneno", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MovVolador {
+            get {
+                object obj = ResourceManager.GetObject("MovVolador", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pokemon1 {
+            get {
+                object obj = ResourceManager.GetObject("Pokemon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pokemon2 {
+            get {
+                object obj = ResourceManager.GetObject("Pokemon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
         /// </summary>
         internal static System.Drawing.Icon PokemonIcon {
             get {
                 object obj = ResourceManager.GetObject("PokemonIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rendirse1 {
+            get {
+                object obj = ResourceManager.GetObject("Rendirse1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rendirse2 {
+            get {
+                object obj = ResourceManager.GetObject("Rendirse2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Volver1 {
+            get {
+                object obj = ResourceManager.GetObject("Volver1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Volver2 {
+            get {
+                object obj = ResourceManager.GetObject("Volver2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

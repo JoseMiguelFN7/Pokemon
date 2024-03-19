@@ -62,6 +62,8 @@
     <Compile Include="lista.cs" />
     <Compile Include="movimiento.cs" />
     <Compile Include="nodo.cs" />
+    <Compile Include="objeto.cs" />
+    <Compile Include="pila.cs" />
     <Compile Include="pokemon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -550,6 +552,135 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\151-mew.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rendirse2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Luchar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rendirse1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Luchar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pokemon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pokemon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bolsa1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bolsa2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-bulbasaur-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2-ivysaur-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-venusaur-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4-charmander-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5-charmeleon-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6-charizard-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7-squirtle-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8-wartortle-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9-blastoise-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10-caterpie-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11-metapod-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12-butterfree-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13-weedle-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14-kakuna-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15-beedrill-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo-datos-PKM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovAcero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovFantasma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovDragon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovLucha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovHielo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovRoca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovTierra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovHada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovVeneno.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovElectrico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovBicho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovPlanta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovVolador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovAgua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovFuego.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovPsiquico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volver1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volver2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
