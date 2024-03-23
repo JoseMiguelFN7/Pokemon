@@ -14,13 +14,15 @@ namespace Pokemon
 {
     public partial class formInicio : Form
     {
-        public static tipo[] arrTipos = new tipo[17];
+        public static tipo[] arrTipos = new tipo[18];
         public static pokemon[] arrPKM = new pokemon[151];
+        public static objeto[] arrObj = new objeto[9];
 
         public formInicio()
         {
             leerTipos();
             leerPokemon();
+            llenarArrObj();
             Console.WriteLine(arrPKM[0].getNombre());
             Console.WriteLine(arrPKM[0].getID());
             Console.WriteLine(arrPKM[0].getNivel());
@@ -69,22 +71,19 @@ namespace Pokemon
                 arrPKM[i++] = PKMNuevo;
             }
         }
-
-        /*public void leerObjetos()
+        
+        public void llenarArrObj()
         {
-            string ruta = Path.Combine(Application.StartupPath, "Archivostxt\\Objetos.txt");
-            string texto = archivo.leerArchivo(ruta);
-
-            string[] stringObjeto = texto.Split('\n');
-
-            int i = 0;
-            foreach (String o in stringObjeto)
-            {
-                string[] datosObjeto = o.Split('/');
-                pokemon PKMNuevo = new pokemon(int.Parse(datosPKM[0]), datosPKM[1], 50, datosPKM[2], int.Parse(datosPKM[3]), int.Parse(datosPKM[4]), int.Parse(datosPKM[5]), int.Parse(datosPKM[6]), int.Parse(datosPKM[7]), int.Parse(datosPKM[8]));
-                arrPKM[i++] = PKMNuevo;
-            }
-        }*/
+            arrObj[0] = new pocion();
+            arrObj[1] = new superPocion();
+            arrObj[2] = new hiperPocion();
+            arrObj[3] = new antiParalisis();
+            arrObj[4] = new antidoto();
+            arrObj[5] = new despertar();
+            arrObj[6] = new curaTotal();
+            arrObj[7] = new maxPocion();
+            arrObj[8] = new precisionX();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {

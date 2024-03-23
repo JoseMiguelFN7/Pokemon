@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace Pokemon
         protected int ID;
         protected string nombre;
         protected string descripcion;
+        protected Image icono;
 
         public void setID(int id)
         {
@@ -41,6 +43,11 @@ namespace Pokemon
         {
             return this.descripcion;
         }
+
+        public Image getIcono()
+        {
+            return icono;
+        }
     }
 
     public class pocion : objeto
@@ -50,6 +57,7 @@ namespace Pokemon
             this.ID = 1;
             this.nombre = "Poción";
             this.descripcion = "Cura 20 PS al Pokémon.";
+            this.icono = Properties.Resources.pocion;
         }
 
         public void usarPocion(pokemon PKM)
@@ -69,6 +77,7 @@ namespace Pokemon
             this.ID = 2;
             this.nombre = "Superpoción";
             this.descripcion = "Cura 50 PS al Pokémon.";
+            this.icono = Properties.Resources.superpocion;
         }
 
         public void usarSuperPocion(pokemon PKM)
@@ -88,6 +97,7 @@ namespace Pokemon
             this.ID = 3;
             this.nombre = "Hiperpoción";
             this.descripcion = "Cura 200 PS al Pokémon.";
+            this.icono = Properties.Resources.hiperpocion;
         }
 
         public void usarHiperPocion(pokemon PKM)
@@ -107,6 +117,7 @@ namespace Pokemon
             this.ID = 4;
             this.nombre = "Antiparálisis";
             this.descripcion = "Cura la parálisis del Pokémon.";
+            this.icono = Properties.Resources.antiparalisis;
         }
 
         //METODO PARA QUITAR PARALISIS
@@ -119,6 +130,7 @@ namespace Pokemon
             this.ID = 5;
             this.nombre = "Antídoto";
             this.descripcion = "Cura el veneno del Pokémon.";
+            this.icono = Properties.Resources.antidoto;
         }
 
         //METODO PARA QUITAR VENENO
@@ -131,6 +143,7 @@ namespace Pokemon
             this.ID = 6;
             this.nombre = "Despertar";
             this.descripcion = "Despierta al Pokémon dormido.";
+            this.icono = Properties.Resources.awakening;
         }
 
         //METODO PARA QUITAR SUENO
@@ -143,6 +156,7 @@ namespace Pokemon
             this.ID = 7;
             this.nombre = "Cura Total";
             this.descripcion = "Cura todos los PS del Pokémon y elimina todos los problemas de estado.";
+            this.icono = Properties.Resources.curatotal;
         }
 
         public void usarCuraTotal(pokemon PKM)
@@ -159,6 +173,7 @@ namespace Pokemon
             this.ID = 8;
             this.nombre = "Max poción";
             this.descripcion = "Cura todos los PS del Pokémon.";
+            this.icono = Properties.Resources.maxpocion;
         }
 
         public void usarCuraTotal(pokemon PKM)
@@ -174,6 +189,7 @@ namespace Pokemon
             this.ID = 9;
             this.nombre = "Precisión X";
             this.descripcion = "Este objeto aumenta la precisión de todos los movimientos del Pokémon que lo lleva en un nivel, hasta un máximo de 6 niveles. Cada nivel aumenta la precisión en un 33%.";
+            this.icono = Properties.Resources.precisionx;
         }
 
         //METODO PARA AUMENTAR PRECISION

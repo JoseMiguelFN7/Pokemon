@@ -15,3 +15,4 @@ Dragón,Dragón,Acero/Hada,Hielo/Dragón/Hada,no
 Fantasma,Psíquico/Fantasma,Normal,Fantasma,Normal/Lucha
 Acero,Hielo/Roca,Acero/Agua/Eléctrico/Fuego,Fuego/Lucha/Tierra,Veneno
 Hada,Dragón/Lucha,Acero/Fuego/Veneno,Acero/Veneno,Dragón
+Combate,no,no,no,no
