@@ -1,38 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pokemon
 {
-    public partial class formSeleccionarEquipo : Form
+    public partial class FormSeleccionarEquipo : Form
     {
-        private List<Pokemon> listaPokemonDisponibles;
-        private List<Pokemon> equipoPokemon;
+        public static jugador miJugador;
+        private lista listaPokemonDisponibles;
+        private int cantidadPorPagina = 20;
+        private int paginaActual = 1;
 
-        public formSeleccionarEquipo()
+        public FormSeleccionarEquipo()
         {
+            miJugador = new jugador(1, "Jugador 1",0,0,0);
             InitializeComponent();
-            // Inicializar las listas de Pokémon disponibles y equipo Pokémon
             listaPokemonDisponibles = CargarPokemonDisponibles();
-            equipoPokemon = new List<Pokemon>();
             MostrarPokemonDisponibles();
         }
-
-        private List<Pokemon> CargarPokemonDisponibles()
+        private lista CargarPokemonDisponibles()
         {
-            List<Pokemon> pokemon = new List<Pokemon>();
+            lista pokemones = new lista();
             string[] lines = File.ReadAllLines("pokemones.txt");
-            foreach (string line in lines)
+            int contador = 0;
+            int indiceInicial = (paginaActual - 1) * cantidadPorPagina;
+            int indiceFinal = Math.Min(indiceInicial + cantidadPorPagina, lines.Length);
+            for (int i = indiceInicial; i < indiceFinal; i++)
             {
+                string line = lines[i];
                 string[] data = line.Split(',');
-                if (data.Length == 10) 
+                if (data.Length == 10)
                 {
                     int id = int.Parse(data[0]);
                     string nombre = data[1];
@@ -45,79 +43,408 @@ namespace Pokemon
                     int defs = int.Parse(data[8]);
                     int vel = int.Parse(data[9]);
 
-                    Pokemon nuevoPokemon = new Pokemon(id, nombre, nivel, tipos, hp, atk, atks, def, defs, vel);
-                    pokemon.Add(nuevoPokemon);
+                    pokemon nuevoPokemon = new pokemon(id, nombre, nivel, tipos, hp, atk, atks, def, defs, vel);
+                    pokemones.agregarPokemonAlFinal(nuevoPokemon);
                 }
                 else
                 {
                     Console.WriteLine($"Error de formato en la línea: {line}");
                 }
+                contador++;
             }
-
-            return pokemon;
+            return pokemones;
         }
 
         private void MostrarPokemonDisponibles()
         {
-            listBoxPokemonDisponibles.DataSource = null;
-            listBoxPokemonDisponibles.DataSource = listaPokemonDisponibles;
-            listBoxPokemonDisponibles.DisplayMember = "Nombre";
+            flowLayoutPanel1.Controls.Clear(); 
+
+            foreach (pokemon pokemon in listaPokemonDisponibles)
+            {
+                int idPokemon = pokemon.getID();
+
+                if (File.Exists($"sprites/{idPokemon}.png"))
+                {
+                    Image imagenOriginal = Image.FromFile($"sprites/{idPokemon}.png");
+
+                    int nuevoAncho = 120;
+                    int nuevoAlto = 110; 
+                    Image imagenReescalada = new Bitmap(imagenOriginal, nuevoAncho, nuevoAlto);
+
+                    PictureBox pictureBox = new PictureBox();
+                    pictureBox.Image = imagenReescalada;
+                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom; 
+                    pictureBox.Width = nuevoAncho;
+                    pictureBox.Height = nuevoAlto;
+
+                    Label label = new Label();
+                    label.Text = pokemon.getNombre(); 
+                    label.TextAlign = ContentAlignment.MiddleCenter;
+
+                    Panel panel = new Panel();
+                    panel.Controls.Add(pictureBox);
+                    panel.Controls.Add(label);
+                    panel.Width = 120; 
+                    panel.Height = 115; 
+                    panel.BorderStyle = BorderStyle.None;
+                    panel.BackColor = Color.Transparent;
+
+                    flowLayoutPanel1.Controls.Add(panel);
+
+                    pictureBox.Click += (sender, e) =>
+                    {
+                        pokemon pokemonSeleccionado = pokemon;
+
+                        bool equipoLleno = true;
+                        foreach (pokemon p in miJugador.getPokemones())
+                        {
+                            if (p == null)
+                            {
+                                equipoLleno = false;
+                                break;
+                            }
+                        }
+
+                        if (equipoLleno)
+                        {
+                            MessageBox.Show("¡Tu equipo está lleno! No puedes agregar más Pokémon.");
+                            return;
+                        }
+
+                        bool pokemonYaEnEquipo = false;
+                        foreach (pokemon p in miJugador.getPokemones())
+                        {
+                            if (p != null && p.getID() == pokemonSeleccionado.getID())
+                            {
+                                pokemonYaEnEquipo = true;
+                                break;
+                            }
+                        }
+
+                        if (pokemonYaEnEquipo)
+                        {
+                            MessageBox.Show("¡Este Pokémon ya está en tu equipo!");
+                            return; 
+                        }
+
+                        for (int i = 0; i < miJugador.getPokemones().Length; i++)
+                        {
+                            if (miJugador.getPokemones()[i] == null)
+                            {
+                                miJugador.getPokemones()[i] = pokemonSeleccionado;
+                                MessageBox.Show($"¡{pokemonSeleccionado.getNombre()} ha sido agregado a tu equipo!");
+                                break;
+                            }
+                        }
+                    };
+
+                    pictureBox.MouseEnter += (sender, e) =>
+                    {
+                        MostrarTiposPokemon(pokemon, pictureBoxTipo1, pictureBoxTipo2);
+                        MostrarGIF(pokemon);
+                    };
+
+                    pictureBox.MouseLeave += (sender, e) =>
+                    {
+                        OcultarGIF();
+                        OcultarTiposPokemon(pictureBoxTipo1, pictureBoxTipo2);
+                    };
+                }
+                else
+                {
+                    Console.WriteLine($"No se encontró el sprite para el Pokémon con ID {idPokemon}");
+                }
+            }
         }
 
-        private void buttonAgregarPokemon_Click(object sender, EventArgs e)
+        private void MostrarGIF(pokemon pokemon)
         {
-            Pokemon pokemonSeleccionado = listBoxPokemonDisponibles.SelectedItem as Pokemon;
-            if (pokemonSeleccionado != null && equipoPokemon.Count < 6)
+            pictureBoxGIF.Image = pokemon.getImg()[0];
+            pictureBoxGIF.Size = new Size(pictureBoxGIF.Image.Width * 2, pictureBoxGIF.Image.Height * 2);
+            pictureBoxGIF.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxGIF.Visible = true;
+        }
+
+        private void MostrarTiposPokemon(pokemon pokemon, PictureBox pictureBoxTipo1, PictureBox pictureBoxTipo2)
+        {
+            int cantidadTipos = pokemon.getTipos().getTamanio();
+            if (cantidadTipos == 1)
             {
-                equipoPokemon.Add(pokemonSeleccionado);
-                listaPokemonDisponibles.Remove(pokemonSeleccionado); // Eliminar de la lista de disponibles
+                tipo tipo1 = pokemon.getTipos().getInicio().getValorTipo();
+                switch (tipo1.getNombre())
+                {
+                    case "Normal":
+                        pictureBoxTipo1.Image = Properties.Resources.MovNormal;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Fuego":
+                        pictureBoxTipo1.Image = Properties.Resources.MovFuego;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Agua":
+                        pictureBoxTipo1.Image = Properties.Resources.MovAgua;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Volador":
+                        pictureBoxTipo1.Image = Properties.Resources.MovVolador;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Planta":
+                        pictureBoxTipo1.Image = Properties.Resources.MovPlanta;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Bicho":
+                        pictureBoxTipo1.Image = Properties.Resources.MovBicho;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Eléctrico":
+                        pictureBoxTipo1.Image = Properties.Resources.MovElectrico;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Psíquico":
+                        pictureBoxTipo1.Image = Properties.Resources.MovPsiquico;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Veneno":
+                        pictureBoxTipo1.Image = Properties.Resources.MovVeneno;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Tierra":
+                        pictureBoxTipo1.Image = Properties.Resources.MovTierra;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Roca":
+                        pictureBoxTipo1.Image = Properties.Resources.MovRoca;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Hielo":
+                        pictureBoxTipo1.Image = Properties.Resources.MovHielo;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Lucha":
+                        pictureBoxTipo1.Image = Properties.Resources.MovLucha;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Dragón":
+                        pictureBoxTipo1.Image = Properties.Resources.MovDragon;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Fantasma":
+                        pictureBoxTipo1.Image = Properties.Resources.MovFantasma;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Acero":
+                        pictureBoxTipo1.Image = Properties.Resources.MovAcero;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Hada":
+                        pictureBoxTipo1.Image = Properties.Resources.MovHada;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    default:
+                        Console.WriteLine("EEEEERROOOOOOOOOOOOOOOOOOOOOOOOOR");
+                        break;
+                }
+            }
+            else if (cantidadTipos == 2)
+            {
+                tipo tipo1 = pokemon.getTipos().getInicio().getValorTipo();
+                tipo tipo2 = pokemon.getTipos().getInicio().getSiguiente().getValorTipo();
+                switch (tipo1.getNombre())
+                {
+                    case "Normal":
+                        pictureBoxTipo1.Image = Properties.Resources.MovNormal;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Fuego":
+                        pictureBoxTipo1.Image = Properties.Resources.MovFuego;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Agua":
+                        pictureBoxTipo1.Image = Properties.Resources.MovAgua;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Volador":
+                        pictureBoxTipo1.Image = Properties.Resources.MovVolador;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Planta":
+                        pictureBoxTipo1.Image = Properties.Resources.MovPlanta;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Bicho":
+                        pictureBoxTipo1.Image = Properties.Resources.MovBicho;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Eléctrico":
+                        pictureBoxTipo1.Image = Properties.Resources.MovElectrico;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Psíquico":
+                        pictureBoxTipo1.Image = Properties.Resources.MovPsiquico;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Veneno":
+                        pictureBoxTipo1.Image = Properties.Resources.MovVeneno;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Tierra":
+                        pictureBoxTipo1.Image = Properties.Resources.MovTierra;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Roca":
+                        pictureBoxTipo1.Image = Properties.Resources.MovRoca;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Hielo":
+                        pictureBoxTipo1.Image = Properties.Resources.MovHielo;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Lucha":
+                        pictureBoxTipo1.Image = Properties.Resources.MovLucha;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Dragón":
+                        pictureBoxTipo1.Image = Properties.Resources.MovDragon;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Fantasma":
+                        pictureBoxTipo1.Image = Properties.Resources.MovFantasma;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Acero":
+                        pictureBoxTipo1.Image = Properties.Resources.MovAcero;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    case "Hada":
+                        pictureBoxTipo1.Image = Properties.Resources.MovHada;
+                        pictureBoxTipo1.Visible = true;
+                        break;
+                    default:
+                        Console.WriteLine("EEEEERROOOOOOOOOOOOOOOOOOOOOOOOOR");
+                        break;
+                }
+                switch (tipo2.getNombre())
+                {
+                    case "Normal":
+                        pictureBoxTipo2.Image = Properties.Resources.MovNormal;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Fuego":
+                        pictureBoxTipo2.Image = Properties.Resources.MovFuego;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Agua":
+                        pictureBoxTipo2.Image = Properties.Resources.MovAgua;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Volador":
+                        pictureBoxTipo2.Image = Properties.Resources.MovVolador;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Planta":
+                        pictureBoxTipo2.Image = Properties.Resources.MovPlanta;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Bicho":
+                        pictureBoxTipo2.Image = Properties.Resources.MovBicho;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Eléctrico":
+                        pictureBoxTipo2.Image = Properties.Resources.MovElectrico;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Psíquico":
+                        pictureBoxTipo2.Image = Properties.Resources.MovPsiquico;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Veneno":
+                        pictureBoxTipo2.Image = Properties.Resources.MovVeneno;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Tierra":
+                        pictureBoxTipo2.Image = Properties.Resources.MovTierra;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Roca":
+                        pictureBoxTipo2.Image = Properties.Resources.MovRoca;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Hielo":
+                        pictureBoxTipo2.Image = Properties.Resources.MovHielo;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Lucha":
+                        pictureBoxTipo2.Image = Properties.Resources.MovLucha;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Dragón":
+                        pictureBoxTipo2.Image = Properties.Resources.MovDragon;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Fantasma":
+                        pictureBoxTipo2.Image = Properties.Resources.MovFantasma;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Acero":
+                        pictureBoxTipo2.Image = Properties.Resources.MovAcero;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    case "Hada":
+                        pictureBoxTipo2.Image = Properties.Resources.MovHada;
+                        pictureBoxTipo2.Visible = true;
+                        break;
+                    default:
+                        Console.WriteLine("EEEEERROOOOOOOOOOOOOOOOOOOOOOOOOR");
+                        break;
+                }
+            }
+        }
+
+
+        private void OcultarGIF()
+        {
+            pictureBoxGIF.Visible = false;
+        }
+        private void OcultarTiposPokemon(PictureBox pictureBoxTipo, PictureBox pictureBoxtipo2)
+        {
+            pictureBoxTipo1.Visible = false;
+            pictureBoxTipo2.Visible = false;
+        }
+        private void btnPaginaSiguiente_Click(object sender, EventArgs e)
+        {
+            int totalDePokemon = 151;
+            int totalDePaginas = (int)Math.Ceiling((double)totalDePokemon / cantidadPorPagina);
+
+            if (paginaActual < totalDePaginas)
+            {
+                paginaActual++;
+                listaPokemonDisponibles = CargarPokemonDisponibles();
                 MostrarPokemonDisponibles();
-                MostrarEquipoPokemon();
             }
             else
             {
-                MessageBox.Show("Ya has seleccionado 6 Pokémon para tu equipo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void MostrarEquipoPokemon()
-        {
-            listBoxEquipoPokemon.DataSource = null;
-            listBoxEquipoPokemon.DataSource = equipoPokemon;
-            listBoxEquipoPokemon.DisplayMember = "Nombre";
-        }
-
-        private void buttonEliminarPokemon_Click(object sender, EventArgs e)
-        {
-            Pokemon pokemonSeleccionado = listBoxEquipoPokemon.SelectedItem as Pokemon;
-            if (pokemonSeleccionado != null)
-            {
-                int index = equipoPokemon.IndexOf(pokemonSeleccionado);
-                equipoPokemon.Remove(pokemonSeleccionado);
-
-                int insertIndex = 0;
-                for (int i = 0; i < listaPokemonDisponibles.Count; i++)
-                {
-                    if (listaPokemonDisponibles[i].getID() > pokemonSeleccionado.getID())
-                    {
-                        insertIndex = i;
-                        break;
-                    }
-                    else
-                    {
-                        insertIndex = i + 1;
-                    }
-                }
-
-                listaPokemonDisponibles.Insert(insertIndex, pokemonSeleccionado);
+                paginaActual = 1;
+                listaPokemonDisponibles = CargarPokemonDisponibles();
                 MostrarPokemonDisponibles();
-                MostrarEquipoPokemon();
             }
         }
-        public static tipo[] ObtenerTipos()
+
+        private void btnPaginaAnterior_Click(object sender, EventArgs e)
         {
-            // Lo de los tipos no funciona todavía so retornará null hasta que añadamos eso
-            return null;
+            int totalDePokemon = 151;
+            int totalDePaginas = (int)Math.Ceiling((double)totalDePokemon / cantidadPorPagina);
+            if (paginaActual > 1)
+            {
+                paginaActual--;
+                listaPokemonDisponibles = CargarPokemonDisponibles();
+                MostrarPokemonDisponibles();
+            } else
+            {
+                paginaActual = totalDePaginas;
+                listaPokemonDisponibles = CargarPokemonDisponibles();
+                MostrarPokemonDisponibles();
+            }
         }
     }
 }

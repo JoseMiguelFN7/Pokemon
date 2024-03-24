@@ -16,7 +16,7 @@ namespace Pokemon
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formSeleccionarEquipo());
+            Application.Run(new formInicio());
         }
     }
 }

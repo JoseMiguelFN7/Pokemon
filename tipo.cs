@@ -125,9 +125,11 @@ namespace Pokemon
                     return 14;
                 case "Acero":
                     return 15;
-                default:
-                    Console.WriteLine("ERROR");
+                case "Hada":
                     return 16;
+                default:
+                    Console.WriteLine("EEEEERROOOOOOOOOOOOOOOOOOOOOOOOOR");
+                    return 17;
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Pokemon
 {
-    partial class formSeleccionarEquipo
+    partial class FormSeleccionarEquipo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,70 +28,114 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formSeleccionarEquipo));
-            this.listBoxPokemonDisponibles = new System.Windows.Forms.ListBox();
-            this.listBoxEquipoPokemon = new System.Windows.Forms.ListBox();
-            this.buttonAgregarPokemon = new System.Windows.Forms.Button();
-            this.buttonEliminarPokemon = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSeleccionarEquipo));
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBoxGIF = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTipo1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTipo2 = new System.Windows.Forms.PictureBox();
+            this.btnPaginaSiguiente = new System.Windows.Forms.Button();
+            this.btnPaginaAnterior = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGIF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTipo1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTipo2)).BeginInit();
             this.SuspendLayout();
             // 
-            // listBoxPokemonDisponibles
+            // flowLayoutPanel1
             // 
-            this.listBoxPokemonDisponibles.FormattingEnabled = true;
-            this.listBoxPokemonDisponibles.Location = new System.Drawing.Point(12, 12);
-            this.listBoxPokemonDisponibles.Name = "listBoxPokemonDisponibles";
-            this.listBoxPokemonDisponibles.Size = new System.Drawing.Size(120, 238);
-            this.listBoxPokemonDisponibles.TabIndex = 0;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(360, 182);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(672, 491);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // listBoxEquipoPokemon
+            // flowLayoutPanel2
             // 
-            this.listBoxEquipoPokemon.FormattingEnabled = true;
-            this.listBoxEquipoPokemon.Location = new System.Drawing.Point(274, 12);
-            this.listBoxEquipoPokemon.Name = "listBoxEquipoPokemon";
-            this.listBoxEquipoPokemon.Size = new System.Drawing.Size(120, 238);
-            this.listBoxEquipoPokemon.TabIndex = 1;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(9, 8);
+            this.flowLayoutPanel2.TabIndex = 0;
             // 
-            // buttonAgregarPokemon
+            // pictureBoxGIF
             // 
-            this.buttonAgregarPokemon.Location = new System.Drawing.Point(148, 94);
-            this.buttonAgregarPokemon.Name = "buttonAgregarPokemon";
-            this.buttonAgregarPokemon.Size = new System.Drawing.Size(120, 23);
-            this.buttonAgregarPokemon.TabIndex = 2;
-            this.buttonAgregarPokemon.Text = "Agregar Pokémon";
-            this.buttonAgregarPokemon.UseVisualStyleBackColor = true;
-            this.buttonAgregarPokemon.Click += new System.EventHandler(this.buttonAgregarPokemon_Click);
+            this.pictureBoxGIF.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxGIF.Location = new System.Drawing.Point(39, 78);
+            this.pictureBoxGIF.Name = "pictureBoxGIF";
+            this.pictureBoxGIF.Size = new System.Drawing.Size(267, 259);
+            this.pictureBoxGIF.TabIndex = 2;
+            this.pictureBoxGIF.TabStop = false;
             // 
-            // buttonEliminarPokemon
+            // pictureBoxTipo1
             // 
-            this.buttonEliminarPokemon.Location = new System.Drawing.Point(148, 150);
-            this.buttonEliminarPokemon.Name = "buttonEliminarPokemon";
-            this.buttonEliminarPokemon.Size = new System.Drawing.Size(120, 23);
-            this.buttonEliminarPokemon.TabIndex = 3;
-            this.buttonEliminarPokemon.Text = "Eliminar Pokémon";
-            this.buttonEliminarPokemon.UseVisualStyleBackColor = true;
-            this.buttonEliminarPokemon.Click += new System.EventHandler(this.buttonEliminarPokemon_Click);
+            this.pictureBoxTipo1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxTipo1.Location = new System.Drawing.Point(5, 379);
+            this.pictureBoxTipo1.Name = "pictureBoxTipo1";
+            this.pictureBoxTipo1.Size = new System.Drawing.Size(320, 72);
+            this.pictureBoxTipo1.TabIndex = 1;
+            this.pictureBoxTipo1.TabStop = false;
             // 
-            // formSeleccionarEquipo
+            // pictureBoxTipo2
+            // 
+            this.pictureBoxTipo2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxTipo2.Location = new System.Drawing.Point(5, 457);
+            this.pictureBoxTipo2.Name = "pictureBoxTipo2";
+            this.pictureBoxTipo2.Size = new System.Drawing.Size(320, 73);
+            this.pictureBoxTipo2.TabIndex = 3;
+            this.pictureBoxTipo2.TabStop = false;
+            // 
+            // btnPaginaSiguiente
+            // 
+            this.btnPaginaSiguiente.BackColor = System.Drawing.Color.Transparent;
+            this.btnPaginaSiguiente.Location = new System.Drawing.Point(951, 98);
+            this.btnPaginaSiguiente.Name = "btnPaginaSiguiente";
+            this.btnPaginaSiguiente.Size = new System.Drawing.Size(66, 50);
+            this.btnPaginaSiguiente.TabIndex = 4;
+            this.btnPaginaSiguiente.UseVisualStyleBackColor = false;
+            this.btnPaginaSiguiente.Click += new System.EventHandler(this.btnPaginaSiguiente_Click);
+            // 
+            // btnPaginaAnterior
+            // 
+            this.btnPaginaAnterior.BackColor = System.Drawing.Color.Transparent;
+            this.btnPaginaAnterior.Location = new System.Drawing.Point(343, 98);
+            this.btnPaginaAnterior.Name = "btnPaginaAnterior";
+            this.btnPaginaAnterior.Size = new System.Drawing.Size(66, 50);
+            this.btnPaginaAnterior.TabIndex = 5;
+            this.btnPaginaAnterior.UseVisualStyleBackColor = false;
+            this.btnPaginaAnterior.Click += new System.EventHandler(this.btnPaginaAnterior_Click);
+            // 
+            // FormSeleccionarEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 262);
-            this.Controls.Add(this.buttonEliminarPokemon);
-            this.Controls.Add(this.buttonAgregarPokemon);
-            this.Controls.Add(this.listBoxEquipoPokemon);
-            this.Controls.Add(this.listBoxPokemonDisponibles);
+            this.BackgroundImage = global::Pokemon.Properties.Resources.Caja_1;
+            this.ClientSize = new System.Drawing.Size(1017, 674);
+            this.Controls.Add(this.btnPaginaAnterior);
+            this.Controls.Add(this.btnPaginaSiguiente);
+            this.Controls.Add(this.pictureBoxTipo2);
+            this.Controls.Add(this.pictureBoxGIF);
+            this.Controls.Add(this.pictureBoxTipo1);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "formSeleccionarEquipo";
-            this.Text = "Seleccionar Equipo Pokémon";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "FormSeleccionarEquipo";
+            this.Text = "Seleccionar Equipo";
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGIF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTipo1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTipo2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listBoxPokemonDisponibles;
-        private System.Windows.Forms.ListBox listBoxEquipoPokemon;
-        private System.Windows.Forms.Button buttonAgregarPokemon;
-        private System.Windows.Forms.Button buttonEliminarPokemon;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.PictureBox pictureBoxGIF;
+        private System.Windows.Forms.PictureBox pictureBoxTipo1;
+        private System.Windows.Forms.PictureBox pictureBoxTipo2;
+        private System.Windows.Forms.Button btnPaginaSiguiente;
+        private System.Windows.Forms.Button btnPaginaAnterior;
     }
 }
