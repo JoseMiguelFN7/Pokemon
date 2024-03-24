@@ -103,21 +103,18 @@ namespace Pokemon
         return;
     }
 
-    // Verificar si el Pokémon ya está en alguno de los equipos
     if (pokemonEnEquipo(Jugador_1, pokemonSeleccionado) || pokemonEnEquipo(Jugador_2, pokemonSeleccionado))
     {
         MessageBox.Show("¡Este Pokémon ya está en un equipo!");
         return;
     }
 
-    // Agregar el Pokémon al equipo del Jugador 1
     if (!equipoLleno(Jugador_1))
     {
         AgregarPokemonAlEquipo(Jugador_1, pokemonSeleccionado);
         MessageBox.Show($"¡{pokemonSeleccionado.getNombre()} ha sido agregado al equipo del Jugador 1!");
     }
 
-    // Agregar el Pokémon al equipo del Jugador 2
     if (!equipoLleno(Jugador_2))
     {
         AgregarPokemonAlEquipo(Jugador_2, pokemonSeleccionado);
