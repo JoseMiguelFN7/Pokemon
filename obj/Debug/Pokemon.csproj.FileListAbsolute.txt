@@ -20,3 +20,14 @@ C:\Users\Andrès Osorio\Downloads\Pokemon-main\obj\Debug\Pokemon.formInicio.reso
 C:\Users\Andrès Osorio\Downloads\Pokemon-main\obj\Debug\Pokemon.Properties.Resources.resources
 C:\Users\Andrès Osorio\Downloads\Pokemon-main\obj\Debug\Pokemon.csproj.GenerateResource.Cache
 C:\Users\Andrès Osorio\Downloads\Pokemon-main\obj\Debug\Pokemon.FormSeleccionarEquipo.resources
+C:\Users\Andrès Osorio\Documents\Pokemon\bin\Debug\Pokemon.exe.config
+C:\Users\Andrès Osorio\Documents\Pokemon\obj\Debug\Pokemon.exe
+C:\Users\Andrès Osorio\Documents\Pokemon\obj\Debug\Pokemon.pdb
+C:\Users\Andrès Osorio\Documents\Pokemon\bin\Debug\Pokemon.exe
+C:\Users\Andrès Osorio\Documents\Pokemon\bin\Debug\Pokemon.pdb
+C:\Users\Andrès Osorio\Documents\Pokemon\obj\Debug\Pokemon.csprojResolveAssemblyReference.cache
+C:\Users\Andrès Osorio\Documents\Pokemon\obj\Debug\Pokemon.formBatalla.resources
+C:\Users\Andrès Osorio\Documents\Pokemon\obj\Debug\Pokemon.formInicio.resources
+C:\Users\Andrès Osorio\Documents\Pokemon\obj\Debug\Pokemon.FormSeleccionarEquipo.resources
+C:\Users\Andrès Osorio\Documents\Pokemon\obj\Debug\Pokemon.Properties.Resources.resources
+C:\Users\Andrès Osorio\Documents\Pokemon\obj\Debug\Pokemon.csproj.GenerateResource.Cache

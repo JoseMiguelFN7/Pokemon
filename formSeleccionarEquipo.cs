@@ -7,14 +7,14 @@ namespace Pokemon
 {
     public partial class FormSeleccionarEquipo : Form
     {
-        public static jugador miJugador;
+        public static jugador Jugador_1;
         private lista listaPokemonDisponibles;
         private int cantidadPorPagina = 20;
         private int paginaActual = 1;
-
+        private bool equipoLleno = false;
         public FormSeleccionarEquipo()
         {
-            miJugador = new jugador(1, "Jugador 1",0,0,0);
+            Jugador_1 = new jugador(1, "Jugador 1",0,0,0);
             InitializeComponent();
             listaPokemonDisponibles = CargarPokemonDisponibles();
             MostrarPokemonDisponibles();
@@ -57,7 +57,7 @@ namespace Pokemon
 
         private void MostrarPokemonDisponibles()
         {
-            flowLayoutPanel1.Controls.Clear(); 
+            flowLayoutPanelPokemones.Controls.Clear(); 
 
             foreach (pokemon pokemon in listaPokemonDisponibles)
             {
@@ -89,19 +89,23 @@ namespace Pokemon
                     panel.BorderStyle = BorderStyle.None;
                     panel.BackColor = Color.Transparent;
 
-                    flowLayoutPanel1.Controls.Add(panel);
+                    flowLayoutPanelPokemones.Controls.Add(panel);
 
                     pictureBox.Click += (sender, e) =>
                     {
                         pokemon pokemonSeleccionado = pokemon;
 
-                        bool equipoLleno = true;
-                        foreach (pokemon p in miJugador.getPokemones())
+                        equipoLleno = true;
+                        foreach (pokemon p in Jugador_1.getPokemones())
                         {
                             if (p == null)
                             {
                                 equipoLleno = false;
                                 break;
+                            }
+                            else
+                            {
+                                equipoLleno = true;
                             }
                         }
 
@@ -112,7 +116,7 @@ namespace Pokemon
                         }
 
                         bool pokemonYaEnEquipo = false;
-                        foreach (pokemon p in miJugador.getPokemones())
+                        foreach (pokemon p in Jugador_1.getPokemones())
                         {
                             if (p != null && p.getID() == pokemonSeleccionado.getID())
                             {
@@ -127,11 +131,11 @@ namespace Pokemon
                             return; 
                         }
 
-                        for (int i = 0; i < miJugador.getPokemones().Length; i++)
+                        for (int i = 0; i < Jugador_1.getPokemones().Length; i++)
                         {
-                            if (miJugador.getPokemones()[i] == null)
+                            if (Jugador_1.getPokemones()[i] == null)
                             {
-                                miJugador.getPokemones()[i] = pokemonSeleccionado;
+                                Jugador_1.getPokemones()[i] = pokemonSeleccionado;
                                 MessageBox.Show($"¡{pokemonSeleccionado.getNombre()} ha sido agregado a tu equipo!");
                                 break;
                             }
@@ -401,7 +405,6 @@ namespace Pokemon
             }
         }
 
-
         private void OcultarGIF()
         {
             pictureBoxGIF.Visible = false;
@@ -444,6 +447,21 @@ namespace Pokemon
                 paginaActual = totalDePaginas;
                 listaPokemonDisponibles = CargarPokemonDisponibles();
                 MostrarPokemonDisponibles();
+            }
+        }
+
+        private void btnCerrarCaja_Click(object sender, EventArgs e)
+        {
+            if (equipoLleno)
+            {
+                Jugador_1.setPokemones(Jugador_1.getPokemones());
+                MessageBox.Show("¡Tu equipo ha sido guardado!");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("¡No puedes guardar tu equipo si no has elegido 6 pokemones!");
+                return;
             }
         }
     }
