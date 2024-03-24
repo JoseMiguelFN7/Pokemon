@@ -8,13 +8,14 @@ namespace Pokemon
     public partial class FormSeleccionarEquipo : Form
     {
         public static jugador Jugador_1;
+        public static jugador Jugador_2;
         private lista listaPokemonDisponibles;
         private int cantidadPorPagina = 20;
         private int paginaActual = 1;
-        private bool equipoLleno = false;
         public FormSeleccionarEquipo()
         {
             Jugador_1 = new jugador(1, "Jugador 1",0,0,0);
+            Jugador_2 = new jugador(2, "Jugador 2", 0, 0, 0);
             InitializeComponent();
             listaPokemonDisponibles = CargarPokemonDisponibles();
             MostrarPokemonDisponibles();
@@ -92,55 +93,37 @@ namespace Pokemon
                     flowLayoutPanelPokemones.Controls.Add(panel);
 
                     pictureBox.Click += (sender, e) =>
-                    {
-                        pokemon pokemonSeleccionado = pokemon;
+{
+    pokemon pokemonSeleccionado = pokemon;
 
-                        equipoLleno = true;
-                        foreach (pokemon p in Jugador_1.getPokemones())
-                        {
-                            if (p == null)
-                            {
-                                equipoLleno = false;
-                                break;
-                            }
-                            else
-                            {
-                                equipoLleno = true;
-                            }
-                        }
+    // Verificar si ambos equipos están llenos
+    if (equipoLleno(Jugador_1) && equipoLleno(Jugador_2))
+    {
+        MessageBox.Show("¡Ambos equipos están llenos! No puedes agregar más Pokémon.");
+        return;
+    }
 
-                        if (equipoLleno)
-                        {
-                            MessageBox.Show("¡Tu equipo está lleno! No puedes agregar más Pokémon.");
-                            return;
-                        }
+    // Verificar si el Pokémon ya está en alguno de los equipos
+    if (pokemonEnEquipo(Jugador_1, pokemonSeleccionado) || pokemonEnEquipo(Jugador_2, pokemonSeleccionado))
+    {
+        MessageBox.Show("¡Este Pokémon ya está en un equipo!");
+        return;
+    }
 
-                        bool pokemonYaEnEquipo = false;
-                        foreach (pokemon p in Jugador_1.getPokemones())
-                        {
-                            if (p != null && p.getID() == pokemonSeleccionado.getID())
-                            {
-                                pokemonYaEnEquipo = true;
-                                break;
-                            }
-                        }
+    // Agregar el Pokémon al equipo del Jugador 1
+    if (!equipoLleno(Jugador_1))
+    {
+        AgregarPokemonAlEquipo(Jugador_1, pokemonSeleccionado);
+        MessageBox.Show($"¡{pokemonSeleccionado.getNombre()} ha sido agregado al equipo del Jugador 1!");
+    }
 
-                        if (pokemonYaEnEquipo)
-                        {
-                            MessageBox.Show("¡Este Pokémon ya está en tu equipo!");
-                            return; 
-                        }
-
-                        for (int i = 0; i < Jugador_1.getPokemones().Length; i++)
-                        {
-                            if (Jugador_1.getPokemones()[i] == null)
-                            {
-                                Jugador_1.getPokemones()[i] = pokemonSeleccionado;
-                                MessageBox.Show($"¡{pokemonSeleccionado.getNombre()} ha sido agregado a tu equipo!");
-                                break;
-                            }
-                        }
-                    };
+    // Agregar el Pokémon al equipo del Jugador 2
+    if (!equipoLleno(Jugador_2))
+    {
+        AgregarPokemonAlEquipo(Jugador_2, pokemonSeleccionado);
+        MessageBox.Show($"¡{pokemonSeleccionado.getNombre()} ha sido agregado al equipo del Jugador 2!");
+    }
+};
 
                     pictureBox.MouseEnter += (sender, e) =>
                     {
@@ -157,6 +140,45 @@ namespace Pokemon
                 else
                 {
                     Console.WriteLine($"No se encontró el sprite para el Pokémon con ID {idPokemon}");
+                }
+            }
+        }
+
+        // Función para verificar si un equipo está lleno
+        private bool equipoLleno(jugador jugador)
+        {
+            foreach (pokemon p in jugador.getPokemones())
+            {
+                if (p == null)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Función para verificar si un Pokémon está en un equipo
+        private bool pokemonEnEquipo(jugador jugador, pokemon pokemonSeleccionado)
+        {
+            foreach (pokemon p in jugador.getPokemones())
+            {
+                if (p != null && p.getID() == pokemonSeleccionado.getID())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Función para agregar un Pokémon al equipo de un jugador
+        private void AgregarPokemonAlEquipo(jugador jugador, pokemon pokemonSeleccionado)
+        {
+            for (int i = 0; i < jugador.getPokemones().Length; i++)
+            {
+                if (jugador.getPokemones()[i] == null)
+                {
+                    jugador.getPokemones()[i] = pokemonSeleccionado;
+                    break;
                 }
             }
         }
@@ -452,9 +474,10 @@ namespace Pokemon
 
         private void btnCerrarCaja_Click(object sender, EventArgs e)
         {
-            if (equipoLleno)
+            if (equipoLleno(Jugador_1) && equipoLleno(Jugador_2))
             {
                 Jugador_1.setPokemones(Jugador_1.getPokemones());
+                Jugador_2.setPokemones(Jugador_2.getPokemones());
                 MessageBox.Show("¡Tu equipo ha sido guardado!");
                 return;
             }
