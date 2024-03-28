@@ -1,0 +1,64 @@
+1/Hyper Rayo/Normal/150/Físico/90/0/0/5/Un potente rayo que requiere recarga después de usarlo.
+2/Velocidad Extrema/Normal/80/Físico/100/0/0/5/El usuario corre con extrema rapidez y golpea al objetivo antes que cualquier otro.
+3/Golpe Cuerpo/Normal/80/Físico/100/1/30/15/Un poderoso golpe cuerpo a cuerpo que puede paralizar al objetivo.
+4/Rugido/Normal/0/Estado/100/11/100/20/Un rugido intimidante que baja el Ataque del oponente.
+5/Lanzallamas/Fuego/95/Especial/100/2/10/15/Un aliento ardiente que puede causar quemaduras al oponente.
+6/Ascuas/Fuego/40/Especial/100/0/0/30/Lanza pequeñas brasas al oponente para infligir daño.
+7/Llamarada/Fuego/110/Especial/85/3/10/5/Un potente estallido de fuego que puede causar quemaduras al oponente.
+8/Fuego fatuo/Fuego/0/Estado/85/2/100/30/El usuario quema al oponente con una llama embrujada.
+9/Hidrobomba/Agua/110/Especial/80/0/0/5/Un potente chorro de agua lanzado con gran fuerza hacia el oponente.
+10/Hidropulso/Agua/60/Especial/100/0/0/20/Un potente pulso de agua dirigido hacia el oponente para infligir daño.
+11/Pistola Agua/Agua/40/Especial/100/0/0/25/El usuario dispara un chorro de agua a alta presión hacia el oponente para causar daño.
+12/Surf/Agua/90/Especial/100/0/0/15/El usuario crea una gran ola para arremeter contra el oponente, causando daño.
+13/Ataque Ala/Volador/60/Físico/100/0/0/35/El usuario ataca al oponente con sus alas, infligiendo daño físico.
+14/Tornado/Volador/110/Especial/70/0/0/10/El usuario genera un poderoso tornado que golpea al oponente, infligiendo daño de tipo volador.
+15/Aerochorro/Volador/95/Especial/100/0/0/5/El usuario crea una ráfaga de viento afilado que golpea al oponente, infligiendo daño de tipo volador.
+16/Golpe Aereo/Volador/60/Físico/100/0/0/20/El usuario crea un remolino de viento que golpea al oponente, infligiendo daño de tipo volador.
+17/Látigo Cepa/Planta/35/Físico/100/0/0/10/El usuario azota al oponente con un látigo hecho de plantas afiladas, infligiendo daño físico de tipo planta. Es un movimiento básico pero efectivo en combate.
+18/Energi Bola/Planta/90/Especial/100/14/10/10/El usuario acumula energía solar y libera un potente rayo de luz y energía, infligiendo un gran daño especial al oponente.
+19/Somnífero/Planta/0/Estado/100/3/75/15/El usuario libera un polvo somnífero que tiene una alta probabilidad de inducir el estado de sueño en el oponente. El sueño hace que el Pokémon afectado no pueda actuar durante varios turnos, lo que puede ser muy útil en combate.
+20/Brazo Pincho/Planta/60/Fisico/100/0/0/10/El usuario baila de manera encantadora, lo que aumenta su Ataque Especial en combate.
+21/Megacuerno/Bicho/120/Físico/85/0/0/10/El usuario realiza un ataque voraz con sus cuernos, infligiendo un gran daño físico.
+22/Tijera X/Bicho/80/Físico/100/0/100/20/El usuario ataca con 2 potentes cuchillas dando la forma de una tijera.
+23/A Defender/Bicho/0/Estado/100/8/0/10/El usuario se enrolla y aumenta su def.
+24/Acoso/Bicho/20/Especial/100/11/0/20/El usuario drena la energía del oponente con pequeñas mordidas, infligiendo daño físico.
+25/Impactrueno/Eléctrico/50/Especial/100/0/0/5/El usuario libera una descarga eléctrica de alta potencia hacia el oponente, infligiendo un daño especial.
+26/Rayo/Eléctrico/90/Especial/100/1/10/15/Poderoso ataque eléctrico que tiene una pequeña probabilidad de paralizar al oponente.
+27/Chispa/Eléctrico/65/Físico/100/1/30/20/El usuario golpea al oponente con un ataque cargado de electricidad, infligiendo daño físico con probabilidad de paralizar.
+28/Trueno/Eléctrico/110/Especial/70/1/30/10/Poderoso ataque eléctrico que tiene una probabilidad de paralizar al oponente.
+29/Hipnosis/Psíquico/0/Estado/100/3/60/20/Movimiento que induce el estado de sueño en el oponente.
+30/Psíquico/Psíquico/90/Especial/100/14/20/10/Potente ataque de tipo psíquico que inflige daño especial al oponente.
+31/Barrera/Psíquico/0/Estado/100/8/100/30/Barrera es un movimiento de estado que aumenta la defensa fisica del usuario.
+32/Amnesia/Psíquico/0/Estado/100/9/100/20/Al elevar su barrera mental, el usuario se vuelve más resistente a los ataques especiales, reduciendo el daño recibido.
+33/Bomba Lodo/Veneno/90/Especial/100/5/30/10/Lanza lodo tóxico hacia el oponente, infligiendo un daño especial considerable.
+34/Tóxico/Veneno/0/Estado/100/5/100/40/ El usuario emite un gas venenoso que tiene una alta probabilidad de envenenar al oponente.
+35/Pulso Veneno/Veneno/70/Especial/100/5/20/20/Lanza un pulso tóxico hacia el oponente, infligiendo daño considerable.
+36/Ácido/Veneno/40/Especial/100/5/30/30/Lanza ácido corrosivo hacia el oponente, infligiendo un daño especial moderado.
+37/Terremoto/Tierra/100/Físico/100/0/0/10/Sacude el suelo, infligiendo un gran daño físico al oponente.
+38/Hueso Palo/Tierra/50/Fisico/100/0/0/5/Movimiento que tiene una precisión extremadamente baja pero que si golpea con éxito, causa un K.O. instantáneo al oponente.
+39/Bofetón Lodo/Tierra/20/Físico/100/0/0/20/Golpea al oponente con una mezcla de lodo, infligiendo un daño físico bajo.
+40/Tierra viva/Tierra/90/Especial/100/0/0/10/Levanta una gran cantidad de arena y la arroja hacia el oponente, infligiendo un gran daño especial.
+41/Roca Afilada/Roca/100/Físico/80/0/0/15/Lanza afiladas rocas hacia el oponente, infligiendo un gran daño físico.
+42/Avalancha/Roca/60/Físico/100/0/0/10/Libera una avalancha de rocas que arremete contra el oponente con la fuerza devastadora de la naturaleza.
+43/Joya de Luz/Roca/80/especial/100/0/0/15/Golpea al oponente con la fuerza de un martillo de piedra, causando un daño contundente y preciso.
+44/Lanzarrocas/Roca/50/Físico/95/0/0/10/Ataca al oponente con una garra afilada, infiriendo un daño sólido y directo.
+45/Rayo Hielo/Hielo/90/Especial/100/4/20/10/Lanza un rayo de energía gélida hacia el oponente, infligiendo un daño especial significativo con baja probabilidad de congelar.
+46/Viento Hielo/Hielo/55/Especial/95/4/10/15/Lanza ráfagas de aire gélido hacia el oponente, infligiendo un daño especial moderado.
+47/Puño Hielo/Hielo/75/Físico/100/4/10/15/Un puñetazo congelante que puede congelar al objetivo.
+48/Ventisca/Hielo/110/Especial/70/4/30/5/Una ráfaga de viento helado que puede congelar al objetivo.
+49/Golpe Karate/Lucha/50/Físico/100/0/0/25/Un golpe rápido y preciso con la mano abierta.
+50/Patada Salto/Lucha/60/Físico/95/0/0/25/Una patada ejecutada en salto que puede hacer tambalear al objetivo.
+51/Esfera Aural/Lucha/100/Especial/100/0/0/20/El usuario carga una esfera de energía espiritual para atacar.
+52/Demolición/Lucha/80/Físico/100/0/0/15/Un ataque poderoso que puede derribar al objetivo.
+53/Cola Dragón/Dragón/60/Físico/90/0/0/15/El usuario golpea al objetivo con su cola en espiral.
+54/Garra Dragón/Dragón/80/Físico/100/0/0/15/El usuario araña al objetivo con garras afiladas de dragón.
+55/Aliento Dragón/Dragón/85/Especial/100/0/0/10/Un aliento de dragón que puede dañar al objetivo.
+56/Danza Dragón/Dragón/0/Estado/100/6/100/20/El usuario baila con una energía misteriosa que aumenta su Ataque.
+57/Bola Sombra/Fantasma/80/Especial/100/14/20/15/El usuario lanza una esfera de energía oscura al objetivo.
+58/Garra Umbría/Fantasma/70/Físico/100/0/0/25/El usuario araña al objetivo con garras umbrías.
+59/Impresionar/Fantasma/0/Físico/100/3/30/15/El usuario impresiona al objetivo y reduce su Ataque.
+60/Brillo Mágico/Hada/80/Especial/100/11/30/10/Un ataque que puede reducir el atk del objetivo.
+61/Fuerza Lunar/Hada/95/Especial/100/14/30/10/El usuario ataca con un rayo de luz lunar. Puede reducir la defensa especial del objetivo.
+62/Garra Metal/Acero/50/Físico/95/0/0/35/El usuario ataca al objetivo con garras afiladas de metal.
+63/Cabezazo Hierro/Acero/80/Físico/100/0/0/15/El usuario embiste al objetivo con la cabeza endurecida como el hierro.
+64/Puño Bala/Acero/40/Físico/100/0/0/30/El usuario lanza un puñetazo cubierto de metal al objetivo.

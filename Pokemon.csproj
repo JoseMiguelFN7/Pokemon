@@ -1,0 +1,1716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4860D79F-DF3D-452C-A0B8-8B4F4D84630A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Pokemon</RootNamespace>
+    <AssemblyName>Pokemon</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="archivo.cs" />
+    <Compile Include="cola.cs" />
+    <Compile Include="formBatalla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formBatalla.Designer.cs">
+      <DependentUpon>formBatalla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formElegirTorneo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formElegirTorneo.Designer.cs">
+      <DependentUpon>formElegirTorneo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formEntrenadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEntrenadores.Designer.cs">
+      <DependentUpon>formEntrenadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formInicio.Designer.cs">
+      <DependentUpon>formInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formMenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMenuPrincipal.Designer.cs">
+      <DependentUpon>formMenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jugador.cs" />
+    <Compile Include="lista.cs" />
+    <Compile Include="movimiento.cs" />
+    <Compile Include="nodo.cs" />
+    <Compile Include="objeto.cs" />
+    <Compile Include="pila.cs" />
+    <Compile Include="pokemon.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tipo.cs" />
+    <Compile Include="turno.cs" />
+    <EmbeddedResource Include="formBatalla.resx">
+      <DependentUpon>formBatalla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formElegirTorneo.resx">
+      <DependentUpon>formElegirTorneo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formEntrenadores.resx">
+      <DependentUpon>formEntrenadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formInicio.resx">
+      <DependentUpon>formInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formMenuPrincipal.resx">
+      <DependentUpon>formMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PokemonIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-bulbasaur.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2-ivysaur.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-venusaur.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4-charmander.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5-charmeleon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6-charizard.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7-squirtle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8-wartortle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9-blastoise.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10-caterpie.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11-metapod.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12-butterfree.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13-weedle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14-kakuna.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15-beedrill.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16-pidgey.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17-pidgeotto.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18-pidgeot.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19-rattata.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20-raticate.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21-spearow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22-fearow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23-ekans.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24-arbok.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25-pikachu.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26-raichu.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\27-sandshrew.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\28-sandslash.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\29-nidoran_f.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30-nidorina.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\31-nidoqueen.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\32-nidoran_m.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33-nidorino.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\34-nidoking.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\35-clefairy.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\36-clefable.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\37-vulpix.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\38-ninetales.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\39-jigglypuff.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\40-wigglytuff.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\41-zubat.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\42-golbat.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\43-oddish.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\44-gloom.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\45-vileplume.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\46-paras.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\47-parasect.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\48-venonat.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\49-venomoth.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50-diglett.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\51-dugtrio.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\52-meowth.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\53-persian.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\54-psyduck.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\55-golduck.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\56-mankey.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57-primeape.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\58-growlithe.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\59-arcanine.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\60-poliwag.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\61-poliwhirl.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62-poliwrath.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\63-abra.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\64-kadabra.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\65-alakazam.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\66-machop.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\67-machoke.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\68-machamp.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\69-bellsprout.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\70-weepinbell.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\71-victreebel.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\72-tentacool.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\73-tentacruel.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\74-geodude.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\75-graveler.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\76-golem.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\77-ponyta.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\78-rapidash.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\79-slowpoke.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\80-slowbro.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\81-magnemite.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\82-magneton.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\83-farfetchd.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\84-doduo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\85-dodrio.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\86-seel.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\87-dewgong.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\88-grimer.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\89-muk.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\90-shellder.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\91-cloyster.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\92-gastly.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\93-haunter.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\94-gengar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\95-onix.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\96-drowzee.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\97-hypno.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\98-krabby.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\99-kingler.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100-voltorb.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\101-electrode.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\102-exeggcute.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\103-exeggutor.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\104-cubone.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\105-marowak.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\106-hitmonlee.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\107-hitmonchan.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\108-lickitung.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\109-koffing.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\110-weezing.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\111-rhyhorn.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112-rhydon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\113-chansey.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\114-tangela.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\115-kangaskhan.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\116-horsea.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\117-seadra.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\118-goldeen.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\119-seaking.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\120-staryu.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\121-starmie.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\122-mr.mime.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\123-scyther.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\124-jynx.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\125-electabuzz.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\126-magmar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\127-pinsir.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\128-tauros.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\129-magikarp.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\130-gyarados.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\131-lapras.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\132-ditto.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\133-eevee.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\134-vaporeon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\135-jolteon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\136-flareon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\137-porygon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\138-omanyte.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\139-omastar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\140-kabuto.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\141-kabutops.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\142-aerodactyl.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\143-snorlax.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\144-articuno.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\145-zapdos.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\146-moltres.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\147-dratini.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\148-dragonair.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149-dragonite.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\150-mewtwo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\151-mew.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rendirse2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Luchar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rendirse1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Luchar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pokemon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pokemon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bolsa1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bolsa2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-bulbasaur-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2-ivysaur-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-venusaur-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4-charmander-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5-charmeleon-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6-charizard-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7-squirtle-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8-wartortle-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9-blastoise-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10-caterpie-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11-metapod-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12-butterfree-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13-weedle-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14-kakuna-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15-beedrill-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo-datos-PKM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volver1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volver2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CasillaObjeto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\antidoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hiperpocion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\superpocion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pocion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\precisionx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxpocion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curatotal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\awakening.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\antiparalisis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Xicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\34.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\37.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\39.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\42.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\43.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\45.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\46.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\47.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\49.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\51.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\53.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\54.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\56.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\58.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\59.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\61.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\63.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\65.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\66.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\67.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\68.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\69.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\71.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\73.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\74.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\76.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\77.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\78.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\79.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\81.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\82.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\83.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\84.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\85.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\86.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\87.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\88.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\89.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\91.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\92.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\93.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\94.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\95.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\97.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\98.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\99.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\101.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\102.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\103.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\104.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\105.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\106.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\107.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\108.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\109.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\110.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\113.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\114.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\115.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\116.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\117.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\118.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\119.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\121.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\122.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\124.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\125.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\126.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\127.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\129.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\130.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\131.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\132.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\133.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\134.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\135.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\136.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\137.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\138.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\139.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\140.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\141.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\142.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\143.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\144.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\145.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\146.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\147.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\148.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\150.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\151.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19-rattata-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20-raticate-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21-spearow-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22-fearow-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23-ekans-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24-arbok-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25-pikachu-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26-raichu-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\27-sandshrew-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\28-sandslash-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\29-nidoran_f-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30-nidorina-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\31-nidoqueen-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\32-nidoran_m-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33-nidorino-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\34-nidoking-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\35-clefairy-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\36-clefable-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\37-vulpix-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\38-ninetales-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\39-jigglypuff-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\40-wigglytuff-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\41-zubat-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\42-golbat-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\43-oddish-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\44-gloom-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\45-vileplume-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\46-paras-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\47-parasect-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\48-venonat-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\49-venomoth-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50-diglett-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\51-dugtrio-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\52-meowth-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\53-persian-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\54-psyduck-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\55-golduck-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\56-mankey-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57-primeape-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\58-growlithe-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\59-arcanine-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\60-poliwag-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\61-poliwhirl-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62-poliwrath-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\63-abra-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\64-kadabra-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\65-alakazam-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\66-machop-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\67-machoke-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\68-machamp-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\69-bellsprout-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\70-weepinbell-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\71-victreebel-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\72-tentacool-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\73-tentacruel-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\74-geodude-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\75-graveler-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\76-golem-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\77-ponyta-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\78-rapidash-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\79-slowpoke-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\80-slowbro-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\81-magnemite-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\82-magneton-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\83-farfetchd-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\84-doduo-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\85-dodrio-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\86-seel-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\87-dewgong-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\88-grimer-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\89-muk-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\90-shellder-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\91-cloyster-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\92-gastly-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\93-haunter-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\94-gengar-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\95-onix-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\96-drowzee-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\97-hypno-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\98-krabby-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\99-kingler-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100-voltorb-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\101-electrode-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\102-exeggcute-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\103-exeggutor-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\104-cubone-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\105-marowak-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\106-hitmonlee-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\107-hitmonchan-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\108-lickitung-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\109-koffing-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\110-weezing-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\111-rhyhorn-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112-rhydon-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\113-chansey-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\114-tangela-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\115-kangaskhan-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\116-horsea-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\117-goldeen-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\118-seadra-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\119-seaking.a-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\120-staryu-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\121-starmie-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\122-mr._mime-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\123-scyther-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\124-jynx-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\125-electabuzz-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\126-magmar-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\127-pinsir-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\128-tauros-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\129-magikarp-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\130-gyarados-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\131-lapras-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\132-ditto-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\133-eevee-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\134-vaporeon-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\135-jolteon-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\136-flareon-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\137-porygon-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\138-omanyte-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\139-omastar-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\140-kabuto-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\141-kabutops-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\142-aerodactyl-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\142-snorlax-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\143-articuno-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\144-zapdos-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\146-moltres-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\147-dratini-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\148-dragonair-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149-dragonite-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\150-mewtwo-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\151-mew-back..gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16-pidgey-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17-pidgeotto-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18-pidgeot-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\117-seadra-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\118-goldeen-back.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConfirmarIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovHada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovAcero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovFantasma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovDragon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovLucha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovHielo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovRoca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovTierra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovVeneno.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovPsiquico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovElectrico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovBicho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovPlanta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovVolador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovAgua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PKMContainer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MovFuego.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pokeball-pokemon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1117863_43f3f.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blueSpark.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\entrenador1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\entrenador2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoelegirtorneo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoMenuPrincipal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gifpokemon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gifpokemon1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pokeballs.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pokemon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pokemones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pokemones.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heal.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fuego.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Normal.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agua.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volador.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\electrico.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\psiquico.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fantasma.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\veneno.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\botonequis2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo-datos-PKM1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TORNEO2.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,9 @@
+1/Poción/Cura 20 PS al Pokémon.
+2/Superpoción/Cura 50 PS al Pokémon.
+3/Hiperpoción/Cura 200 PS al Pokémon.
+4/Antiparálisis/Cura la parálisis del Pokémon.
+5/Antídoto/Cura el veneno del Pokémon.
+6/Despertar/Despierta al Pokémon dormido.
+7/Cura Total/Cura todos los PS del Pokémon y elimina todos los problemas de estado.
+8/Max poción/Cura todos los PS del Pokémon.
+9/Precisión X/Este objeto aumenta la precisión de todos los movimientos del Pokémon que lo lleva en un nivel, hasta un máximo de 6 niveles. Cada nivel aumenta la precisión en un 33%.
