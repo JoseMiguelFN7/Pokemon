@@ -20,6 +20,8 @@ namespace Pokemon
         public static pokemon[] arrPKM = new pokemon[151];
         public static objeto[] arrObj = new objeto[9];
         public static lista movimientos = new lista();
+        public static lista jugadores = new lista();
+        public static int idJugador = 1;
 
         public formInicio()
         {
@@ -90,6 +92,21 @@ namespace Pokemon
             {
                 string[] datosMov = m.Split('/');
                 movimientos.agregarMovimientoAlFinal(new movimiento(int.Parse(datosMov[0]), datosMov[1], arrTipos[tipo.determinarTipo(datosMov[2])], int.Parse(datosMov[3]), datosMov[4], int.Parse(datosMov[5]), int.Parse(datosMov[6]), int.Parse(datosMov[7]), int.Parse(datosMov[8]), datosMov[9]));
+            }
+        }
+
+        public void leerJugadores()
+        {
+            string ruta = Path.Combine(Application.StartupPath, "Archivostxt\\Jugadores.txt");
+            string texto = archivo.leerArchivo(ruta);
+
+            string[] stringJug = texto.Split('\n');
+
+            foreach (string j in stringJug)
+            {
+                string[] datosJug = j.Split('/');
+                jugadores.agregarJugadorAlFinal(new jugador(int.Parse(datosJug[0]), datosJug[1], int.Parse(datosJug[2]), int.Parse(datosJug[3]), int.Parse(datosJug[4])));
+                idJugador++;
             }
         }
 

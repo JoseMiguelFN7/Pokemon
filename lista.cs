@@ -133,5 +133,25 @@ namespace Pokemon
                 return null;
             }
         }
+
+        public void agregarJugadorAlFinal(jugador j)
+        { //metodo para agregar jugadores al final de la lista
+            nodo nuevo = new nodo();
+            nuevo.setValorJugador(j);
+            if (esVacia())
+            {
+                inicio = nuevo;
+            }
+            else
+            {
+                nodo aux = inicio;
+                while (aux.getSiguiente() != null)
+                {
+                    aux = aux.getSiguiente();
+                }
+                aux.setSiguiente(nuevo);
+            }
+            tamanio++;
+        }
     }
 }
