@@ -153,5 +153,68 @@ namespace Pokemon
             }
             tamanio++;
         }
+
+        public void agregarPokemonAlFinal(pokemon pkm)
+        { //metodo para agregar jugadores al final de la lista
+            nodo nuevo = new nodo();
+            nuevo.setValorPokemon(pkm);
+            if (esVacia())
+            {
+                inicio = nuevo;
+            }
+            else
+            {
+                nodo aux = inicio;
+                while (aux.getSiguiente() != null)
+                {
+                    aux = aux.getSiguiente();
+                }
+                aux.setSiguiente(nuevo);
+            }
+            tamanio++;
+        }
+
+        public void eliminarPokemon(pokemon pkm)
+        { //metodo para eliminar un pokemon de la lista.
+            if (!esVacia())
+            {
+                if (inicio.getValorPokemon().getID() == pkm.getID())
+                {
+                    inicio = inicio.getSiguiente();
+                }
+                else
+                {
+                    nodo aux = inicio;
+                    while (aux.getSiguiente() != null)
+                    {
+                        if (aux.getSiguiente().getValorPokemon().getID() == pkm.getID())
+                        {
+                            aux.setSiguiente(aux.getSiguiente().getSiguiente());
+                            return;
+                        }
+                        aux = aux.getSiguiente();
+                    }
+                }
+            }
+        }
+
+        public pokemon[] getArrayPokemones()
+        { //para convertir la lista en una array
+            pokemon[] arrayPokemones = new pokemon[tamanio];
+            if (esVacia())
+            {
+                return null;
+            }
+            else
+            {
+                nodo aux = inicio;
+                for (int i = 0; i < tamanio; i++)
+                {
+                    arrayPokemones[i] = aux.getValorPokemon();
+                    aux = aux.getSiguiente();
+                }
+                return arrayPokemones;
+            }
+        }
     }
 }

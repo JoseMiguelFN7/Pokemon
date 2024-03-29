@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formElegirTorneo));
             this.torneo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,6 +36,10 @@
             this.radio4jugadores = new System.Windows.Forms.RadioButton();
             this.radio2jugadores = new System.Windows.Forms.RadioButton();
             this.groupBox2nombres = new System.Windows.Forms.GroupBox();
+            this.groupBoxerror = new System.Windows.Forms.GroupBox();
+            this.pictureequis = new System.Windows.Forms.PictureBox();
+            this.botonsalirerror = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.botonconfirmar = new System.Windows.Forms.Button();
             this.textBoxnombre8 = new System.Windows.Forms.TextBox();
             this.textBoxnombre7 = new System.Windows.Forms.TextBox();
@@ -54,17 +59,14 @@
             this.labelnombre1 = new System.Windows.Forms.Label();
             this.textBoxnombre1 = new System.Windows.Forms.TextBox();
             this.textBoxnombre2 = new System.Windows.Forms.TextBox();
-            this.groupBoxerror = new System.Windows.Forms.GroupBox();
-            this.pictureequis = new System.Windows.Forms.PictureBox();
-            this.botonsalirerror = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.fondoprincipalt = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.buttonVolverMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.torneo)).BeginInit();
             this.groupBox2nombres.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictitulo)).BeginInit();
             this.groupBoxerror.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureequis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictitulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fondoprincipalt)).BeginInit();
             this.SuspendLayout();
             // 
@@ -181,6 +183,54 @@
             this.groupBox2nombres.Size = new System.Drawing.Size(584, 567);
             this.groupBox2nombres.TabIndex = 9;
             this.groupBox2nombres.TabStop = false;
+            // 
+            // groupBoxerror
+            // 
+            this.groupBoxerror.BackColor = System.Drawing.Color.LightBlue;
+            this.groupBoxerror.Controls.Add(this.pictureequis);
+            this.groupBoxerror.Controls.Add(this.botonsalirerror);
+            this.groupBoxerror.Controls.Add(this.label3);
+            this.groupBoxerror.Location = new System.Drawing.Point(122, 224);
+            this.groupBoxerror.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxerror.Name = "groupBoxerror";
+            this.groupBoxerror.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxerror.Size = new System.Drawing.Size(320, 154);
+            this.groupBoxerror.TabIndex = 14;
+            this.groupBoxerror.TabStop = false;
+            // 
+            // pictureequis
+            // 
+            this.pictureequis.Image = global::Pokemon.Properties.Resources.botonequis;
+            this.pictureequis.Location = new System.Drawing.Point(0, 47);
+            this.pictureequis.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureequis.Name = "pictureequis";
+            this.pictureequis.Size = new System.Drawing.Size(33, 32);
+            this.pictureequis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureequis.TabIndex = 2;
+            this.pictureequis.TabStop = false;
+            // 
+            // botonsalirerror
+            // 
+            this.botonsalirerror.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonsalirerror.Location = new System.Drawing.Point(109, 112);
+            this.botonsalirerror.Margin = new System.Windows.Forms.Padding(4);
+            this.botonsalirerror.Name = "botonsalirerror";
+            this.botonsalirerror.Size = new System.Drawing.Size(100, 28);
+            this.botonsalirerror.TabIndex = 1;
+            this.botonsalirerror.Text = "Aceptar";
+            this.botonsalirerror.UseVisualStyleBackColor = true;
+            this.botonsalirerror.Click += new System.EventHandler(this.botonsalirerror_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(39, 59);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(237, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Ingrese caracteres validos.";
             // 
             // botonconfirmar
             // 
@@ -402,54 +452,6 @@
             this.textBoxnombre2.Size = new System.Drawing.Size(220, 22);
             this.textBoxnombre2.TabIndex = 0;
             // 
-            // groupBoxerror
-            // 
-            this.groupBoxerror.BackColor = System.Drawing.Color.LightBlue;
-            this.groupBoxerror.Controls.Add(this.pictureequis);
-            this.groupBoxerror.Controls.Add(this.botonsalirerror);
-            this.groupBoxerror.Controls.Add(this.label3);
-            this.groupBoxerror.Location = new System.Drawing.Point(122, 224);
-            this.groupBoxerror.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBoxerror.Name = "groupBoxerror";
-            this.groupBoxerror.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxerror.Size = new System.Drawing.Size(320, 154);
-            this.groupBoxerror.TabIndex = 14;
-            this.groupBoxerror.TabStop = false;
-            // 
-            // pictureequis
-            // 
-            this.pictureequis.Image = global::Pokemon.Properties.Resources.botonequis;
-            this.pictureequis.Location = new System.Drawing.Point(0, 47);
-            this.pictureequis.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureequis.Name = "pictureequis";
-            this.pictureequis.Size = new System.Drawing.Size(33, 32);
-            this.pictureequis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureequis.TabIndex = 2;
-            this.pictureequis.TabStop = false;
-            // 
-            // botonsalirerror
-            // 
-            this.botonsalirerror.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonsalirerror.Location = new System.Drawing.Point(109, 112);
-            this.botonsalirerror.Margin = new System.Windows.Forms.Padding(4);
-            this.botonsalirerror.Name = "botonsalirerror";
-            this.botonsalirerror.Size = new System.Drawing.Size(100, 28);
-            this.botonsalirerror.TabIndex = 1;
-            this.botonsalirerror.Text = "Aceptar";
-            this.botonsalirerror.UseVisualStyleBackColor = true;
-            this.botonsalirerror.Click += new System.EventHandler(this.botonsalirerror_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 59);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(237, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Ingrese caracteres validos.";
-            // 
             // fondoprincipalt
             // 
             this.fondoprincipalt.Image = global::Pokemon.Properties.Resources.fondoelegirtorneo;
@@ -475,11 +477,26 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // buttonVolverMenu
+            // 
+            this.buttonVolverMenu.BackColor = System.Drawing.Color.Transparent;
+            this.buttonVolverMenu.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVolverMenu.ForeColor = System.Drawing.Color.Navy;
+            this.buttonVolverMenu.Location = new System.Drawing.Point(24, 461);
+            this.buttonVolverMenu.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonVolverMenu.Name = "buttonVolverMenu";
+            this.buttonVolverMenu.Size = new System.Drawing.Size(134, 68);
+            this.buttonVolverMenu.TabIndex = 27;
+            this.buttonVolverMenu.Text = "VOLVER AL MENU";
+            this.buttonVolverMenu.UseVisualStyleBackColor = false;
+            this.buttonVolverMenu.Click += new System.EventHandler(this.buttonVolverMenu_Click);
+            // 
             // formElegirTorneo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.buttonVolverMenu);
             this.Controls.Add(this.groupBox2nombres);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.radio8jugadores);
@@ -489,17 +506,21 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.torneo);
             this.Controls.Add(this.fondoprincipalt);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "formElegirTorneo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = " Ingresar informacion de jugadores";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formElegirTorneo_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.torneo)).EndInit();
             this.groupBox2nombres.ResumeLayout(false);
             this.groupBox2nombres.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictitulo)).EndInit();
             this.groupBoxerror.ResumeLayout(false);
             this.groupBoxerror.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureequis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictitulo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fondoprincipalt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -539,5 +560,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureequis;
         private System.Windows.Forms.Button botonsalirerror;
+        private System.Windows.Forms.Button buttonVolverMenu;
     }
 }

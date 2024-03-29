@@ -177,6 +177,8 @@ namespace Pokemon
             pictureBoxPokeBall.Parent = fondo;
             pictureBoxBlueSpark.Parent = fondo;
 
+            panelGanador.Location = new Point((fondo.Width / 2) - (panelGanador.Width / 2), (fondo.Height / 2) - (panelGanador.Height / 2));
+
             P1.GetTurno().setActivo(true);
             P2.GetTurno().setActivo(true);
 
@@ -279,16 +281,16 @@ namespace Pokemon
 
         public void actualizarMovimientos(pokemon PKM)
         {
-            asignarImagenTipo(PKM.getMovimientos()[0].getTipo(), pictureBoxMov1);
+            tipo.asignarImagenTipo(PKM.getMovimientos()[0].getTipo(), pictureBoxMov1);
             labelNombreMov1.Text = PKM.getMovimientos()[0].getNombre();
             labelUsos1.Text = PKM.getMovimientos()[0].getUsos(1) + "/" + PKM.getMovimientos()[0].getUsos(0);
-            asignarImagenTipo(PKM.getMovimientos()[1].getTipo(), pictureBoxMov2);
+            tipo.asignarImagenTipo(PKM.getMovimientos()[1].getTipo(), pictureBoxMov2);
             labelNombreMov2.Text = PKM.getMovimientos()[1].getNombre();
             labelUsos2.Text = PKM.getMovimientos()[1].getUsos(1) + "/" + PKM.getMovimientos()[1].getUsos(0);
-            asignarImagenTipo(PKM.getMovimientos()[2].getTipo(), pictureBoxMov3);
+            tipo.asignarImagenTipo(PKM.getMovimientos()[2].getTipo(), pictureBoxMov3);
             labelNombreMov3.Text = PKM.getMovimientos()[2].getNombre();
             labelUsos3.Text = PKM.getMovimientos()[2].getUsos(1) + "/" + PKM.getMovimientos()[2].getUsos(0);
-            asignarImagenTipo(PKM.getMovimientos()[3].getTipo(), pictureBoxMov4);
+            tipo.asignarImagenTipo(PKM.getMovimientos()[3].getTipo(), pictureBoxMov4);
             labelNombreMov4.Text = PKM.getMovimientos()[3].getNombre();
             labelUsos4.Text = PKM.getMovimientos()[3].getUsos(1) + "/" + PKM.getMovimientos()[3].getUsos(0);
         }
@@ -314,14 +316,14 @@ namespace Pokemon
             labelNombreMov4Cambio.Visible = true;
             labelUsos4Cambio.Visible = true;
 
-            asignarImagenTipo(P.getPokemones()[n].getTipos().getInicio().getValorTipo(), pictureBoxTipo1);
+            tipo.asignarImagenTipo(P.getPokemones()[n].getTipos().getInicio().getValorTipo(), pictureBoxTipo1);
             labelTipo1.Visible = true;
             labelTipo1.Text = P.getPokemones()[n].getTipos().getInicio().getValorTipo().getNombre();
             if (P.getPokemones()[n].getTipos().getTamanio() > 1)
             {
                 pictureBoxTipo2.Visible = true;
                 labelTipo2.Visible = true;
-                asignarImagenTipo(P.getPokemones()[n].getTipos().getInicio().getSiguiente().getValorTipo(), pictureBoxTipo2);
+                tipo.asignarImagenTipo(P.getPokemones()[n].getTipos().getInicio().getSiguiente().getValorTipo(), pictureBoxTipo2);
                 labelTipo2.Text = P.getPokemones()[n].getTipos().getInicio().getSiguiente().getValorTipo().getNombre();
             }
             else
@@ -330,22 +332,22 @@ namespace Pokemon
                 labelTipo2.Visible = false;
             }
             labelNombreMov1Cambio.Visible = true;
-            asignarImagenTipo(P.getPokemones()[n].getMovimientos()[0].getTipo(), pictureBoxMov1Cambio);
+            tipo.asignarImagenTipo(P.getPokemones()[n].getMovimientos()[0].getTipo(), pictureBoxMov1Cambio);
             labelNombreMov1Cambio.Text = P.getPokemones()[n].getMovimientos()[0].getNombre();
             labelUsos1Cambio.Text = P.getPokemones()[n].getMovimientos()[0].getUsos(1) + "/" + P.getPokemones()[n].getMovimientos()[0].getUsos(0);
             labelUsos1Cambio.Visible = true;
             labelNombreMov2Cambio.Visible = true;
-            asignarImagenTipo(P.getPokemones()[n].getMovimientos()[1].getTipo(), pictureBoxMov2Cambio);
+            tipo.asignarImagenTipo(P.getPokemones()[n].getMovimientos()[1].getTipo(), pictureBoxMov2Cambio);
             labelNombreMov2Cambio.Text = P.getPokemones()[n].getMovimientos()[1].getNombre();
             labelUsos2Cambio.Text = P.getPokemones()[n].getMovimientos()[1].getUsos(1) + "/" + P.getPokemones()[n].getMovimientos()[1].getUsos(0);
             labelUsos2Cambio.Visible = true;
             labelNombreMov3Cambio.Visible = true;
-            asignarImagenTipo(P.getPokemones()[n].getMovimientos()[2].getTipo(), pictureBoxMov3Cambio);
+            tipo.asignarImagenTipo(P.getPokemones()[n].getMovimientos()[2].getTipo(), pictureBoxMov3Cambio);
             labelNombreMov3Cambio.Text = P.getPokemones()[n].getMovimientos()[2].getNombre();
             labelUsos3Cambio.Text = P.getPokemones()[n].getMovimientos()[2].getUsos(1) + "/" + P.getPokemones()[n].getMovimientos()[2].getUsos(0);
             labelUsos3Cambio.Visible = true;
             labelNombreMov4Cambio.Visible = true;
-            asignarImagenTipo(P.getPokemones()[n].getMovimientos()[3].getTipo(), pictureBoxMov4Cambio);
+            tipo.asignarImagenTipo(P.getPokemones()[n].getMovimientos()[3].getTipo(), pictureBoxMov4Cambio);
             labelNombreMov4Cambio.Text = P.getPokemones()[n].getMovimientos()[3].getNombre();
             labelUsos4Cambio.Text = P.getPokemones()[n].getMovimientos()[3].getUsos(1) + "/" +    P.getPokemones()[n].getMovimientos()[3].getUsos(0);
             labelUsos4Cambio.Visible = true;
@@ -410,66 +412,7 @@ namespace Pokemon
             labelUsos4Cambio.Visible = false;
         }
 
-        public void asignarImagenTipo(tipo T, PictureBox PB)
-        {
-            switch (T.getNombre())
-            {
-                case "Normal":
-                    PB.Image = Properties.Resources.MovNormal;
-                    break;
-                case "Fuego":
-                    PB.Image = Properties.Resources.MovFuego;
-                    break;
-                case "Agua":
-                    PB.Image = Properties.Resources.MovAgua;
-                    break;
-                case "Volador":
-                    PB.Image = Properties.Resources.MovVolador;
-                    break;
-                case "Planta":
-                    PB.Image = Properties.Resources.MovPlanta;
-                    break;
-                case "Bicho":
-                    PB.Image = Properties.Resources.MovBicho;
-                    break;
-                case "Eléctrico":
-                    PB.Image = Properties.Resources.MovElectrico;
-                    break;
-                case "Psíquico":
-                    PB.Image = Properties.Resources.MovPsiquico;
-                    break;
-                case "Veneno":
-                    PB.Image = Properties.Resources.MovVeneno;
-                    break;
-                case "Tierra":
-                    PB.Image = Properties.Resources.MovTierra;
-                    break;
-                case "Roca":
-                    PB.Image = Properties.Resources.MovRoca;
-                    break;
-                case "Hielo":
-                    PB.Image = Properties.Resources.MovHielo;
-                    break;
-                case "Lucha":
-                    PB.Image = Properties.Resources.MovLucha;
-                    break;
-                case "Dragón":
-                    PB.Image = Properties.Resources.MovDragon;
-                    break;
-                case "Fantasma":
-                    PB.Image = Properties.Resources.MovFantasma;
-                    break;
-                case "Acero":
-                    PB.Image = Properties.Resources.MovAcero;
-                    break;
-                case "Hada":
-                    PB.Image = Properties.Resources.MovHada;
-                    break;
-                default:
-                    Console.WriteLine("EEEEERROOOOOOOOOOOOOOOOOOOOOOOOOR");
-                    break;
-            }
-        }
+        
 
         public void actualizarInfo(pokemon PKM)
         {
@@ -1059,10 +1002,9 @@ namespace Pokemon
             {
                 ganador = P1;
             }
-
-            Console.WriteLine("El ganador es: " + ganador.getNombre());
-            exitForm = true;
-            this.Close();
+            panelRendirse.Visible = false;
+            panelGanador.Visible = true;
+            labelGanador.Text = "¡Felicidades " + ganador.getNombre() + ", ganaste el combate!";
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -1333,9 +1275,8 @@ namespace Pokemon
 
             if (ganador != null)
             {
-                Console.WriteLine("El ganador es: " + ganador.getNombre());
-                exitForm = true;
-                this.Close();
+                panelGanador.Visible = true;
+                labelGanador.Text = "¡Felicidades " + ganador.getNombre() + ", ganaste el combate!";
             }
         }
 
@@ -1345,6 +1286,12 @@ namespace Pokemon
             {
                 turnos(3);
             }
+        }
+
+        private void buttonGanador_Click(object sender, EventArgs e)
+        {
+            exitForm = true;
+            this.Close();
         }
     }
 }

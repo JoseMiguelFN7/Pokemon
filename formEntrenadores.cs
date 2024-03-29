@@ -7,6 +7,7 @@ namespace Pokemon
     public partial class formEntrenadores : Form
     {
         private cola colaEntrenadores = new cola();
+        bool exitForm = false;
 
         public formEntrenadores()
         {
@@ -57,6 +58,22 @@ namespace Pokemon
             formBatalla batallas = new formBatalla();
             batallas.Visible = true;
             this.Visible = false;
+        }
+
+        private void formEntrenadores_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!exitForm)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void buttonVolver_Click(object sender, EventArgs e)
+        {
+            exitForm = true;
+            formMenuPrincipal FMP = new formMenuPrincipal();
+            FMP.Visible = true;
+            this.Close();
         }
     }
 }

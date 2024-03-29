@@ -186,6 +186,10 @@
             this.pictureBoxEffect = new System.Windows.Forms.PictureBox();
             this.panelInfo = new System.Windows.Forms.TableLayoutPanel();
             this.labelInfo = new System.Windows.Forms.Label();
+            this.panelGanadorInt = new System.Windows.Forms.TableLayoutPanel();
+            this.labelGanador = new System.Windows.Forms.Label();
+            this.buttonGanador = new System.Windows.Forms.Button();
+            this.panelGanador = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.fondo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPKM2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLuchar)).BeginInit();
@@ -276,6 +280,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBlueSpark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEffect)).BeginInit();
             this.panelInfo.SuspendLayout();
+            this.panelGanadorInt.SuspendLayout();
+            this.panelGanador.SuspendLayout();
             this.SuspendLayout();
             // 
             // fondo
@@ -2481,11 +2487,65 @@
             this.labelInfo.Size = new System.Drawing.Size(398, 90);
             this.labelInfo.TabIndex = 0;
             // 
+            // panelGanadorInt
+            // 
+            this.panelGanadorInt.BackColor = System.Drawing.Color.PaleGreen;
+            this.panelGanadorInt.ColumnCount = 1;
+            this.panelGanadorInt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.panelGanadorInt.Controls.Add(this.labelGanador, 0, 0);
+            this.panelGanadorInt.Controls.Add(this.buttonGanador, 0, 1);
+            this.panelGanadorInt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGanadorInt.Location = new System.Drawing.Point(6, 6);
+            this.panelGanadorInt.Name = "panelGanadorInt";
+            this.panelGanadorInt.RowCount = 2;
+            this.panelGanadorInt.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelGanadorInt.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelGanadorInt.Size = new System.Drawing.Size(247, 117);
+            this.panelGanadorInt.TabIndex = 67;
+            // 
+            // labelGanador
+            // 
+            this.labelGanador.AutoSize = true;
+            this.labelGanador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelGanador.Location = new System.Drawing.Point(3, 0);
+            this.labelGanador.Name = "labelGanador";
+            this.labelGanador.Size = new System.Drawing.Size(241, 58);
+            this.labelGanador.TabIndex = 0;
+            this.labelGanador.Text = "Ganador";
+            this.labelGanador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonGanador
+            // 
+            this.buttonGanador.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonGanador.Location = new System.Drawing.Point(73, 68);
+            this.buttonGanador.Name = "buttonGanador";
+            this.buttonGanador.Size = new System.Drawing.Size(101, 39);
+            this.buttonGanador.TabIndex = 1;
+            this.buttonGanador.Text = "Confirmar";
+            this.buttonGanador.UseVisualStyleBackColor = true;
+            this.buttonGanador.Click += new System.EventHandler(this.buttonGanador_Click);
+            // 
+            // panelGanador
+            // 
+            this.panelGanador.BackColor = System.Drawing.Color.DarkGreen;
+            this.panelGanador.ColumnCount = 1;
+            this.panelGanador.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelGanador.Controls.Add(this.panelGanadorInt, 0, 0);
+            this.panelGanador.Location = new System.Drawing.Point(613, 449);
+            this.panelGanador.Name = "panelGanador";
+            this.panelGanador.Padding = new System.Windows.Forms.Padding(3);
+            this.panelGanador.RowCount = 1;
+            this.panelGanador.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelGanador.Size = new System.Drawing.Size(259, 129);
+            this.panelGanador.TabIndex = 68;
+            this.panelGanador.Visible = false;
+            // 
             // formBatalla
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 614);
+            this.Controls.Add(this.panelGanador);
             this.Controls.Add(this.pictureBoxEffect);
             this.Controls.Add(this.pictureBoxBlueSpark);
             this.Controls.Add(this.pictureBoxPokeBall);
@@ -2638,6 +2698,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEffect)).EndInit();
             this.panelInfo.ResumeLayout(false);
             this.panelInfo.PerformLayout();
+            this.panelGanadorInt.ResumeLayout(false);
+            this.panelGanadorInt.PerformLayout();
+            this.panelGanador.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2800,5 +2863,9 @@
         private System.Windows.Forms.PictureBox pictureBoxEffect;
         private System.Windows.Forms.TableLayoutPanel panelInfo;
         public System.Windows.Forms.Label labelInfo;
+        private System.Windows.Forms.TableLayoutPanel panelGanadorInt;
+        private System.Windows.Forms.Label labelGanador;
+        private System.Windows.Forms.Button buttonGanador;
+        private System.Windows.Forms.TableLayoutPanel panelGanador;
     }
 }

@@ -13,6 +13,7 @@ namespace Pokemon
 {
     public partial class formMenuPrincipal : Form
     {
+        bool exitForm = false;
         public formMenuPrincipal()
         {
             InitializeComponent();         
@@ -56,9 +57,10 @@ namespace Pokemon
 
         private void labpartida_Click(object sender, EventArgs e)
         {
+            exitForm = true;
             formEntrenadores entrenadores = new formEntrenadores();
             entrenadores.Visible = true;
-            this.Visible = false;
+            this.Close();
         }
 
         private void labeltorneo_MouseEnter(object sender, EventArgs e)
@@ -73,14 +75,23 @@ namespace Pokemon
 
         private void labeltorneo_Click(object sender, EventArgs e)
         {
+            exitForm = true;
             formElegirTorneo elegirtorneo = new formElegirTorneo();
             elegirtorneo.Visible = true;
-            this.Visible =false;
+            this.Close();
         }
 
         private void salir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void formMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!exitForm)
+            {
+                Application.Exit();
+            }
         }
     }
 }

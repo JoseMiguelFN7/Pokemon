@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Pokemon
 {
@@ -131,6 +132,67 @@ namespace Pokemon
                     Console.WriteLine("EEEEERROOOOOOOOOOOOOOOOOOOOOOOOOR");
                     Console.WriteLine(s);
                     return 17;
+            }
+        }
+
+        public static void asignarImagenTipo(tipo T, PictureBox PB)
+        {
+            switch (T.getNombre())
+            {
+                case "Normal":
+                    PB.Image = Properties.Resources.MovNormal;
+                    break;
+                case "Fuego":
+                    PB.Image = Properties.Resources.MovFuego;
+                    break;
+                case "Agua":
+                    PB.Image = Properties.Resources.MovAgua;
+                    break;
+                case "Volador":
+                    PB.Image = Properties.Resources.MovVolador;
+                    break;
+                case "Planta":
+                    PB.Image = Properties.Resources.MovPlanta;
+                    break;
+                case "Bicho":
+                    PB.Image = Properties.Resources.MovBicho;
+                    break;
+                case "Eléctrico":
+                    PB.Image = Properties.Resources.MovElectrico;
+                    break;
+                case "Psíquico":
+                    PB.Image = Properties.Resources.MovPsiquico;
+                    break;
+                case "Veneno":
+                    PB.Image = Properties.Resources.MovVeneno;
+                    break;
+                case "Tierra":
+                    PB.Image = Properties.Resources.MovTierra;
+                    break;
+                case "Roca":
+                    PB.Image = Properties.Resources.MovRoca;
+                    break;
+                case "Hielo":
+                    PB.Image = Properties.Resources.MovHielo;
+                    break;
+                case "Lucha":
+                    PB.Image = Properties.Resources.MovLucha;
+                    break;
+                case "Dragón":
+                    PB.Image = Properties.Resources.MovDragon;
+                    break;
+                case "Fantasma":
+                    PB.Image = Properties.Resources.MovFantasma;
+                    break;
+                case "Acero":
+                    PB.Image = Properties.Resources.MovAcero;
+                    break;
+                case "Hada":
+                    PB.Image = Properties.Resources.MovHada;
+                    break;
+                default:
+                    Console.WriteLine("EEEEERROOOOOOOOOOOOOOOOOOOOOOOOOR");
+                    break;
             }
         }
     }

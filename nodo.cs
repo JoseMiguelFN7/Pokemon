@@ -8,6 +8,7 @@ namespace Pokemon
 {
     public class nodo
     {
+        private pokemon valorPokemon;
         private tipo valorTipo;
         private string valorNombreTipo;
         private movimiento valorMovimiento;
@@ -25,6 +26,7 @@ namespace Pokemon
 
         public nodo()
         {
+            this.valorPokemon = null;
             this.valorTipo = null;
             this.valorNombreTipo = null;
             this.valorMovimiento = null;
@@ -39,6 +41,11 @@ namespace Pokemon
             this.valorMaxPocion = null;
             this.valorPrecisionX = null;
             this.siguiente = null;
+        }
+
+        public void setValorPokemon(pokemon pkm)
+        {
+            this.valorPokemon = pkm;
         }
 
         public void setValorTipo(tipo t)
@@ -104,6 +111,11 @@ namespace Pokemon
         public void setValorPrecisionX(precisionX VPX)
         {
             this.valorPrecisionX = VPX;
+        }
+
+        public pokemon getValorPokemon()
+        {
+            return this.valorPokemon;
         }
 
         public tipo getValorTipo()

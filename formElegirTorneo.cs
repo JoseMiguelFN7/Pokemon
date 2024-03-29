@@ -13,6 +13,7 @@ namespace Pokemon
 {
     public partial class formElegirTorneo : Form
     {
+        bool exitForm = false;
         public static lista listaJtorneo = new lista();
 
         public formElegirTorneo()
@@ -213,6 +214,22 @@ namespace Pokemon
         private void botonsalirerror_Click(object sender, EventArgs e)
         {
             groupBoxerror.Visible = false;
+        }
+
+        private void formElegirTorneo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!exitForm)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void buttonVolverMenu_Click(object sender, EventArgs e)
+        {
+            exitForm = true;
+            formMenuPrincipal FMP = new formMenuPrincipal();
+            FMP.Visible = true;
+            this.Close();
         }
     }
 }

@@ -99,6 +99,7 @@ namespace Pokemon
                     {
                         s += "congelado. ";
                     }
+                    s += " ¡El movimiento no hizo ningun efecto!.";
                     PKM.setProbRecuperar(PKM.getProbRecuperar() + 20);
                 }
             }
@@ -111,7 +112,7 @@ namespace Pokemon
             {
                 if (PKM.getEstadoAlterado() == 1)
                 {
-                    s += PKM.getNombre() + " está paralizado.";
+                    s += PKM.getNombre() + " está paralizado. ¡El movimiento no hizo ningun efecto!.";
                 }
             }
 

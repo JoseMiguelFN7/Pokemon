@@ -117,7 +117,7 @@ namespace Pokemon
             teclaPresionada = true;
             formMenuPrincipal formMenu = new formMenuPrincipal();
             formMenu.Visible = true;
-            this.Visible = false;
+            this.Hide();
             videoIntro.settings.mute = true;
         }
 
@@ -128,7 +128,7 @@ namespace Pokemon
             {
                 formMenuPrincipal formmenu = new formMenuPrincipal();
                 formmenu.Visible = true;
-                this.Visible = false;
+                this.Hide();
                 videoIntro.settings.mute = true;
             }
         }
@@ -138,7 +138,7 @@ namespace Pokemon
             teclaPresionada = true;
             formMenuPrincipal formMenu = new formMenuPrincipal();
             formMenu.Visible = true;
-            this.Visible = false;
+            this.Hide();
             videoIntro.settings.mute = true;
         }
     }
