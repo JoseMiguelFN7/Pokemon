@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -215,6 +216,20 @@ namespace Pokemon
                 }
                 return arrayPokemones;
             }
+        }
+        public IEnumerator GetEnumerator()
+        {
+            nodo nodoActual = inicio; // Usar el campo 'inicio' en lugar de 'primerNodo'
+            while (nodoActual != null)
+            {
+                yield return nodoActual.getValorPokemon();
+                nodoActual = nodoActual.getSiguiente();
+            }
+        }
+        public void limpiarLista()
+        {
+            inicio = null;
+            tamanio = 0;
         }
     }
 }
