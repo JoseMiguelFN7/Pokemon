@@ -22,7 +22,8 @@ namespace Pokemon
         private curaTotal valorCuraTotal;
         private maxPocion valorMaxPocion;
         private precisionX valorPrecisionX;
-        private nodo siguiente;
+        private nodo siguiente, der, izq;
+        private int altura;
 
         public nodo()
         {
@@ -41,6 +42,19 @@ namespace Pokemon
             this.valorMaxPocion = null;
             this.valorPrecisionX = null;
             this.siguiente = null;
+            this.der = null;
+            this.izq = null;
+            this.altura = 1;
+        }
+
+        public void setDer(nodo der)
+        {
+            this.der = der;
+        }
+
+        public void setIzq(nodo izq)
+        {
+            this.izq = izq;
         }
 
         public void setValorPokemon(pokemon pkm)
@@ -191,6 +205,30 @@ namespace Pokemon
         public void setSiguiente(nodo siguiente)
         {
             this.siguiente = siguiente;
+        }
+
+        public nodo getDer()
+        {
+            return der;
+        }
+
+        public nodo getIzq()
+        {
+            return izq;
+        }
+
+        public int getAltura(nodo nodo)
+        {
+            if (nodo == null)
+            {
+                return 0;
+            }
+            return nodo.altura;
+        }
+
+        public void setAltura(int altura)
+        {
+            this.altura = altura;
         }
     }
 }

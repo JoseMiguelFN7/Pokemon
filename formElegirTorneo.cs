@@ -15,6 +15,7 @@ namespace Pokemon
     {
         bool exitForm = false;
         public static lista listaJtorneo = new lista();
+        public formMenuPrincipal menuPrincipal;
 
         public formElegirTorneo()
         {
@@ -74,6 +75,7 @@ namespace Pokemon
                 botonconfirmar.Visible = true;
                 pictitulo.Visible = true;
             }
+            groupBoxerror.BringToFront();
         }
 
          //boton equis superior
@@ -209,7 +211,12 @@ namespace Pokemon
                 listaJtorneo.agregarJugadorAlFinal(JT6);
                 listaJtorneo.agregarJugadorAlFinal(JT7);
                 listaJtorneo.agregarJugadorAlFinal(JT8);
+
             }
+            exitForm = true;
+            formLlaves llavesTorneo = new formLlaves();
+            llavesTorneo.Visible = true;
+            this.Close();
         }
         private void botonsalirerror_Click(object sender, EventArgs e)
         {
@@ -227,8 +234,7 @@ namespace Pokemon
         private void buttonVolverMenu_Click(object sender, EventArgs e)
         {
             exitForm = true;
-            formMenuPrincipal FMP = new formMenuPrincipal();
-            FMP.Visible = true;
+            menuPrincipal.Show();
             this.Close();
         }
     }

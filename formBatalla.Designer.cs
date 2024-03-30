@@ -412,7 +412,7 @@
             // labelNombrePKM1
             // 
             this.labelNombrePKM1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelNombrePKM1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombrePKM1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombrePKM1.Location = new System.Drawing.Point(5, 0);
             this.labelNombrePKM1.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.labelNombrePKM1.Name = "labelNombrePKM1";
@@ -527,7 +527,7 @@
             // labelNombrePKM2
             // 
             this.labelNombrePKM2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelNombrePKM2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombrePKM2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombrePKM2.Location = new System.Drawing.Point(5, 0);
             this.labelNombrePKM2.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.labelNombrePKM2.Name = "labelNombrePKM2";
@@ -696,41 +696,49 @@
             // labelNombreMov1
             // 
             this.labelNombreMov1.BackColor = System.Drawing.Color.Transparent;
+            this.labelNombreMov1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreMov1.Location = new System.Drawing.Point(466, 50);
             this.labelNombreMov1.Name = "labelNombreMov1";
             this.labelNombreMov1.Size = new System.Drawing.Size(150, 47);
             this.labelNombreMov1.TabIndex = 22;
             this.labelNombreMov1.Text = "Nombre del movimiento 1";
+            this.labelNombreMov1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelNombreMov1.Click += new System.EventHandler(this.pictureBoxMov1_Click);
             // 
             // labelNombreMov2
             // 
             this.labelNombreMov2.BackColor = System.Drawing.Color.Transparent;
+            this.labelNombreMov2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreMov2.Location = new System.Drawing.Point(466, 124);
             this.labelNombreMov2.Name = "labelNombreMov2";
             this.labelNombreMov2.Size = new System.Drawing.Size(150, 47);
             this.labelNombreMov2.TabIndex = 23;
             this.labelNombreMov2.Text = "Nombre del movimiento 2";
+            this.labelNombreMov2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelNombreMov2.Click += new System.EventHandler(this.pictureBoxMov2_Click);
             // 
             // labelNombreMov3
             // 
             this.labelNombreMov3.BackColor = System.Drawing.Color.Transparent;
+            this.labelNombreMov3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreMov3.Location = new System.Drawing.Point(466, 201);
             this.labelNombreMov3.Name = "labelNombreMov3";
             this.labelNombreMov3.Size = new System.Drawing.Size(150, 47);
             this.labelNombreMov3.TabIndex = 24;
             this.labelNombreMov3.Text = "Nombre del movimiento 3";
+            this.labelNombreMov3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelNombreMov3.Click += new System.EventHandler(this.pictureBoxMov3_Click);
             // 
             // labelNombreMov4
             // 
             this.labelNombreMov4.BackColor = System.Drawing.Color.Transparent;
+            this.labelNombreMov4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreMov4.Location = new System.Drawing.Point(466, 278);
             this.labelNombreMov4.Name = "labelNombreMov4";
             this.labelNombreMov4.Size = new System.Drawing.Size(150, 47);
             this.labelNombreMov4.TabIndex = 25;
             this.labelNombreMov4.Text = "Nombre del movimiento 4";
+            this.labelNombreMov4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelNombreMov4.Click += new System.EventHandler(this.pictureBoxMov4_Click);
             // 
             // labelUsos1
@@ -1021,6 +1029,7 @@
             // 
             this.labelCantidadObjeto.AutoSize = true;
             this.labelCantidadObjeto.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelCantidadObjeto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCantidadObjeto.ForeColor = System.Drawing.Color.White;
             this.labelCantidadObjeto.Location = new System.Drawing.Point(148, 0);
             this.labelCantidadObjeto.Name = "labelCantidadObjeto";
@@ -1032,6 +1041,7 @@
             // 
             this.labelNombreObj.AutoSize = true;
             this.labelNombreObj.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelNombreObj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreObj.ForeColor = System.Drawing.Color.White;
             this.labelNombreObj.Location = new System.Drawing.Point(3, 0);
             this.labelNombreObj.Name = "labelNombreObj";
@@ -1068,6 +1078,7 @@
             // 
             this.labelNombreObj1.BackColor = System.Drawing.Color.Transparent;
             this.labelNombreObj1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelNombreObj1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreObj1.Location = new System.Drawing.Point(55, 186);
             this.labelNombreObj1.Name = "labelNombreObj1";
             this.labelNombreObj1.Size = new System.Drawing.Size(296, 44);
@@ -1082,6 +1093,7 @@
             // 
             this.labelNombreObj2.BackColor = System.Drawing.Color.Transparent;
             this.labelNombreObj2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelNombreObj2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreObj2.Location = new System.Drawing.Point(55, 231);
             this.labelNombreObj2.Name = "labelNombreObj2";
             this.labelNombreObj2.Size = new System.Drawing.Size(296, 44);
@@ -1096,6 +1108,7 @@
             // 
             this.labelNombreObj3.BackColor = System.Drawing.Color.Transparent;
             this.labelNombreObj3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelNombreObj3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreObj3.Location = new System.Drawing.Point(55, 274);
             this.labelNombreObj3.Name = "labelNombreObj3";
             this.labelNombreObj3.Size = new System.Drawing.Size(296, 44);
@@ -1110,6 +1123,7 @@
             // 
             this.labelNombreObj4.BackColor = System.Drawing.Color.Transparent;
             this.labelNombreObj4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelNombreObj4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreObj4.Location = new System.Drawing.Point(55, 320);
             this.labelNombreObj4.Name = "labelNombreObj4";
             this.labelNombreObj4.Size = new System.Drawing.Size(296, 44);
@@ -1124,6 +1138,7 @@
             // 
             this.labelNombreObj7.BackColor = System.Drawing.Color.Transparent;
             this.labelNombreObj7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelNombreObj7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreObj7.Location = new System.Drawing.Point(55, 456);
             this.labelNombreObj7.Name = "labelNombreObj7";
             this.labelNombreObj7.Size = new System.Drawing.Size(296, 44);
@@ -1138,6 +1153,7 @@
             // 
             this.labelNombreObj5.BackColor = System.Drawing.Color.Transparent;
             this.labelNombreObj5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelNombreObj5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreObj5.Location = new System.Drawing.Point(55, 365);
             this.labelNombreObj5.Name = "labelNombreObj5";
             this.labelNombreObj5.Size = new System.Drawing.Size(296, 44);
@@ -1152,6 +1168,7 @@
             // 
             this.labelNombreObj6.BackColor = System.Drawing.Color.Transparent;
             this.labelNombreObj6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelNombreObj6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreObj6.Location = new System.Drawing.Point(55, 410);
             this.labelNombreObj6.Name = "labelNombreObj6";
             this.labelNombreObj6.Size = new System.Drawing.Size(296, 44);
@@ -1166,6 +1183,7 @@
             // 
             this.labelNombreObj8.BackColor = System.Drawing.Color.Transparent;
             this.labelNombreObj8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelNombreObj8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreObj8.Location = new System.Drawing.Point(55, 502);
             this.labelNombreObj8.Name = "labelNombreObj8";
             this.labelNombreObj8.Size = new System.Drawing.Size(296, 44);
@@ -1180,6 +1198,7 @@
             // 
             this.labelNombreObj9.BackColor = System.Drawing.Color.Transparent;
             this.labelNombreObj9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelNombreObj9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreObj9.Location = new System.Drawing.Point(55, 549);
             this.labelNombreObj9.Name = "labelNombreObj9";
             this.labelNombreObj9.Size = new System.Drawing.Size(296, 44);
@@ -1264,7 +1283,7 @@
             // labelNombre1Cambio
             // 
             this.labelNombre1Cambio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelNombre1Cambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre1Cambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombre1Cambio.Location = new System.Drawing.Point(5, 0);
             this.labelNombre1Cambio.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.labelNombre1Cambio.Name = "labelNombre1Cambio";
@@ -1781,7 +1800,7 @@
             // labelNombre2Cambio
             // 
             this.labelNombre2Cambio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelNombre2Cambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre2Cambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombre2Cambio.Location = new System.Drawing.Point(5, 0);
             this.labelNombre2Cambio.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.labelNombre2Cambio.Name = "labelNombre2Cambio";
@@ -1899,7 +1918,7 @@
             // labelNombre3Cambio
             // 
             this.labelNombre3Cambio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelNombre3Cambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre3Cambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombre3Cambio.Location = new System.Drawing.Point(5, 0);
             this.labelNombre3Cambio.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.labelNombre3Cambio.Name = "labelNombre3Cambio";
@@ -2017,7 +2036,7 @@
             // labelNombre4Cambio
             // 
             this.labelNombre4Cambio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelNombre4Cambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre4Cambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombre4Cambio.Location = new System.Drawing.Point(5, 0);
             this.labelNombre4Cambio.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.labelNombre4Cambio.Name = "labelNombre4Cambio";
@@ -2135,7 +2154,7 @@
             // labelNombre5Cambio
             // 
             this.labelNombre5Cambio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelNombre5Cambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre5Cambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombre5Cambio.Location = new System.Drawing.Point(5, 0);
             this.labelNombre5Cambio.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.labelNombre5Cambio.Name = "labelNombre5Cambio";
@@ -2253,7 +2272,7 @@
             // labelNombre6Cambio
             // 
             this.labelNombre6Cambio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelNombre6Cambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre6Cambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombre6Cambio.Location = new System.Drawing.Point(5, 0);
             this.labelNombre6Cambio.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.labelNombre6Cambio.Name = "labelNombre6Cambio";
@@ -2442,7 +2461,7 @@
             // 
             this.pictureBoxBlueSpark.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxBlueSpark.Image = global::Pokemon.Properties.Resources.blueSpark;
-            this.pictureBoxBlueSpark.Location = new System.Drawing.Point(676, -17);
+            this.pictureBoxBlueSpark.Location = new System.Drawing.Point(158, 124);
             this.pictureBoxBlueSpark.Name = "pictureBoxBlueSpark";
             this.pictureBoxBlueSpark.Size = new System.Drawing.Size(400, 400);
             this.pictureBoxBlueSpark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -2453,7 +2472,7 @@
             // pictureBoxEffect
             // 
             this.pictureBoxEffect.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxEffect.Location = new System.Drawing.Point(720, 39);
+            this.pictureBoxEffect.Location = new System.Drawing.Point(302, -21);
             this.pictureBoxEffect.Name = "pictureBoxEffect";
             this.pictureBoxEffect.Size = new System.Drawing.Size(200, 200);
             this.pictureBoxEffect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

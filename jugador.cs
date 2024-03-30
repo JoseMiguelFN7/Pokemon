@@ -121,5 +121,17 @@ namespace Pokemon
 
             return false;
         }
+
+        public pokemon buscarPokemon(int id)
+        {
+            for (int i = 0; i < pokemones.Length; i++)
+            {
+                if (pokemones[i].getID() == id)
+                {
+                    return pokemones[i];
+                }
+            }
+            return null;
+        }
     }
 }

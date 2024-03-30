@@ -13,7 +13,10 @@ namespace Pokemon
 {
     public partial class formMenuPrincipal : Form
     {
+        public static formEntrenadores entrenadores;
+        public static formElegirTorneo torneo;
         bool exitForm = false;
+
         public formMenuPrincipal()
         {
             InitializeComponent();         
@@ -21,7 +24,9 @@ namespace Pokemon
             salir.Parent = fondoprincipal;
             labpartida.Parent = fondoprincipal;
             pokemon.Parent = fondoprincipal;
-            picpokemon.Parent = fondoprincipal;           
+            picpokemon.Parent = fondoprincipal;
+
+            formInicio.reproducir(0);
         }
 
         private void labelpartida_MouseEnter(object sender, EventArgs e)
@@ -57,10 +62,10 @@ namespace Pokemon
 
         private void labpartida_Click(object sender, EventArgs e)
         {
-            exitForm = true;
-            formEntrenadores entrenadores = new formEntrenadores();
+            entrenadores = new formEntrenadores();
+            entrenadores.menuPrincipal = this;
             entrenadores.Visible = true;
-            this.Close();
+            this.Hide();
         }
 
         private void labeltorneo_MouseEnter(object sender, EventArgs e)
@@ -75,10 +80,10 @@ namespace Pokemon
 
         private void labeltorneo_Click(object sender, EventArgs e)
         {
-            exitForm = true;
-            formElegirTorneo elegirtorneo = new formElegirTorneo();
-            elegirtorneo.Visible = true;
-            this.Close();
+            torneo = new formElegirTorneo();
+            torneo.menuPrincipal = this;
+            torneo.Visible = true;
+            this.Hide();
         }
 
         private void salir_Click(object sender, EventArgs e)

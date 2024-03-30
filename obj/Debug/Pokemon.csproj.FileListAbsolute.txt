@@ -17,3 +17,4 @@ C:\Users\José Ferreira\Desktop\Proyectos\C#\Pokemon\obj\Debug\Pokemon.formEntre
 C:\Users\José Ferreira\Desktop\Proyectos\C#\Pokemon\obj\Debug\Pokemon.formMenuPrincipal.resources
 C:\Users\José Ferreira\Desktop\Proyectos\C#\Pokemon\bin\Debug\Interop.WMPLib.dll
 C:\Users\José Ferreira\Desktop\Proyectos\C#\Pokemon\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\José Ferreira\Desktop\Proyectos\C#\Pokemon\obj\Debug\Pokemon.formLlaves.resources

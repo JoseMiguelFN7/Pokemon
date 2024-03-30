@@ -25,6 +25,7 @@ namespace Pokemon
         private int[] VEL;
         private int estadoAlterado;
         private double probRecuperar;
+        bool ditto;
 
         public pokemon(int iD, string nombre, int nivel, string tipos, int hP, int aTK, int dEF, int aTKS, int dEFS, int vEL, string movs)
         {
@@ -41,6 +42,14 @@ namespace Pokemon
             this.VEL = new int[3];
             this.estadoAlterado = 0;
             this.probRecuperar = 0;
+            if (iD == 132)
+            {
+                this.ditto = true;
+            }
+            else
+            {
+                this.ditto = false;
+            }
 
             string[] arrT = tipos.Split('/');
             foreach (string t in arrT)
@@ -66,6 +75,11 @@ namespace Pokemon
             }
         }
 
+        public void setID(int id)
+        {
+            ID = id;
+        }
+
         public void setNombre(string n)
         {
             nombre = n;
@@ -76,9 +90,19 @@ namespace Pokemon
             nivel = n;
         }
 
+        public void setTipos(lista t)
+        {
+            tipos = t;
+        }
+
         public void setMovimiento(movimiento move, int pos)
         {
             movimientos[pos] = move;
+        }
+
+        public void setArrMovimiento(movimiento[] arrMov)
+        {
+            movimientos = arrMov;
         }
 
         public void setHP(int hp, int pos)
@@ -86,9 +110,18 @@ namespace Pokemon
             HP[pos] = hp;
         }
 
+        public void setArrHP(int[] arrHp)
+        {
+            HP = arrHp;
+        }
+
         public void setATK(int atk, int pos)
         {
             ATK[pos] = atk;
+        }
+        public void setArrATK(int[] arrAtk)
+        {
+            ATK = arrAtk;
         }
 
         public void setATKS(int atks, int pos)
@@ -96,9 +129,19 @@ namespace Pokemon
             ATKS[pos] = atks;
         }
 
+        public void setArrATKS(int[] arrAtkS)
+        {
+            ATKS = arrAtkS;
+        }
+
         public void setDEF(int def, int pos)
         {
             DEF[pos] = def;
+        }
+
+        public void setArrDEF(int[] arrDef)
+        {
+            DEF = arrDef;
         }
 
         public void setDEFS(int defs, int pos)
@@ -106,9 +149,19 @@ namespace Pokemon
             DEFS[pos] = defs;
         }
 
+        public void setArrDEFS(int[] arrDefS)
+        {
+            DEFS = arrDefS;
+        }
+
         public void setVEL(int vel, int pos)
         {
             VEL[pos] = vel;
+        }
+
+        public void setArrVEL(int[] arrVel)
+        {
+            VEL = arrVel;
         }
 
         public void setEstadoAlterado(int EA)
@@ -965,36 +1018,64 @@ namespace Pokemon
             {
                 tipos += "/" + this.getTipos().getInicio().getSiguiente().getValorTipo().getNombre();
             }
-            int hp = this.getHP(0);
-            int atk = this.getATK(0);
-            int def = this.getDEF(0);
-            int atks = this.getATKS(0);
-            int defs = this.getDEFS(0);
-            int vel = this.getVEL(0);
+            int hp = this.getHP(1);
+            int atk = this.getATK(1);
+            int def = this.getDEF(1);
+            int atks = this.getATKS(1);
+            int defs = this.getDEFS(1);
+            int vel = this.getVEL(1);
             string movs = this.getMovimientos()[0].getID() + "/" + this.getMovimientos()[1].getID() + "/" + this.getMovimientos()[2].getID() + "/" + this.getMovimientos()[3].getID();
 
             return new pokemon(id, nombre, nvl, tipos, hp, atk, def, atks, defs, vel, movs);
+        }
+
+        public void transformarDitto(pokemon PKM)
+        {
+            if (this.ID == 132)
+            {
+                this.setID(PKM.ID);
+                this.setNombre(PKM.nombre);
+                this.setNivel(PKM.nivel);
+                this.setTipos(PKM.tipos);
+                this.setHP(PKM.HP[0], 0);
+                this.setArrHP(PKM.HP);
+                this.setArrATK(PKM.ATK);
+                this.setArrDEF(PKM.DEF);
+                this.setArrATKS(PKM.ATKS);
+                this.setArrDEFS(PKM.DEFS);
+                this.setArrVEL(PKM.VEL);
+                this.setArrMovimiento(PKM.movimientos);
+            }
         }
 
         public string ejecutarMovimiento(pokemon PKMRival, int indexMov, Random ran)
         {
             string s = string.Empty;
             bool secundario = false;
-            movimiento mov = this.getMovimientos()[indexMov];
+            movimiento mov = null;
 
-            s = this.getNombre() + " usó " + mov.getNombre() + ".";
-
-            if (mov.getCategoria().Equals("Físico") || mov.getCategoria().Equals("Especial"))
+            if (indexMov == 19)
             {
-                s += atacar(PKMRival, indexMov, ran);
+                this.transformarDitto(PKMRival);
+                s += "¡Ditto se ha transformado en " + PKMRival.getNombre() + "!";
             }
             else
             {
-                s += movEstado(PKMRival, indexMov, ran, secundario);
+                mov = this.getMovimientos()[indexMov];
+
+                s = this.getNombre() + " usó " + mov.getNombre() + ".";
+
+                if (mov.getCategoria().Equals("Físico") || mov.getCategoria().Equals("Especial"))
+                {
+                    s += atacar(PKMRival, indexMov, ran);
+                }
+                else
+                {
+                    s += movEstado(PKMRival, indexMov, ran, secundario);
+                }
+
+                this.getMovimientos()[indexMov].setUsos(mov.getUsos(1) - 1, 1);
             }
-
-            this.getMovimientos()[indexMov].setUsos(mov.getUsos(1)-1, 1);
-
             return s;
         }
 

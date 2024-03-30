@@ -6,6 +6,7 @@ namespace Pokemon
 {
     public partial class formEntrenadores : Form
     {
+        public formMenuPrincipal menuPrincipal;
         private cola colaEntrenadores = new cola();
         bool exitForm = false;
 
@@ -19,6 +20,7 @@ namespace Pokemon
             labelclub.Parent = fondoprincipalent;
             labelENT1.Parent = fondoprincipalent;
             labelENT2.Parent = fondoprincipalent;
+
         }
 
         private bool ValidarNombre(string nombre)
@@ -71,8 +73,7 @@ namespace Pokemon
         private void buttonVolver_Click(object sender, EventArgs e)
         {
             exitForm = true;
-            formMenuPrincipal FMP = new formMenuPrincipal();
-            FMP.Visible = true;
+            menuPrincipal.Show();
             this.Close();
         }
     }

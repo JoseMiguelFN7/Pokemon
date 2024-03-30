@@ -34,7 +34,7 @@ namespace Pokemon
         public formBatalla()
         {
             pokemon[] ppp1 = new pokemon[6];
-            ppp1[0] = formInicio.arrPKM[0].crearCopiaPKM();
+            ppp1[0] = formInicio.arrPKM[131].crearCopiaPKM();
             ppp1[1] = formInicio.arrPKM[1].crearCopiaPKM();
             ppp1[2] = formInicio.arrPKM[2].crearCopiaPKM();
             ppp1[3] = formInicio.arrPKM[3].crearCopiaPKM();
@@ -46,7 +46,7 @@ namespace Pokemon
             ppp2[2] = formInicio.arrPKM[8].crearCopiaPKM();
             ppp2[3] = formInicio.arrPKM[9].crearCopiaPKM();
             ppp2[4] = formInicio.arrPKM[10].crearCopiaPKM();
-            ppp2[5] = formInicio.arrPKM[11].crearCopiaPKM();
+            ppp2[5] = formInicio.arrPKM[5].crearCopiaPKM();
 
             P1 = new jugador(1, "Jose", 3, 2, 1);
             P2 = new jugador(2, "Martina", 3, 2, 1);
@@ -55,7 +55,7 @@ namespace Pokemon
             llenarBolsas(P1, P2);
 
             pokemon1 = P1.getPokemones()[0];
-            pokemon2 = P2.getPokemones()[5];
+            pokemon2 = P2.getPokemones()[0];
 
             jugadores.agregarJugadorEnCola(P1);
             jugadores.agregarJugadorEnCola(P2);
@@ -91,16 +91,16 @@ namespace Pokemon
             panelMovimientos.Location = new Point(630, 156);
             labelNombreMov1.Parent = pictureBoxMov1;
             labelNombreMov1.Size = new Size(120, 47);
-            labelNombreMov1.Location = new Point(50, 14);
+            labelNombreMov1.Location = new Point(50, 5);
             labelNombreMov2.Parent = pictureBoxMov2;
             labelNombreMov2.Size = new Size(120, 47);
-            labelNombreMov2.Location = new Point(50, 14);
+            labelNombreMov2.Location = new Point(50, 5);
             labelNombreMov3.Parent = pictureBoxMov3;
             labelNombreMov3.Size = new Size(120, 47);
-            labelNombreMov3.Location = new Point(50, 14);
+            labelNombreMov3.Location = new Point(50, 5);
             labelNombreMov4.Parent = pictureBoxMov4;
             labelNombreMov4.Size = new Size(120, 47);
-            labelNombreMov4.Location = new Point(50, 14);
+            labelNombreMov4.Location = new Point(50, 5);
             labelUsos1.Parent = pictureBoxMov1;
             labelUsos1.Size = new Size(50, 50);
             labelUsos1.Location = new Point(175, pictureBoxMov1.Height / 2 - labelUsos1.Height / 2);
@@ -182,6 +182,7 @@ namespace Pokemon
             P1.GetTurno().setActivo(true);
             P2.GetTurno().setActivo(true);
 
+            formInicio.reproducir(1);
         }
 
         public void llenarBolsas(jugador j1, jugador j2)
@@ -268,7 +269,7 @@ namespace Pokemon
             pictureBoxPKM2.Image = null;
             pictureBoxPKM2.Image = PKM.getImg()[0];
             pictureBoxPKM2.Size = new Size(pictureBoxPKM2.Image.Width * 2, pictureBoxPKM2.Image.Height * 2);
-            pictureBoxPKM2.Location = new Point(595 - pictureBoxPKM2.Width, 360 - pictureBoxPKM2.Height);
+            pictureBoxPKM2.Location = new Point(610 - pictureBoxPKM2.Width, 360 - pictureBoxPKM2.Height);
         }
 
         public void asignarImagenPKM1(pokemon PKM)
@@ -276,23 +277,51 @@ namespace Pokemon
             pictureBoxPKM1.Image = null;
             pictureBoxPKM1.Image = PKM.getImg()[1];
             pictureBoxPKM1.Size = new Size(pictureBoxPKM1.Image.Width * 2, pictureBoxPKM1.Image.Height * 2);
-            pictureBoxPKM1.Location = new Point(150, 400 - pictureBoxPKM1.Height);
+            pictureBoxPKM1.Location = new Point(310 - pictureBoxPKM1.Width, 400 - pictureBoxPKM1.Height);
         }
 
         public void actualizarMovimientos(pokemon PKM)
         {
-            tipo.asignarImagenTipo(PKM.getMovimientos()[0].getTipo(), pictureBoxMov1);
-            labelNombreMov1.Text = PKM.getMovimientos()[0].getNombre();
-            labelUsos1.Text = PKM.getMovimientos()[0].getUsos(1) + "/" + PKM.getMovimientos()[0].getUsos(0);
-            tipo.asignarImagenTipo(PKM.getMovimientos()[1].getTipo(), pictureBoxMov2);
-            labelNombreMov2.Text = PKM.getMovimientos()[1].getNombre();
-            labelUsos2.Text = PKM.getMovimientos()[1].getUsos(1) + "/" + PKM.getMovimientos()[1].getUsos(0);
-            tipo.asignarImagenTipo(PKM.getMovimientos()[2].getTipo(), pictureBoxMov3);
-            labelNombreMov3.Text = PKM.getMovimientos()[2].getNombre();
-            labelUsos3.Text = PKM.getMovimientos()[2].getUsos(1) + "/" + PKM.getMovimientos()[2].getUsos(0);
-            tipo.asignarImagenTipo(PKM.getMovimientos()[3].getTipo(), pictureBoxMov4);
-            labelNombreMov4.Text = PKM.getMovimientos()[3].getNombre();
-            labelUsos4.Text = PKM.getMovimientos()[3].getUsos(1) + "/" + PKM.getMovimientos()[3].getUsos(0);
+            if (PKM.getID() == 132)
+            {
+                pictureBoxMov1.Image = Properties.Resources.MovNormal;
+                labelNombreMov1.Text = "Transformar";
+                labelUsos1.Visible = false;
+                pictureBoxMov2.Visible = false;
+                labelNombreMov2.Visible = false;
+                labelUsos2.Visible = false;
+                pictureBoxMov3.Visible = false;
+                labelNombreMov3.Visible = false;
+                labelUsos3.Visible = false;
+                pictureBoxMov4.Visible = false;
+                labelNombreMov4.Visible = false;
+                labelUsos4.Visible = false;
+            }
+            else
+            {
+                tipo.asignarImagenTipo(PKM.getMovimientos()[0].getTipo(), pictureBoxMov1);
+                labelNombreMov1.Text = PKM.getMovimientos()[0].getNombre();
+                labelUsos1.Visible = true;
+                labelUsos1.Text = PKM.getMovimientos()[0].getUsos(1) + "/" + PKM.getMovimientos()[0].getUsos(0);
+                pictureBoxMov2.Visible = true;
+                tipo.asignarImagenTipo(PKM.getMovimientos()[1].getTipo(), pictureBoxMov2);
+                labelNombreMov2.Visible = true;
+                labelNombreMov2.Text = PKM.getMovimientos()[1].getNombre();
+                labelUsos2.Visible = true;
+                labelUsos2.Text = PKM.getMovimientos()[1].getUsos(1) + "/" + PKM.getMovimientos()[1].getUsos(0);
+                pictureBoxMov3.Visible = true;
+                tipo.asignarImagenTipo(PKM.getMovimientos()[2].getTipo(), pictureBoxMov3);
+                labelNombreMov3.Visible = true;
+                labelNombreMov3.Text = PKM.getMovimientos()[2].getNombre();
+                labelUsos3.Visible = true;
+                labelUsos3.Text = PKM.getMovimientos()[2].getUsos(1) + "/" + PKM.getMovimientos()[2].getUsos(0);
+                pictureBoxMov4.Visible = true;
+                tipo.asignarImagenTipo(PKM.getMovimientos()[3].getTipo(), pictureBoxMov4);
+                labelNombreMov4.Visible = true;
+                labelNombreMov4.Text = PKM.getMovimientos()[3].getNombre();
+                labelUsos4.Visible = true;
+                labelUsos4.Text = PKM.getMovimientos()[3].getUsos(1) + "/" + PKM.getMovimientos()[3].getUsos(0);
+            }
         }
 
         public void mostrarDescripcionMov(jugador P, int n)
@@ -411,8 +440,6 @@ namespace Pokemon
             labelNombreMov4Cambio.Visible = false;
             labelUsos4Cambio.Visible = false;
         }
-
-        
 
         public void actualizarInfo(pokemon PKM)
         {
@@ -572,28 +599,28 @@ namespace Pokemon
                     pictureBoxEffect.Image = Properties.Resources.veneno;
                     break;
                 case 11:
-                    pictureBoxEffect.Image = Properties.Resources.Normal; //CAMBIAR A TIERRA
+                    pictureBoxEffect.Image = Properties.Resources.tierra;
                     break;
                 case 12:
-                    pictureBoxEffect.Image = Properties.Resources.Normal; //CAMBIAR A ROCA
+                    pictureBoxEffect.Image = Properties.Resources.roca;
                     break;
                 case 13:
-                    pictureBoxEffect.Image = Properties.Resources.Normal; //CAMBIAR A HIELO
+                    pictureBoxEffect.Image = Properties.Resources.hielo;
                     break;
                 case 14:
-                    pictureBoxEffect.Image = Properties.Resources.Normal; //CAMBIAR A LUCHA
+                    pictureBoxEffect.Image = Properties.Resources.lucha;
                     break;
                 case 15:
-                    pictureBoxEffect.Image = Properties.Resources.Normal; //CAMBIAR A DRAGON
+                    pictureBoxEffect.Image = Properties.Resources.dragon;
                     break;
                 case 16:
                     pictureBoxEffect.Image = Properties.Resources.fantasma;
                     break;
                 case 17:
-                    pictureBoxEffect.Image = Properties.Resources.Normal; //CAMBIAR A ACERO
+                    pictureBoxEffect.Image = Properties.Resources.acero;
                     break;
                 case 18:
-                    pictureBoxEffect.Image = Properties.Resources.Normal; //CAMBIAR A HADA
+                    pictureBoxEffect.Image = Properties.Resources.hada;
                     break;
             }
 
@@ -857,7 +884,22 @@ namespace Pokemon
         {
             if (panelPKM1.Enabled && pictureBoxPKM1Cambio.Enabled && labelNombre1Cambio.Enabled && labelNivel1Cambio.Enabled && barraHPPKM1Cambio.Enabled && labelHP1Cambio.Enabled)
             {
-                actualizarMovimientosCambioPKM(jugadores.verInicio(), 0);
+                if (PKM1Muerto || PKM2Muerto)
+                {
+                    if (PKM1Muerto)
+                    {
+                        actualizarMovimientosCambioPKM(P1, 0);
+                    }
+
+                    if (PKM2Muerto)
+                    {
+                        actualizarMovimientosCambioPKM(P2, 0);
+                    }
+                }
+                else
+                {
+                    actualizarMovimientosCambioPKM(jugadores.verInicio(), 0);
+                }
             }
         }
 
@@ -890,7 +932,22 @@ namespace Pokemon
         {
             if (panelPKM2.Enabled && pictureBoxPKM2Cambio.Enabled && labelNombre2Cambio.Enabled && labelNivel2Cambio.Enabled && barraHPPKM2Cambio.Enabled && labelHP2Cambio.Enabled)
             {
-                actualizarMovimientosCambioPKM(jugadores.verInicio(), 1);
+                if (PKM1Muerto || PKM2Muerto)
+                {
+                    if (PKM1Muerto)
+                    {
+                        actualizarMovimientosCambioPKM(P1, 1);
+                    }
+
+                    if (PKM2Muerto)
+                    {
+                        actualizarMovimientosCambioPKM(P2, 1);
+                    }
+                }
+                else
+                {
+                    actualizarMovimientosCambioPKM(jugadores.verInicio(), 1);
+                }
             }
         }
 
@@ -898,7 +955,22 @@ namespace Pokemon
         {
             if (panelPKM3.Enabled && pictureBoxPKM3Cambio.Enabled && labelNombre3Cambio.Enabled && labelNivel3Cambio.Enabled && barraHPPKM3Cambio.Enabled && labelHP3Cambio.Enabled)
             {
-                actualizarMovimientosCambioPKM(jugadores.verInicio(), 2);
+                if (PKM1Muerto || PKM2Muerto)
+                {
+                    if (PKM1Muerto)
+                    {
+                        actualizarMovimientosCambioPKM(P1, 2);
+                    }
+
+                    if (PKM2Muerto)
+                    {
+                        actualizarMovimientosCambioPKM(P2, 2);
+                    }
+                }
+                else
+                {
+                    actualizarMovimientosCambioPKM(jugadores.verInicio(), 2);
+                }
             }
         }
 
@@ -906,7 +978,22 @@ namespace Pokemon
         {
             if (panelPKM4.Enabled && pictureBoxPKM4Cambio.Enabled && labelNombre4Cambio.Enabled && labelNivel4Cambio.Enabled && barraHPPKM4Cambio.Enabled && labelHP4Cambio.Enabled)
             {
-                actualizarMovimientosCambioPKM(jugadores.verInicio(), 3);
+                if (PKM1Muerto || PKM2Muerto)
+                {
+                    if (PKM1Muerto)
+                    {
+                        actualizarMovimientosCambioPKM(P1, 3);
+                    }
+
+                    if (PKM2Muerto)
+                    {
+                        actualizarMovimientosCambioPKM(P2, 3);
+                    }
+                }
+                else
+                {
+                    actualizarMovimientosCambioPKM(jugadores.verInicio(), 3);
+                }
             }
         }
 
@@ -914,7 +1001,22 @@ namespace Pokemon
         {
             if (panelPKM5.Enabled && pictureBoxPKM5Cambio.Enabled && labelNombre5Cambio.Enabled && labelNivel5Cambio.Enabled && barraHPPKM5Cambio.Enabled && labelHP5Cambio.Enabled)
             {
-                actualizarMovimientosCambioPKM(jugadores.verInicio(), 4);
+                if (PKM1Muerto || PKM2Muerto)
+                {
+                    if (PKM1Muerto)
+                    {
+                        actualizarMovimientosCambioPKM(P1, 4);
+                    }
+
+                    if (PKM2Muerto)
+                    {
+                        actualizarMovimientosCambioPKM(P2, 4);
+                    }
+                }
+                else
+                {
+                    actualizarMovimientosCambioPKM(jugadores.verInicio(), 4);
+                }
             }
         }
 
@@ -922,15 +1024,37 @@ namespace Pokemon
         {
             if (panelPKM6.Enabled && pictureBoxPKM6Cambio.Enabled && labelNombre6Cambio.Enabled && labelNivel6Cambio.Enabled && barraHPPKM6Cambio.Enabled && labelHP6Cambio.Enabled)
             {
-                actualizarMovimientosCambioPKM(jugadores.verInicio(), 5);
+                if (PKM1Muerto || PKM2Muerto)
+                {
+                    if (PKM1Muerto)
+                    {
+                        actualizarMovimientosCambioPKM(P1, 5);
+                    }
+
+                    if (PKM2Muerto)
+                    {
+                        actualizarMovimientosCambioPKM(P2, 5);
+                    }
+                }
+                else
+                {
+                    actualizarMovimientosCambioPKM(jugadores.verInicio(), 5);
+                }
             }
         }
 
         private void pictureBoxMov1_Click(object sender, EventArgs e)
         {
-            if (movPosible(0))
+            if (labelNombreMov1.Text.Equals("Transformar"))
             {
-                turnos(0);
+                turnos(19);
+            }
+            else
+            {
+                if (movPosible(0))
+                {
+                    turnos(0);
+                }
             }
         }
 
@@ -1095,6 +1219,7 @@ namespace Pokemon
                             {
                                 PKM2Muerto = false;
                             }
+                            pictureBoxXPKM.Enabled = true;
                             panelOpciones.Visible = true;
                         }
 
@@ -1135,10 +1260,6 @@ namespace Pokemon
 
                             labelNombreMov4Cambio.Visible = false;
                             labelUsos4Cambio.Visible = false;
-                        }
-                        else
-                        {
-                            pictureBoxXPKM.Enabled = true;
                         }
 
                         if (pokemon2.getHP(2) == 0)
@@ -1248,6 +1369,11 @@ namespace Pokemon
                     displayAnim(0, PB);
                     actualizarInfo(pokemon1);
                     actualizarInfo(pokemon2);
+                    break;
+                case 19:
+                    actualizarInfo(pokemon1);
+                    actualizarInfo(pokemon2);
+                    displayAnim(1, PB);
                     break;
             }
 

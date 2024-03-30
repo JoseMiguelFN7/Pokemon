@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Pokemon
 {
@@ -214,6 +216,63 @@ namespace Pokemon
                     aux = aux.getSiguiente();
                 }
                 return arrayPokemones;
+            }
+        }
+
+        public jugador[] getArrayJugadores()
+        { //para convertir la lista en una array
+            jugador[] arrayJugadores = new jugador[tamanio];
+            if (esVacia())
+            {
+                return null;
+            }
+            else
+            {
+                nodo aux = inicio;
+                for (int i = 0; i < tamanio; i++)
+                {
+                    arrayJugadores[i] = aux.getValorJugador();
+                    aux = aux.getSiguiente();
+                }
+                return arrayJugadores;
+            }
+        }
+
+        public lista randomizeJugadores(jugador[] j)
+        { //metodo que recibe un arreglo ordenado y retorna una lista con esos elementos en orden aleatorio.
+            ArrayList index = new ArrayList(); //ArrayList vacia que contendra los indices del arreglo ordenado.
+            for (int i = 0; i < j.Length; i++)
+            {
+                index.Add(i); //Agrega los indices de uno en uno hasta completar los que posee el arreglo.
+            }
+            int k = j.Length; //El valor inicial de k es la cantidad de elementos en el arreglo de cartas.
+            Random num = new Random(); //Num sera un entero generado de manera aleatoria en el rango especificado.
+            int a; //El valor de num sera almacenado aqui para usarlo en cada iteracion.
+            lista ranJug = new lista(); //Pila donde se almacenaran las cartas desordenadas.
+            do
+            {
+                a = num.Next(k); //numero entero aleatorio entre 0 y k-1.
+                ranJug.agregarJugadorAlFinal(j[(int)index[a]]); //agrega al tope de la pila el elemento del arreglo ordenado en la posicion dada por el indice seleccionado dentro de la ArrayList de manera aleatoria.
+                index.RemoveAt(a); //Elimina el indice selecionado del ArrayList para evitar que se repita.
+                k--; //El rango de valores disminuye en 1 para ajustarse al nuevo tamano del ArrayList.
+            } while (k > 0);
+            return ranJug; //Devuelve la pila de cartas ya desorganizada.
+        }
+
+        public void agregarListaEnAVL(AVL arbol)
+        {
+            if (esVacia())
+            {
+                return;
+            }
+            else
+            {
+                nodo aux = inicio;
+                while (aux != null)
+                {
+                    arbol.insertarJugador(aux.getValorJugador());
+                    aux = aux.getSiguiente();
+                }
             }
         }
     }

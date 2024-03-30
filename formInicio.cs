@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
@@ -140,6 +141,35 @@ namespace Pokemon
             formMenu.Visible = true;
             this.Hide();
             videoIntro.settings.mute = true;
+        }
+        public static void reproducir(int i)
+        {
+            string ruta;
+            SoundPlayer bgMusic;
+            SoundPlayer soundEffect;
+            switch (i)
+            {
+                case 0:
+                    ruta = Path.Combine(Application.StartupPath, "audio\\MainTheme.wav");
+                    break;
+                case 1:
+                    ruta = Path.Combine(Application.StartupPath, "audio\\BattleTheme.wav");
+                    break;
+                default:
+                    ruta = string.Empty;
+                    break;
+            }
+            
+            if (i == 0 || i == 1)
+            {
+                bgMusic = new SoundPlayer(ruta);
+                bgMusic.PlayLooping();
+            }
+            else
+            {
+                soundEffect = new SoundPlayer(ruta);
+                soundEffect.Play();
+            }
         }
     }
 }
