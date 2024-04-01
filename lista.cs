@@ -275,5 +275,21 @@ namespace Pokemon
                 }
             }
         }
+
+        public IEnumerator GetEnumerator()
+        {
+            nodo nodoActual = inicio; // Usar el campo 'inicio' en lugar de 'primerNodo'
+            while (nodoActual != null)
+            {
+                yield return nodoActual.getValorPokemon();
+                nodoActual = nodoActual.getSiguiente();
+            }
+        }
+
+        public void limpiarLista()
+        {
+            inicio = null;
+            tamanio = 0;
+        }
     }
 }

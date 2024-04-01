@@ -83,6 +83,12 @@
     <Compile Include="formMenuPrincipal.Designer.cs">
       <DependentUpon>formMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="formSeleccionarEquipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formSeleccionarEquipo.Designer.cs">
+      <DependentUpon>formSeleccionarEquipo.cs</DependentUpon>
+    </Compile>
     <Compile Include="hiperPocion.cs" />
     <Compile Include="jugador.cs" />
     <Compile Include="lista.cs" />
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formMenuPrincipal.resx">
       <DependentUpon>formMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formSeleccionarEquipo.resx">
+      <DependentUpon>formSeleccionarEquipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -1763,6 +1772,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\torneoform4jugadores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Caja_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

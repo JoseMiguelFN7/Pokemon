@@ -40,12 +40,18 @@
             this.labelENT1 = new System.Windows.Forms.Label();
             this.labelENT2 = new System.Windows.Forms.Label();
             this.botonconfirmar = new System.Windows.Forms.Button();
+            this.groupBoxerror = new System.Windows.Forms.GroupBox();
+            this.pictureequis = new System.Windows.Forms.PictureBox();
+            this.botonsalirerror = new System.Windows.Forms.Button();
+            this.texto1 = new System.Windows.Forms.Label();
             this.buttonVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.fondoprincipalent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureentrenador1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureentrenadora2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturepokemon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturepok1)).BeginInit();
+            this.groupBoxerror.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureequis)).BeginInit();
             this.SuspendLayout();
             // 
             // fondoprincipalent
@@ -171,22 +177,70 @@
             this.botonconfirmar.Location = new System.Drawing.Point(443, 382);
             this.botonconfirmar.Margin = new System.Windows.Forms.Padding(4);
             this.botonconfirmar.Name = "botonconfirmar";
-            this.botonconfirmar.Size = new System.Drawing.Size(137, 40);
+            this.botonconfirmar.Size = new System.Drawing.Size(137, 28);
             this.botonconfirmar.TabIndex = 11;
             this.botonconfirmar.Text = "CONFIRMAR";
             this.botonconfirmar.UseVisualStyleBackColor = false;
             this.botonconfirmar.Click += new System.EventHandler(this.botonconfirmar_Click);
+            // 
+            // groupBoxerror
+            // 
+            this.groupBoxerror.BackColor = System.Drawing.Color.LightBlue;
+            this.groupBoxerror.Controls.Add(this.pictureequis);
+            this.groupBoxerror.Controls.Add(this.botonsalirerror);
+            this.groupBoxerror.Controls.Add(this.texto1);
+            this.groupBoxerror.Location = new System.Drawing.Point(380, 201);
+            this.groupBoxerror.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxerror.Name = "groupBoxerror";
+            this.groupBoxerror.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxerror.Size = new System.Drawing.Size(320, 154);
+            this.groupBoxerror.TabIndex = 15;
+            this.groupBoxerror.TabStop = false;
+            // 
+            // pictureequis
+            // 
+            this.pictureequis.Image = global::Pokemon.Properties.Resources.botonequis;
+            this.pictureequis.Location = new System.Drawing.Point(0, 47);
+            this.pictureequis.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureequis.Name = "pictureequis";
+            this.pictureequis.Size = new System.Drawing.Size(33, 32);
+            this.pictureequis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureequis.TabIndex = 2;
+            this.pictureequis.TabStop = false;
+            // 
+            // botonsalirerror
+            // 
+            this.botonsalirerror.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonsalirerror.Location = new System.Drawing.Point(109, 112);
+            this.botonsalirerror.Margin = new System.Windows.Forms.Padding(4);
+            this.botonsalirerror.Name = "botonsalirerror";
+            this.botonsalirerror.Size = new System.Drawing.Size(100, 28);
+            this.botonsalirerror.TabIndex = 1;
+            this.botonsalirerror.Text = "Aceptar";
+            this.botonsalirerror.UseVisualStyleBackColor = true;
+            this.botonsalirerror.Click += new System.EventHandler(this.botonsalirerror_Click);
+            // 
+            // texto1
+            // 
+            this.texto1.AutoSize = true;
+            this.texto1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.texto1.Location = new System.Drawing.Point(39, 59);
+            this.texto1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.texto1.Name = "texto1";
+            this.texto1.Size = new System.Drawing.Size(237, 20);
+            this.texto1.TabIndex = 0;
+            this.texto1.Text = "Ingrese caracteres validos.";
             // 
             // buttonVolver
             // 
             this.buttonVolver.BackColor = System.Drawing.Color.Transparent;
             this.buttonVolver.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonVolver.ForeColor = System.Drawing.Color.Navy;
-            this.buttonVolver.Location = new System.Drawing.Point(443, 441);
+            this.buttonVolver.Location = new System.Drawing.Point(443, 433);
             this.buttonVolver.Margin = new System.Windows.Forms.Padding(4);
             this.buttonVolver.Name = "buttonVolver";
-            this.buttonVolver.Size = new System.Drawing.Size(137, 68);
-            this.buttonVolver.TabIndex = 12;
+            this.buttonVolver.Size = new System.Drawing.Size(137, 63);
+            this.buttonVolver.TabIndex = 16;
             this.buttonVolver.Text = "VOLVER AL MENU";
             this.buttonVolver.UseVisualStyleBackColor = false;
             this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
@@ -197,6 +251,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1080, 554);
             this.Controls.Add(this.buttonVolver);
+            this.Controls.Add(this.groupBoxerror);
             this.Controls.Add(this.botonconfirmar);
             this.Controls.Add(this.labelENT2);
             this.Controls.Add(this.labelENT1);
@@ -214,13 +269,16 @@
             this.MaximizeBox = false;
             this.Name = "formEntrenadores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ingresar informacion de jugadores";
+            this.Text = "Ingrese los nombres de los entrenadores";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formEntrenadores_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.fondoprincipalent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureentrenador1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureentrenadora2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturepokemon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturepok1)).EndInit();
+            this.groupBoxerror.ResumeLayout(false);
+            this.groupBoxerror.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureequis)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,6 +297,10 @@
         private System.Windows.Forms.Label labelENT1;
         private System.Windows.Forms.Label labelENT2;
         private System.Windows.Forms.Button botonconfirmar;
+        private System.Windows.Forms.GroupBox groupBoxerror;
+        private System.Windows.Forms.PictureBox pictureequis;
+        private System.Windows.Forms.Button botonsalirerror;
+        private System.Windows.Forms.Label texto1;
         private System.Windows.Forms.Button buttonVolver;
     }
 }

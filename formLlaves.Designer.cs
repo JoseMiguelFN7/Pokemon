@@ -44,7 +44,12 @@
             this.clasificado_bracket2 = new System.Windows.Forms.Label();
             this.jugador3 = new System.Windows.Forms.Label();
             this.jugador4 = new System.Windows.Forms.Label();
+            this.buttonCombateSiguiente = new System.Windows.Forms.Button();
+            this.panelSiguienteCombate = new System.Windows.Forms.TableLayoutPanel();
+            this.labelSiguienteCombate = new System.Windows.Forms.Label();
+            this.labelGanador = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fondo)).BeginInit();
+            this.panelSiguienteCombate.SuspendLayout();
             this.SuspendLayout();
             // 
             // fondo
@@ -212,11 +217,62 @@
             this.jugador4.TabIndex = 14;
             this.jugador4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // buttonCombateSiguiente
+            // 
+            this.buttonCombateSiguiente.Location = new System.Drawing.Point(491, 535);
+            this.buttonCombateSiguiente.Name = "buttonCombateSiguiente";
+            this.buttonCombateSiguiente.Size = new System.Drawing.Size(192, 43);
+            this.buttonCombateSiguiente.TabIndex = 15;
+            this.buttonCombateSiguiente.Text = "EMPEZAR";
+            this.buttonCombateSiguiente.UseVisualStyleBackColor = true;
+            this.buttonCombateSiguiente.Click += new System.EventHandler(this.buttonCombateSiguiente_Click);
+            // 
+            // panelSiguienteCombate
+            // 
+            this.panelSiguienteCombate.BackColor = System.Drawing.Color.Orange;
+            this.panelSiguienteCombate.ColumnCount = 1;
+            this.panelSiguienteCombate.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelSiguienteCombate.Controls.Add(this.labelSiguienteCombate, 0, 0);
+            this.panelSiguienteCombate.Location = new System.Drawing.Point(491, 415);
+            this.panelSiguienteCombate.Name = "panelSiguienteCombate";
+            this.panelSiguienteCombate.Padding = new System.Windows.Forms.Padding(5);
+            this.panelSiguienteCombate.RowCount = 1;
+            this.panelSiguienteCombate.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelSiguienteCombate.Size = new System.Drawing.Size(200, 100);
+            this.panelSiguienteCombate.TabIndex = 16;
+            // 
+            // labelSiguienteCombate
+            // 
+            this.labelSiguienteCombate.AutoSize = true;
+            this.labelSiguienteCombate.BackColor = System.Drawing.Color.Gold;
+            this.labelSiguienteCombate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelSiguienteCombate.Location = new System.Drawing.Point(5, 5);
+            this.labelSiguienteCombate.Margin = new System.Windows.Forms.Padding(0);
+            this.labelSiguienteCombate.Name = "labelSiguienteCombate";
+            this.labelSiguienteCombate.Size = new System.Drawing.Size(190, 90);
+            this.labelSiguienteCombate.TabIndex = 0;
+            this.labelSiguienteCombate.Text = "Siguiente combate:";
+            this.labelSiguienteCombate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelGanador
+            // 
+            this.labelGanador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.labelGanador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelGanador.Location = new System.Drawing.Point(542, 180);
+            this.labelGanador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelGanador.Name = "labelGanador";
+            this.labelGanador.Size = new System.Drawing.Size(100, 28);
+            this.labelGanador.TabIndex = 17;
+            this.labelGanador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // formLlaves
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 614);
+            this.Controls.Add(this.labelGanador);
+            this.Controls.Add(this.panelSiguienteCombate);
+            this.Controls.Add(this.buttonCombateSiguiente);
             this.Controls.Add(this.jugador4);
             this.Controls.Add(this.jugador3);
             this.Controls.Add(this.clasificado_bracket2);
@@ -237,7 +293,11 @@
             this.Name = "formLlaves";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clasificados del torneo pokemon!";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formLlaves_FormClosing);
+            this.VisibleChanged += new System.EventHandler(this.formLlaves_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.fondo)).EndInit();
+            this.panelSiguienteCombate.ResumeLayout(false);
+            this.panelSiguienteCombate.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -259,5 +319,9 @@
         private System.Windows.Forms.Label clasificado_bracket2;
         private System.Windows.Forms.Label jugador3;
         private System.Windows.Forms.Label jugador4;
+        private System.Windows.Forms.Button buttonCombateSiguiente;
+        private System.Windows.Forms.TableLayoutPanel panelSiguienteCombate;
+        private System.Windows.Forms.Label labelSiguienteCombate;
+        private System.Windows.Forms.Label labelGanador;
     }
 }

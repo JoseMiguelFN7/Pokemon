@@ -15,7 +15,7 @@ namespace Pokemon
     {
         public static formEntrenadores entrenadores;
         public static formElegirTorneo torneo;
-        bool exitForm = false;
+        public static bool exitForm = false;
 
         public formMenuPrincipal()
         {
@@ -63,7 +63,7 @@ namespace Pokemon
         private void labpartida_Click(object sender, EventArgs e)
         {
             entrenadores = new formEntrenadores();
-            entrenadores.menuPrincipal = this;
+            formEntrenadores.menuPrincipal = this;
             entrenadores.Visible = true;
             this.Hide();
         }
@@ -81,7 +81,7 @@ namespace Pokemon
         private void labeltorneo_Click(object sender, EventArgs e)
         {
             torneo = new formElegirTorneo();
-            torneo.menuPrincipal = this;
+            formElegirTorneo.menuPrincipal = this;
             torneo.Visible = true;
             this.Hide();
         }

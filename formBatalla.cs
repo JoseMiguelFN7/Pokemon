@@ -15,6 +15,7 @@ namespace Pokemon
 {
     public partial class formBatalla : Form
     {
+        public static formLlaves FLL;
         bool PKM1Muerto = false;
         bool PKM2Muerto = false;
         public static jugador ganador;
@@ -33,32 +34,20 @@ namespace Pokemon
 
         public formBatalla()
         {
-            pokemon[] ppp1 = new pokemon[6];
-            ppp1[0] = formInicio.arrPKM[131].crearCopiaPKM();
-            ppp1[1] = formInicio.arrPKM[1].crearCopiaPKM();
-            ppp1[2] = formInicio.arrPKM[2].crearCopiaPKM();
-            ppp1[3] = formInicio.arrPKM[3].crearCopiaPKM();
-            ppp1[4] = formInicio.arrPKM[4].crearCopiaPKM();
-            ppp1[5] = formInicio.arrPKM[5].crearCopiaPKM();
-            pokemon[] ppp2 = new pokemon[6];
-            ppp2[0] = formInicio.arrPKM[6].crearCopiaPKM();
-            ppp2[1] = formInicio.arrPKM[7].crearCopiaPKM();
-            ppp2[2] = formInicio.arrPKM[8].crearCopiaPKM();
-            ppp2[3] = formInicio.arrPKM[9].crearCopiaPKM();
-            ppp2[4] = formInicio.arrPKM[10].crearCopiaPKM();
-            ppp2[5] = formInicio.arrPKM[5].crearCopiaPKM();
 
-            P1 = new jugador(1, "Jose", 3, 2, 1);
-            P2 = new jugador(2, "Martina", 3, 2, 1);
-            P1.setPokemones(ppp1);
-            P2.setPokemones(ppp2);
+            jugadores = FormSeleccionarEquipo.colaEntrenadores;
+
+            P1 = jugadores.sacarJugadorDeLaCola();
+            jugadores.agregarJugadorEnCola(P1);
+            P2 = jugadores.sacarJugadorDeLaCola();
+            jugadores.agregarJugadorEnCola(P2);
+
+            Console.WriteLine(FormSeleccionarEquipo.colaEntrenadores.getTamanio());
+
             llenarBolsas(P1, P2);
 
             pokemon1 = P1.getPokemones()[0];
             pokemon2 = P2.getPokemones()[0];
-
-            jugadores.agregarJugadorEnCola(P1);
-            jugadores.agregarJugadorEnCola(P2);
 
             //{ Width = 889, Height = 500}
             //{ Width = 1111, Height = 594}
@@ -1174,6 +1163,7 @@ namespace Pokemon
                             if (PKM1Muerto)
                             {
                                 pictureBoxPKM1.Visible = true;
+                                actualizarMovimientos(pokemon1);
                             }
                             else
                             {
@@ -1241,82 +1231,84 @@ namespace Pokemon
                         count = 0;
                         timer.Stop();
 
-                        finalizar();
 
-                        if ((pokemon2.getHP(2) == 0) || (pokemon1.getHP(2) == 0))
+                        if (!finalizar())
                         {
-                            pictureBoxXPKM.Enabled = false;
-
-                            tableLayoutPanel12.Visible = false;
-
-                            labelNombreMov1Cambio.Visible = false;
-                            labelUsos1Cambio.Visible = false;
-
-                            labelNombreMov2Cambio.Visible = false;
-                            labelUsos2Cambio.Visible = false;
-
-                            labelNombreMov3Cambio.Visible = false;
-                            labelUsos3Cambio.Visible = false;
-
-                            labelNombreMov4Cambio.Visible = false;
-                            labelUsos4Cambio.Visible = false;
-                        }
-
-                        if (pokemon2.getHP(2) == 0)
-                        {
-                            PKM2Muerto = true;
-                            P2.GetTurno().setActivo(true);
-                            actualizarInfoCambios(P2);
-                            panelOpciones.Visible = false;
-                            panelCambioPKM.Visible = true;
-                        }
-
-                        if (pokemon1.getHP(2) == 0)
-                        {
-                            PKM1Muerto = true;
-                            P1.GetTurno().setActivo(true);
-                            actualizarInfoCambios(P1);
-                            panelOpciones.Visible = false;
-                            panelCambioPKM.Visible = true;
-                        }
-
-                        if (!PKM1Muerto && !PKM2Muerto)
-                        {
-                            if (!P1.GetTurno().estaActivo())
+                            if ((pokemon2.getHP(2) == 0) || (pokemon1.getHP(2) == 0))
                             {
-                                if (!segundoRealizado)
+                                pictureBoxXPKM.Enabled = false;
+
+                                tableLayoutPanel12.Visible = false;
+
+                                labelNombreMov1Cambio.Visible = false;
+                                labelUsos1Cambio.Visible = false;
+
+                                labelNombreMov2Cambio.Visible = false;
+                                labelUsos2Cambio.Visible = false;
+
+                                labelNombreMov3Cambio.Visible = false;
+                                labelUsos3Cambio.Visible = false;
+
+                                labelNombreMov4Cambio.Visible = false;
+                                labelUsos4Cambio.Visible = false;
+                            }
+
+                            if (pokemon2.getHP(2) == 0)
+                            {
+                                PKM2Muerto = true;
+                                P2.GetTurno().setActivo(true);
+                                actualizarInfoCambios(P2);
+                                panelOpciones.Visible = false;
+                                panelCambioPKM.Visible = true;
+                            }
+
+                            if (pokemon1.getHP(2) == 0)
+                            {
+                                PKM1Muerto = true;
+                                P1.GetTurno().setActivo(true);
+                                actualizarInfoCambios(P1);
+                                panelOpciones.Visible = false;
+                                panelCambioPKM.Visible = true;
+                            }
+
+                            if (!PKM1Muerto && !PKM2Muerto)
+                            {
+                                if (!P1.GetTurno().estaActivo())
                                 {
-                                    segundoRealizado = true;
+                                    if (!segundoRealizado)
+                                    {
+                                        segundoRealizado = true;
+                                    }
+                                    accion(P1, P1.GetTurno().getAccion(), pictureBoxPKM1, pictureBoxPKM2);
+                                    return;
                                 }
-                                accion(P1, P1.GetTurno().getAccion(), pictureBoxPKM1, pictureBoxPKM2);
-                                return;
-                            }
-                            if (!P2.GetTurno().estaActivo())
-                            {
-                                if (!segundoRealizado)
+                                if (!P2.GetTurno().estaActivo())
                                 {
-                                    segundoRealizado = true;
+                                    if (!segundoRealizado)
+                                    {
+                                        segundoRealizado = true;
+                                    }
+                                    accion(P2, P2.GetTurno().getAccion(), pictureBoxPKM2, pictureBoxPKM1);
+                                    return;
                                 }
-                                accion(P2, P2.GetTurno().getAccion(), pictureBoxPKM2, pictureBoxPKM1);
-                                return;
-                            }
 
-                            if (segundoRealizado)
-                            {
-                                panelOpciones.Visible = true;
+                                if (segundoRealizado)
+                                {
+                                    panelOpciones.Visible = true;
+                                }
                             }
-                        }
-                        else
-                        {
-                            if (PKM1Muerto)
+                            else
                             {
-                                actualizarInfo(pokemon1);
-                                pictureBoxPKM1.Visible = true;
-                            }
-                            if (PKM2Muerto)
-                            {
-                                actualizarInfo(pokemon2);
-                                pictureBoxPKM2.Visible = true;
+                                if (PKM1Muerto)
+                                {
+                                    actualizarInfo(pokemon1);
+                                    pictureBoxPKM1.Visible = true;
+                                }
+                                if (PKM2Muerto)
+                                {
+                                    actualizarInfo(pokemon2);
+                                    pictureBoxPKM2.Visible = true;
+                                }
                             }
                         }
                         break;
@@ -1387,7 +1379,7 @@ namespace Pokemon
             }
         }
 
-        public void finalizar()
+        public bool finalizar()
         {
             if (!P1.quedaPKMVivo())
             {
@@ -1403,6 +1395,11 @@ namespace Pokemon
             {
                 panelGanador.Visible = true;
                 labelGanador.Text = "¡Felicidades " + ganador.getNombre() + ", ganaste el combate!";
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -1416,6 +1413,24 @@ namespace Pokemon
 
         private void buttonGanador_Click(object sender, EventArgs e)
         {
+            P1.setPJugadas(P1.getPJugadas() + 1);
+            P2.setPJugadas(P2.getPJugadas() + 1);
+            ganador.setPGanadas(ganador.getPGanadas() + 1);
+            if (FormSeleccionarEquipo.torneo)
+            {
+                ganador.setTGanados(ganador.getTGanados() + 1);
+                FLL.batallaActual.setValorJugador(ganador);
+                FLL.Visible = true;
+            }
+            else
+            {
+                P1.setPokemones(new pokemon[6]);
+                P2.setPokemones(new pokemon[6]);
+                formMenuPrincipal FMP = new formMenuPrincipal();
+                FMP.Visible = true;
+            }
+            jugadores.sacarJugadorDeLaCola();
+            jugadores.sacarJugadorDeLaCola();
             exitForm = true;
             this.Close();
         }

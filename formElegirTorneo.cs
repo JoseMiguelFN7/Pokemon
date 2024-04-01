@@ -15,7 +15,7 @@ namespace Pokemon
     {
         bool exitForm = false;
         public static lista listaJtorneo = new lista();
-        public formMenuPrincipal menuPrincipal;
+        public static formMenuPrincipal menuPrincipal;
 
         public formElegirTorneo()
         {

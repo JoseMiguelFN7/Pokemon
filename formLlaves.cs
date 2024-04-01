@@ -12,8 +12,10 @@ namespace Pokemon
 {
     public partial class formLlaves : Form
     {
+        bool exitForm = false;
         AVL llaves = new AVL();
-
+        public static cola rivales = new cola();
+        public nodo batallaActual = new nodo();
         public formLlaves()
         {
             jugador[] vacios = new jugador[7];
@@ -135,18 +137,142 @@ namespace Pokemon
                     Console.WriteLine(llaves.getRaiz().getIzq().getIzq().getIzq().getValorJugador().getID());   //8*/
                     break;
             }
+
+            
         }
 
         public void actualizarBrackets()
         {
-            jugador1.Text = llaves.getRaiz().getDer().getDer().getDer().getValorJugador().getNombre();
-            jugador2.Text = llaves.getRaiz().getDer().getDer().getIzq().getValorJugador().getNombre();
-            jugador3.Text = llaves.getRaiz().getDer().getIzq().getDer().getValorJugador().getNombre();
-            jugador4.Text = llaves.getRaiz().getDer().getIzq().getIzq().getValorJugador().getNombre();
-            jugador5.Text = llaves.getRaiz().getIzq().getDer().getDer().getValorJugador().getNombre();
-            jugador6.Text = llaves.getRaiz().getIzq().getDer().getIzq().getValorJugador().getNombre();
-            jugador7.Text = llaves.getRaiz().getIzq().getIzq().getDer().getValorJugador().getNombre();
-            jugador8.Text = llaves.getRaiz().getIzq().getIzq().getIzq().getValorJugador().getNombre();
+            if (formElegirTorneo.listaJtorneo.getTamanio() >= 2)
+            {
+                Clasificado_final1.Text = llaves.getRaiz().getDer().getValorJugador().getNombre();
+                Clasificado_final2.Text = llaves.getRaiz().getIzq().getValorJugador().getNombre();
+            }
+
+            if (formElegirTorneo.listaJtorneo.getTamanio() >= 4)
+            {
+                clasificado_bracket1.Text = llaves.getRaiz().getDer().getDer().getValorJugador().getNombre();
+                clasificado_bracket2.Text = llaves.getRaiz().getDer().getIzq().getValorJugador().getNombre();
+                clasificado_bracket3.Text = llaves.getRaiz().getIzq().getDer().getValorJugador().getNombre();
+                clasificado_bracket4.Text = llaves.getRaiz().getIzq().getIzq().getValorJugador().getNombre();
+            }
+
+            if (formElegirTorneo.listaJtorneo.getTamanio() == 8)
+            {
+                jugador1.Text = llaves.getRaiz().getDer().getDer().getDer().getValorJugador().getNombre();
+                jugador2.Text = llaves.getRaiz().getDer().getDer().getIzq().getValorJugador().getNombre();
+                jugador3.Text = llaves.getRaiz().getDer().getIzq().getDer().getValorJugador().getNombre();
+                jugador4.Text = llaves.getRaiz().getDer().getIzq().getIzq().getValorJugador().getNombre();
+                jugador5.Text = llaves.getRaiz().getIzq().getDer().getDer().getValorJugador().getNombre();
+                jugador6.Text = llaves.getRaiz().getIzq().getDer().getIzq().getValorJugador().getNombre();
+                jugador7.Text = llaves.getRaiz().getIzq().getIzq().getDer().getValorJugador().getNombre();
+                jugador8.Text = llaves.getRaiz().getIzq().getIzq().getIzq().getValorJugador().getNombre();
+            }
+        }
+
+        public cola proximoCombate()
+        {
+            cola proximoCombate = new cola();
+
+            if (jugador1.Text != "" && jugador2.Text != "" && clasificado_bracket1.Text == "")
+            {
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getDer().getDer().getDer().getValorJugador());
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getDer().getDer().getIzq().getValorJugador());
+                labelSiguienteCombate.Text = "Siguiente combate:\n" + llaves.getRaiz().getDer().getDer().getDer().getValorJugador().getNombre() + " vs " + llaves.getRaiz().getDer().getDer().getIzq().getValorJugador().getNombre();
+                batallaActual = llaves.getRaiz().getDer().getDer();
+                return proximoCombate;
+            }
+
+            if (jugador3.Text != "" && jugador4.Text != "" && clasificado_bracket2.Text == "")
+            {
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getDer().getIzq().getDer().getValorJugador());
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getDer().getIzq().getIzq().getValorJugador());
+                labelSiguienteCombate.Text = "Siguiente combate:\n" + llaves.getRaiz().getDer().getIzq().getDer().getValorJugador().getNombre() + " vs " + llaves.getRaiz().getDer().getIzq().getIzq().getValorJugador().getNombre();
+                batallaActual = llaves.getRaiz().getDer().getIzq();
+                return proximoCombate;
+            }
+
+            if (jugador5.Text != "" && jugador6.Text != "" && clasificado_bracket3.Text == "")
+            {
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getIzq().getDer().getDer().getValorJugador());
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getIzq().getDer().getIzq().getValorJugador());
+                labelSiguienteCombate.Text = "Siguiente combate:\n" + llaves.getRaiz().getIzq().getDer().getDer().getValorJugador().getNombre() + " vs " + llaves.getRaiz().getIzq().getDer().getIzq().getValorJugador().getNombre();
+                batallaActual = llaves.getRaiz().getIzq().getDer();
+                return proximoCombate;
+            }
+
+            if (jugador7.Text != "" && jugador8.Text != "" && clasificado_bracket4.Text == "")
+            {
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getIzq().getIzq().getDer().getValorJugador());
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getIzq().getIzq().getIzq().getValorJugador());
+                labelSiguienteCombate.Text = "Siguiente combate:\n" + llaves.getRaiz().getIzq().getIzq().getDer().getValorJugador().getNombre() + " vs " + llaves.getRaiz().getIzq().getIzq().getIzq().getValorJugador().getNombre();
+                batallaActual = llaves.getRaiz().getIzq().getIzq();
+                return proximoCombate;
+            }
+
+            if (clasificado_bracket1.Text != "" && clasificado_bracket2.Text != "" && Clasificado_final1.Text == "")
+            {
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getDer().getDer().getValorJugador());
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getDer().getIzq().getValorJugador());
+                labelSiguienteCombate.Text = "Siguiente combate:\n" + llaves.getRaiz().getDer().getDer().getValorJugador().getNombre() + " vs " + llaves.getRaiz().getDer().getIzq().getValorJugador().getNombre();
+                batallaActual = llaves.getRaiz().getDer();
+                return proximoCombate;
+            }
+
+            if (clasificado_bracket3.Text != "" && clasificado_bracket4.Text != "" && Clasificado_final2.Text == "")
+            {
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getIzq().getDer().getValorJugador());
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getIzq().getIzq().getValorJugador());
+                labelSiguienteCombate.Text = "Siguiente combate:\n" + llaves.getRaiz().getIzq().getDer().getValorJugador().getNombre() + " vs " + llaves.getRaiz().getIzq().getIzq().getValorJugador().getNombre();
+                batallaActual = llaves.getRaiz().getIzq();
+                return proximoCombate;
+            }
+
+            if (Clasificado_final1.Text != "" && Clasificado_final2.Text != "")
+            {
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getDer().getValorJugador());
+                proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getIzq().getValorJugador());
+                labelSiguienteCombate.Text = "Siguiente combate:\n" + llaves.getRaiz().getDer().getValorJugador().getNombre() + " vs " + llaves.getRaiz().getIzq().getValorJugador().getNombre();
+                batallaActual = llaves.getRaiz();
+                return proximoCombate;
+            }
+
+            labelSiguienteCombate.Text = "El ganador es:\n" + llaves.getRaiz().getValorJugador().getNombre();    //agregar label ganador
+            buttonCombateSiguiente.Text = "SALIR AL MENU";
+            return null;
+        }
+
+        private void formLlaves_VisibleChanged(object sender, EventArgs e)
+        {
+            actualizarBrackets();
+            rivales = proximoCombate();
+        }
+
+        private void buttonCombateSiguiente_Click(object sender, EventArgs e)
+        {
+            if (rivales != null)
+            {
+                formBatalla.FLL = this;
+                FormSeleccionarEquipo.torneo = true;
+                FormSeleccionarEquipo FSE = new FormSeleccionarEquipo();
+                FSE.Visible = true;
+                this.Visible = false;
+            }
+            else
+            {
+                exitForm = true;
+                formMenuPrincipal FMP = new formMenuPrincipal();
+                FMP.Visible = true;
+                this.Close();
+            }
+        }
+
+        private void formLlaves_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!exitForm)
+            {
+                Application.Exit();
+            }
         }
     }
 }

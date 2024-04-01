@@ -6,8 +6,8 @@ namespace Pokemon
 {
     public partial class formEntrenadores : Form
     {
-        public formMenuPrincipal menuPrincipal;
-        private cola colaEntrenadores = new cola();
+        public static formMenuPrincipal menuPrincipal;
+        public static cola colaEntrenadores = new cola();
         bool exitForm = false;
 
         public formEntrenadores()
@@ -20,7 +20,7 @@ namespace Pokemon
             labelclub.Parent = fondoprincipalent;
             labelENT1.Parent = fondoprincipalent;
             labelENT2.Parent = fondoprincipalent;
-
+            groupBoxerror.Visible = false;
         }
 
         private bool ValidarNombre(string nombre)
@@ -30,24 +30,24 @@ namespace Pokemon
 
         private void botonconfirmar_Click(object sender, EventArgs e)
         {            
-            String Entrenador1 = textBoxnombre1.Text;
-            String Entrenador2 = textBoxnombre2.Text;
+            string Entrenador1 = textBoxnombre1.Text;
+            string Entrenador2 = textBoxnombre2.Text;
 
             if (string.IsNullOrWhiteSpace(Entrenador1)) 
             {
-                MessageBox.Show("¡Ingrese un nombre valido para entrenador 1!");
+                groupBoxerror.Visible = true;
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(Entrenador2))
             {
-                MessageBox.Show("¡Ingrese un nombre valido para entrenador 2!");
+                groupBoxerror.Visible = true;
                 return;
             }
 
             if (!ValidarNombre(Entrenador1) || !ValidarNombre(Entrenador2))
             {
-                MessageBox.Show("Por favor ingrese un nombre válido (solo letras).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                groupBoxerror.Visible = true;
                 return;
             }
 
@@ -57,9 +57,16 @@ namespace Pokemon
             colaEntrenadores.agregarJugadorEnCola(E1);
             colaEntrenadores.agregarJugadorEnCola(E2);
 
-            formBatalla batallas = new formBatalla();
-            batallas.Visible = true;
-            this.Visible = false;
+            exitForm = true;
+            FormSeleccionarEquipo.torneo = false;
+            FormSeleccionarEquipo FSE = new FormSeleccionarEquipo();
+            FSE.Visible = true;
+            this.Close();
+        }
+
+        private void botonsalirerror_Click(object sender, EventArgs e)
+        {
+            groupBoxerror.Visible = false;
         }
 
         private void formEntrenadores_FormClosing(object sender, FormClosingEventArgs e)
