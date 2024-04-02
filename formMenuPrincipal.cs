@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,10 @@ namespace Pokemon
 
         public formMenuPrincipal()
         {
+            formBatalla.ganador = null;
+
+            actualizarArchivoJugadores();
+
             InitializeComponent();         
             titulo.Parent = fondoprincipal;                   
             salir.Parent = fondoprincipal;
@@ -27,6 +32,13 @@ namespace Pokemon
             picpokemon.Parent = fondoprincipal;
 
             formInicio.reproducir(0);
+        }
+
+        public void actualizarArchivoJugadores()
+        {
+            string ruta = Path.Combine(Application.StartupPath, "Archivostxt\\Jugadores.txt");
+            string texto = formInicio.jugadores.obtenerStringJugadores();
+            archivo.escribirArchivo(texto, ruta); //Sobreescribe archivo
         }
 
         private void labelpartida_MouseEnter(object sender, EventArgs e)
@@ -88,6 +100,7 @@ namespace Pokemon
 
         private void salir_Click(object sender, EventArgs e)
         {
+            exitForm = false;
             this.Close();
         }
 

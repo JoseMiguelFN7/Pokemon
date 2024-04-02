@@ -26,6 +26,7 @@ namespace Pokemon
 
         public formInicio()
         {
+            leerJugadores();
             leerTipos();
             leerMovimientos();
             leerPokemon();
@@ -101,13 +102,16 @@ namespace Pokemon
             string ruta = Path.Combine(Application.StartupPath, "Archivostxt\\Jugadores.txt");
             string texto = archivo.leerArchivo(ruta);
 
-            string[] stringJug = texto.Split('\n');
-
-            foreach (string j in stringJug)
+            if (!string.IsNullOrEmpty(texto))
             {
-                string[] datosJug = j.Split('/');
-                jugadores.agregarJugadorAlFinal(new jugador(int.Parse(datosJug[0]), datosJug[1], int.Parse(datosJug[2]), int.Parse(datosJug[3]), int.Parse(datosJug[4])));
-                idJugador++;
+                string[] stringJug = texto.Split('\n');
+
+                foreach (string j in stringJug)
+                {
+                    string[] datosJug = j.Split('/');
+                    jugadores.agregarJugadorAlFinal(new jugador(int.Parse(datosJug[0]), datosJug[1], int.Parse(datosJug[2]), int.Parse(datosJug[3]), int.Parse(datosJug[4])));
+                    idJugador++;
+                }
             }
         }
 

@@ -1008,6 +1008,11 @@ namespace Pokemon
             return images;
         }
 
+        public bool esDitto()
+        {
+            return ditto;
+        }
+
         public pokemon crearCopiaPKM()
         {
             int id = this.getID();
@@ -1217,7 +1222,6 @@ namespace Pokemon
             else
             {
                 s += " ¡El movimiento ha fallado!. ";
-                Console.WriteLine("FALLOOOOOOOOOOO");
             }
             return s;
         }
@@ -1285,7 +1289,7 @@ namespace Pokemon
                 {
                     if (!sec)
                     {
-                        s += "¡El movimiento no hizo efecto!.";
+                        s += "¡El estado alterado no fue aplicado!.";
                     }
                 }
             }
@@ -1318,7 +1322,7 @@ namespace Pokemon
                 }
                 else
                 {
-                    s += "¡El movimiento no hizo efecto!.";
+                    s += "¡El efecto no fue aplicado!.";
                 }
             }
 
@@ -1350,7 +1354,7 @@ namespace Pokemon
                 }
                 else
                 {
-                    s += "¡El movimiento no hizo efecto!.";
+                    s += "¡El efecto no fue aplicado!.";
                 }
             }
             return s;

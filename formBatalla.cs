@@ -172,6 +172,8 @@ namespace Pokemon
             P2.GetTurno().setActivo(true);
 
             formInicio.reproducir(1);
+
+            labelInfo.Text = "Turno de " + P1.getNombre() + ".";
         }
 
         public void llenarBolsas(jugador j1, jugador j2)
@@ -184,70 +186,49 @@ namespace Pokemon
                 switch (i + 1)
                 {
                     case 1:
-                        for (int j = 0; j < 5; j++)
+                        for (int j = 0; j < 3; j++)
                         {
                             j1.getBolsa()[i].agregarPocionEnLaPila(new pocion());
                             j2.getBolsa()[i].agregarPocionEnLaPila(new pocion());
                         }
                         break;
                     case 2:
-                        for (int j = 0; j < 5; j++)
+                        for (int j = 0; j < 2; j++)
                         {
                             j1.getBolsa()[i].agregarSuperPocionEnLaPila(new superPocion());
                             j2.getBolsa()[i].agregarSuperPocionEnLaPila(new superPocion());
                         }
                         break;
                     case 3:
-                        for (int j = 0; j < 5; j++)
-                        {
-                            j1.getBolsa()[i].agregarHiperPocionEnLaPila(new hiperPocion());
-                            j2.getBolsa()[i].agregarHiperPocionEnLaPila(new hiperPocion());
-                        }
+                        j1.getBolsa()[i].agregarHiperPocionEnLaPila(new hiperPocion());
+                        j2.getBolsa()[i].agregarHiperPocionEnLaPila(new hiperPocion());
                         break;
                     case 4:
-                        for (int j = 0; j < 5; j++)
-                        {
-                            j1.getBolsa()[i].agregarAntiParalisisEnLaPila(new antiParalisis());
-                            j2.getBolsa()[i].agregarAntiParalisisEnLaPila(new antiParalisis());
-                        }
+                        j1.getBolsa()[i].agregarAntiParalisisEnLaPila(new antiParalisis());
+                        j2.getBolsa()[i].agregarAntiParalisisEnLaPila(new antiParalisis());
                         break;
                     case 5:
-                        for (int j = 0; j < 5; j++)
-                        {
-                            j1.getBolsa()[i].agregarAntidotoEnLaPila(new antidoto());
-                            j2.getBolsa()[i].agregarAntidotoEnLaPila(new antidoto());
-                        }
+                        j1.getBolsa()[i].agregarAntidotoEnLaPila(new antidoto());
+                        j2.getBolsa()[i].agregarAntidotoEnLaPila(new antidoto());
                         break;
                     case 6:
-                        for (int j = 0; j < 5; j++)
-                        {
-                            j1.getBolsa()[i].agregarDespertarEnLaPila(new despertar());
-                            j2.getBolsa()[i].agregarDespertarEnLaPila(new despertar());
-                        }
+                        j1.getBolsa()[i].agregarDespertarEnLaPila(new despertar());
+                        j2.getBolsa()[i].agregarDespertarEnLaPila(new despertar());
                         break;
                     case 7:
-                        for (int j = 0; j < 5; j++)
-                        {
-                            j1.getBolsa()[i].agregarCuraTotalEnLaPila(new curaTotal());
-                            j2.getBolsa()[i].agregarCuraTotalEnLaPila(new curaTotal());
-                        }
+                        j1.getBolsa()[i].agregarCuraTotalEnLaPila(new curaTotal());
+                        j2.getBolsa()[i].agregarCuraTotalEnLaPila(new curaTotal());
                         break;
                     case 8:
-                        for (int j = 0; j < 5; j++)
-                        {
-                            j1.getBolsa()[i].agregarMaxPocionEnLaPila(new maxPocion());
-                            j2.getBolsa()[i].agregarMaxPocionEnLaPila(new maxPocion());
-                        }
+                        j1.getBolsa()[i].agregarMaxPocionEnLaPila(new maxPocion());
+                        j2.getBolsa()[i].agregarMaxPocionEnLaPila(new maxPocion());
                         break;
                     case 9:
-                        for (int j = 0; j < 5; j++)
+                        for (int j = 0; j < 3; j++)
                         {
                             j1.getBolsa()[i].agregarPrecisionXEnLaPila(new precisionX());
                             j2.getBolsa()[i].agregarPrecisionXEnLaPila(new precisionX());
                         }
-                        break;
-                    default:
-                        Console.WriteLine("EEEEEEEERRRRRRRRRRRRRROOOOOOOOOOOOOOOOOOOOOOOR");
                         break;
                 }
             }
@@ -349,29 +330,54 @@ namespace Pokemon
                 pictureBoxTipo2.Visible = false;
                 labelTipo2.Visible = false;
             }
-            labelNombreMov1Cambio.Visible = true;
-            tipo.asignarImagenTipo(P.getPokemones()[n].getMovimientos()[0].getTipo(), pictureBoxMov1Cambio);
-            labelNombreMov1Cambio.Text = P.getPokemones()[n].getMovimientos()[0].getNombre();
-            labelUsos1Cambio.Text = P.getPokemones()[n].getMovimientos()[0].getUsos(1) + "/" + P.getPokemones()[n].getMovimientos()[0].getUsos(0);
-            labelUsos1Cambio.Visible = true;
-            labelNombreMov2Cambio.Visible = true;
-            tipo.asignarImagenTipo(P.getPokemones()[n].getMovimientos()[1].getTipo(), pictureBoxMov2Cambio);
-            labelNombreMov2Cambio.Text = P.getPokemones()[n].getMovimientos()[1].getNombre();
-            labelUsos2Cambio.Text = P.getPokemones()[n].getMovimientos()[1].getUsos(1) + "/" + P.getPokemones()[n].getMovimientos()[1].getUsos(0);
-            labelUsos2Cambio.Visible = true;
-            labelNombreMov3Cambio.Visible = true;
-            tipo.asignarImagenTipo(P.getPokemones()[n].getMovimientos()[2].getTipo(), pictureBoxMov3Cambio);
-            labelNombreMov3Cambio.Text = P.getPokemones()[n].getMovimientos()[2].getNombre();
-            labelUsos3Cambio.Text = P.getPokemones()[n].getMovimientos()[2].getUsos(1) + "/" + P.getPokemones()[n].getMovimientos()[2].getUsos(0);
-            labelUsos3Cambio.Visible = true;
-            labelNombreMov4Cambio.Visible = true;
-            tipo.asignarImagenTipo(P.getPokemones()[n].getMovimientos()[3].getTipo(), pictureBoxMov4Cambio);
-            labelNombreMov4Cambio.Text = P.getPokemones()[n].getMovimientos()[3].getNombre();
-            labelUsos4Cambio.Text = P.getPokemones()[n].getMovimientos()[3].getUsos(1) + "/" +    P.getPokemones()[n].getMovimientos()[3].getUsos(0);
-            labelUsos4Cambio.Visible = true;
+
+            if (P.getPokemones()[n].getID() == 132)
+            {
+                
+                labelNombreMov1Cambio.Visible = true;
+                tipo.asignarImagenTipo(formInicio.arrTipos[0], pictureBoxMov1Cambio);
+                labelNombreMov1Cambio.Text = "Transformar";
+                labelUsos1Cambio.Text = "1/1";
+                labelUsos1Cambio.Visible = true;
+
+                labelNombreMov2Cambio.Visible = false;
+                labelUsos2Cambio.Visible = false;
+                labelNombreMov3Cambio.Visible = false;
+                labelUsos3Cambio.Visible = false;
+                labelNombreMov4Cambio.Visible = false;
+                labelUsos4Cambio.Visible = false;
+            }
+            else
+            {
+                labelNombreMov1Cambio.Visible = true;
+                tipo.asignarImagenTipo(P.getPokemones()[n].getMovimientos()[0].getTipo(), pictureBoxMov1Cambio);
+                labelNombreMov1Cambio.Text = P.getPokemones()[n].getMovimientos()[0].getNombre();
+                labelUsos1Cambio.Text = P.getPokemones()[n].getMovimientos()[0].getUsos(1) + "/" + P.getPokemones()[n].getMovimientos()[0].getUsos(0);
+                labelUsos1Cambio.Visible = true;
+                labelNombreMov2Cambio.Visible = true;
+                tipo.asignarImagenTipo(P.getPokemones()[n].getMovimientos()[1].getTipo(), pictureBoxMov2Cambio);
+                labelNombreMov2Cambio.Text = P.getPokemones()[n].getMovimientos()[1].getNombre();
+                labelUsos2Cambio.Text = P.getPokemones()[n].getMovimientos()[1].getUsos(1) + "/" + P.getPokemones()[n].getMovimientos()[1].getUsos(0);
+                labelUsos2Cambio.Visible = true;
+                labelNombreMov3Cambio.Visible = true;
+                tipo.asignarImagenTipo(P.getPokemones()[n].getMovimientos()[2].getTipo(), pictureBoxMov3Cambio);
+                labelNombreMov3Cambio.Text = P.getPokemones()[n].getMovimientos()[2].getNombre();
+                labelUsos3Cambio.Text = P.getPokemones()[n].getMovimientos()[2].getUsos(1) + "/" + P.getPokemones()[n].getMovimientos()[2].getUsos(0);
+                labelUsos3Cambio.Visible = true;
+                labelNombreMov4Cambio.Visible = true;
+                tipo.asignarImagenTipo(P.getPokemones()[n].getMovimientos()[3].getTipo(), pictureBoxMov4Cambio);
+                labelNombreMov4Cambio.Text = P.getPokemones()[n].getMovimientos()[3].getNombre();
+                labelUsos4Cambio.Text = P.getPokemones()[n].getMovimientos()[3].getUsos(1) + "/" +    P.getPokemones()[n].getMovimientos()[3].getUsos(0);
+                labelUsos4Cambio.Visible = true;
+            }
 
             IndexPKM = n;
-            pictureBoxConfirmarCambio.Enabled = true;
+
+            if (!P.getPokemones()[n].Equals(pokemon1) && !P.getPokemones()[n].Equals(pokemon2))
+            {
+                pictureBoxConfirmarCambio.Visible = true;
+                pictureBoxConfirmarCambio.Enabled = true;
+            }
         }
 
         public void actualizarInfoCambios(jugador P)
@@ -390,9 +396,9 @@ namespace Pokemon
             lNombre.Text = P.getPokemones()[n].getNombre();
             lNivel.Text = "Nvl. " + P.getPokemones()[n].getNivel();
             lHP.Text = "HP: " + P.getPokemones()[n].getHP(2) + "/" + P.getPokemones()[n].getHP(1);
-            barraHP.Value = (P.getPokemones()[n].getHP(2) / P.getPokemones()[n].getHP(1)) * 100;
+            barraHP.Value = (int)Math.Round(((double)P.getPokemones()[n].getHP(2) / P.getPokemones()[n].getHP(1)) * 100);
 
-            if (barraHP.Value == 0 || P.getPokemones()[n].Equals(pokemon1) || P.getPokemones()[n].Equals(pokemon2))
+            if (P.getPokemones()[n].getHP(2) == 0)
             {
                 PB.Enabled = false;
                 lNombre.Enabled = false;
@@ -475,6 +481,8 @@ namespace Pokemon
             panelOpciones.Visible = true;
 
             jugador JActual = jugadores.sacarJugadorDeLaCola();
+            labelInfo.Text = "Turno de " + jugadores.verInicio().getNombre() + ".";
+
             JActual.GetTurno().setAccion(op);
 
             if (JActual.GetTurno().estaActivo())
@@ -859,6 +867,7 @@ namespace Pokemon
 
             actualizarInfoCambios(jugadores.verInicio());
             pictureBoxConfirmarCambio.Enabled = false;
+            pictureBoxConfirmarCambio.Visible = false;
         }
 
         private void pictureBoxXPKM_Click(object sender, EventArgs e)
@@ -1090,6 +1099,7 @@ namespace Pokemon
                 panelCambioPKM.Visible = false;
                 turnos(IndexPKM+13);
                 pictureBoxConfirmarCambio.Enabled = false;
+                pictureBoxConfirmarCambio.Visible = false;
             }
         }
 
@@ -1198,6 +1208,7 @@ namespace Pokemon
                                 actualizarInfo(pokemon2);
                                 return;
                             }
+
                         }
                         else
                         {
@@ -1216,6 +1227,7 @@ namespace Pokemon
                         if (segundoRealizado)
                         {
                             panelOpciones.Visible = true;
+                            labelInfo.Text = "Turno de " + P1.getNombre() + ".";
                         }
                         break;
                 }
@@ -1295,6 +1307,7 @@ namespace Pokemon
                                 if (segundoRealizado)
                                 {
                                     panelOpciones.Visible = true;
+                                    labelInfo.Text = "Turno de " + P1.getNombre() + ".";
                                 }
                             }
                             else
@@ -1377,6 +1390,50 @@ namespace Pokemon
             {
                 actualizarMovimientos(pokemon2);
             }
+
+            switch (pokemon1.getEstadoAlterado())
+            {
+                case 0:
+                    labelNombrePKM1.BackColor = Color.Transparent;
+                    break;
+                case 1:
+                    labelNombrePKM1.BackColor = Color.Yellow;
+                    break;
+                case 2:
+                    labelNombrePKM1.BackColor = Color.Orange;
+                    break;
+                case 3:
+                    labelNombrePKM1.BackColor = Color.LightGray;
+                    break;
+                case 4:
+                    labelNombrePKM1.BackColor = Color.LightBlue;
+                    break;
+                case 5:
+                    labelNombrePKM1.BackColor = Color.MediumPurple;
+                    break;
+            }
+
+            switch (pokemon2.getEstadoAlterado())
+            {
+                case 0:
+                    labelNombrePKM2.BackColor = Color.Transparent;
+                    break;
+                case 1:
+                    labelNombrePKM2.BackColor = Color.Yellow;
+                    break;
+                case 2:
+                    labelNombrePKM2.BackColor = Color.Orange;
+                    break;
+                case 3:
+                    labelNombrePKM2.BackColor = Color.LightGray;
+                    break;
+                case 4:
+                    labelNombrePKM2.BackColor = Color.LightBlue;
+                    break;
+                case 5:
+                    labelNombrePKM2.BackColor = Color.MediumPurple;
+                    break;
+            }
         }
 
         public bool finalizar()
@@ -1421,6 +1478,9 @@ namespace Pokemon
                 ganador.setTGanados(ganador.getTGanados() + 1);
                 FLL.batallaActual.setValorJugador(ganador);
                 FLL.Visible = true;
+
+                P1.resetDitto();
+                P2.resetDitto();
             }
             else
             {

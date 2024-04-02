@@ -133,5 +133,17 @@ namespace Pokemon
             }
             return null;
         }
+
+        public void resetDitto()
+        {
+            for (int i = 0; i < pokemones.Length; i++)
+            {
+                if (pokemones[i].esDitto())
+                {
+                    pokemones[i] = formInicio.arrPKM[131].crearCopiaPKM();
+                    return;
+                }
+            }
+        }
     }
 }

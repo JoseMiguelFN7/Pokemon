@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Pokemon
@@ -156,6 +157,48 @@ namespace Pokemon
             tamanio++;
         }
 
+        public jugador buscarJugador(string nombreJ)
+        { //para buscar un jugador en la lista
+            if (esVacia())
+            {
+                return null;
+            }
+            else
+            {
+                nodo aux = inicio;
+                while (aux != null)
+                {
+                    if (aux.getValorJugador().getNombre().Equals(nombreJ))
+                    {
+                        return aux.getValorJugador();
+                    }
+                    aux = aux.getSiguiente();
+                }
+                return null;
+            }
+        }
+
+        public bool existeJNombre(string nombreJ)
+        {
+            if (esVacia())
+            {
+                return false;
+            }
+            else
+            {
+                nodo aux = inicio;
+                while (aux != null)
+                {
+                    if (aux.getValorJugador().getNombre().Equals(nombreJ))
+                    {
+                        return true;
+                    }
+                    aux = aux.getSiguiente();
+                }
+                return false;
+            }
+        }
+
         public void agregarPokemonAlFinal(pokemon pkm)
         { //metodo para agregar jugadores al final de la lista
             nodo nuevo = new nodo();
@@ -259,23 +302,6 @@ namespace Pokemon
             return ranJug; //Devuelve la pila de cartas ya desorganizada.
         }
 
-        public void agregarListaEnAVL(AVL arbol)
-        {
-            if (esVacia())
-            {
-                return;
-            }
-            else
-            {
-                nodo aux = inicio;
-                while (aux != null)
-                {
-                    arbol.insertarJugador(aux.getValorJugador());
-                    aux = aux.getSiguiente();
-                }
-            }
-        }
-
         public IEnumerator GetEnumerator()
         {
             nodo nodoActual = inicio; // Usar el campo 'inicio' en lugar de 'primerNodo'
@@ -290,6 +316,113 @@ namespace Pokemon
         {
             inicio = null;
             tamanio = 0;
+        }
+
+        public void agregarColaALista(cola c)
+        {
+            jugador j;
+            for (int i = 0; i < c.getTamanio(); i++)
+            {
+                j = c.sacarJugadorDeLaCola();
+                if (!existeID(j.getID()))
+                {
+                    agregarJugadorAlFinal(j);
+                }
+                c.agregarJugadorEnCola(j);
+            }
+        }
+
+        public bool existeID(int ID)
+        {
+            if (esVacia())
+            {
+                return false;
+            }
+            else
+            {
+                nodo aux = inicio;
+                while (aux != null)
+                {
+                    if (aux.getValorJugador().getID() == ID)
+                    {
+                        return true;
+                    }
+                    aux = aux.getSiguiente();
+                }
+                return false;
+            }
+        }
+
+        public string obtenerStringJugadores()
+        {
+            if (esVacia())
+            {
+                return null;
+            }
+            else
+            {
+                string s = "";
+                nodo aux = inicio;
+                while (aux != null)
+                {
+
+                    if (aux.getSiguiente() != null)
+                    {
+                        s += aux.getValorJugador().getID() + "/" + aux.getValorJugador().getNombre() + "/" + aux.getValorJugador().getPJugadas() + "/" + aux.getValorJugador().getPGanadas() + "/" + aux.getValorJugador().getTGanados() + "\n";
+                    }
+                    else
+                    {
+                        s += aux.getValorJugador().getID() + "/" + aux.getValorJugador().getNombre() + "/" + aux.getValorJugador().getPJugadas() + "/" + aux.getValorJugador().getPGanadas() + "/" + aux.getValorJugador().getTGanados();
+                    }
+                    aux = aux.getSiguiente();
+                }
+                return s;
+            }
+        }
+
+        public void agregarListaALista(lista l)
+        {
+            nodo nuevo = l.inicio;
+
+            if (l.esVacia())
+            {
+                return;
+            }
+            else
+            {
+                if (esVacia())
+                {
+                    inicio = nuevo;
+                }
+                else
+                {
+                    while (nuevo != null)
+                    {
+                        if (!existeID(nuevo.getValorJugador().getID()))
+                        {
+                            agregarJugadorAlFinal(nuevo.getValorJugador());
+                        }
+                        nuevo = nuevo.getSiguiente();
+                    }
+                }
+            }
+        }
+
+        public void llenarComboBox(ComboBox CB)
+        {
+            if (esVacia())
+            {
+                return;
+            }
+            else
+            {
+                nodo aux = inicio;
+                while (aux != null)
+                {
+                    CB.Items.Add(aux.getValorJugador().getNombre());
+                    aux = aux.getSiguiente();
+                }
+            }
         }
     }
 }

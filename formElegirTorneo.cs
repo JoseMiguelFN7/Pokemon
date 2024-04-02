@@ -14,11 +14,12 @@ namespace Pokemon
     public partial class formElegirTorneo : Form
     {
         bool exitForm = false;
-        public static lista listaJtorneo = new lista();
+        public static lista listaJtorneo;
         public static formMenuPrincipal menuPrincipal;
 
         public formElegirTorneo()
         {
+            listaJtorneo = new lista();
             InitializeComponent();
             torneo.Parent = fondoprincipalt;
             label1.Parent = fondoprincipalt;
@@ -130,12 +131,10 @@ namespace Pokemon
                     groupBoxerror.Visible = true;
                     return;
                 }
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador1, 0, 0, 0));
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador2, 0, 0, 0));
 
-                jugador JT1 = new jugador(1, jugador1, 0, 0, 0);
-                jugador JT2 = new jugador(2, jugador2, 0, 0, 0);
-
-                listaJtorneo.agregarJugadorAlFinal(JT1);
-                listaJtorneo.agregarJugadorAlFinal(JT2);
+                formInicio.jugadores.agregarListaALista(listaJtorneo);
             }
 
             
@@ -158,17 +157,12 @@ namespace Pokemon
                     return;
                 }
 
-                jugador JT1 = new jugador(1, jugador1, 0, 0, 0);
-                jugador JT2 = new jugador(2, jugador2, 0, 0, 0);
-                jugador JT3 = new jugador(3, jugador3, 0, 0, 0);
-                jugador JT4 = new jugador(4, jugador4, 0, 0, 0);
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador1, 0, 0, 0));
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador2, 0, 0, 0));
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador3, 0, 0, 0));
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador4, 0, 0, 0));
 
-
-                listaJtorneo.agregarJugadorAlFinal(JT1);
-                listaJtorneo.agregarJugadorAlFinal(JT2);
-                listaJtorneo.agregarJugadorAlFinal(JT3);
-                listaJtorneo.agregarJugadorAlFinal(JT4);
-
+                formInicio.jugadores.agregarListaALista(listaJtorneo);
             }
 
             if (radio8jugadores.Checked)
@@ -194,25 +188,18 @@ namespace Pokemon
                     return;
                 }
 
-                jugador JT1 = new jugador(1, jugador1, 0, 0, 0);
-                jugador JT2 = new jugador(2, jugador2, 0, 0, 0);
-                jugador JT3 = new jugador(3, jugador3, 0, 0, 0);
-                jugador JT4 = new jugador(4, jugador4, 0, 0, 0);
-                jugador JT5 = new jugador(5, jugador5, 0, 0, 0);
-                jugador JT6 = new jugador(6, jugador6, 0, 0, 0);
-                jugador JT7 = new jugador(7, jugador7, 0, 0, 0);
-                jugador JT8 = new jugador(8, jugador8, 0, 0, 0);
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador1, 0, 0, 0));
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador2, 0, 0, 0));
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador3, 0, 0, 0));
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador4, 0, 0, 0));
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador5, 0, 0, 0));
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador6, 0, 0, 0));
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador7, 0, 0, 0));
+                listaJtorneo.agregarJugadorAlFinal(new jugador(formInicio.idJugador++, jugador8, 0, 0, 0));
 
-                listaJtorneo.agregarJugadorAlFinal(JT1);
-                listaJtorneo.agregarJugadorAlFinal(JT2);
-                listaJtorneo.agregarJugadorAlFinal(JT3);
-                listaJtorneo.agregarJugadorAlFinal(JT4);
-                listaJtorneo.agregarJugadorAlFinal(JT5);
-                listaJtorneo.agregarJugadorAlFinal(JT6);
-                listaJtorneo.agregarJugadorAlFinal(JT7);
-                listaJtorneo.agregarJugadorAlFinal(JT8);
-
+                formInicio.jugadores.agregarListaALista(listaJtorneo);
             }
+
             exitForm = true;
             formLlaves llavesTorneo = new formLlaves();
             llavesTorneo.Visible = true;

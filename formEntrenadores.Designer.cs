@@ -45,6 +45,10 @@
             this.botonsalirerror = new System.Windows.Forms.Button();
             this.texto1 = new System.Windows.Forms.Label();
             this.buttonVolver = new System.Windows.Forms.Button();
+            this.comboBoxEntrenador1 = new System.Windows.Forms.ComboBox();
+            this.checkBoxEntrenador1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxEntrenador2 = new System.Windows.Forms.CheckBox();
+            this.comboBoxEntrenador2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.fondoprincipalent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureentrenador1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureentrenadora2)).BeginInit();
@@ -224,12 +228,13 @@
             // 
             this.texto1.AutoSize = true;
             this.texto1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.texto1.Location = new System.Drawing.Point(39, 59);
+            this.texto1.Location = new System.Drawing.Point(39, 45);
             this.texto1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.texto1.Name = "texto1";
-            this.texto1.Size = new System.Drawing.Size(237, 20);
+            this.texto1.Size = new System.Drawing.Size(237, 40);
             this.texto1.TabIndex = 0;
-            this.texto1.Text = "Ingrese caracteres validos.";
+            this.texto1.Text = "Ingrese caracteres válidos.\r\n(Sólo letras)";
+            this.texto1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonVolver
             // 
@@ -245,11 +250,57 @@
             this.buttonVolver.UseVisualStyleBackColor = false;
             this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
             // 
+            // comboBoxEntrenador1
+            // 
+            this.comboBoxEntrenador1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEntrenador1.FormattingEnabled = true;
+            this.comboBoxEntrenador1.Location = new System.Drawing.Point(774, 213);
+            this.comboBoxEntrenador1.Name = "comboBoxEntrenador1";
+            this.comboBoxEntrenador1.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxEntrenador1.TabIndex = 17;
+            this.comboBoxEntrenador1.Visible = false;
+            // 
+            // checkBoxEntrenador1
+            // 
+            this.checkBoxEntrenador1.AutoSize = true;
+            this.checkBoxEntrenador1.Location = new System.Drawing.Point(901, 215);
+            this.checkBoxEntrenador1.Name = "checkBoxEntrenador1";
+            this.checkBoxEntrenador1.Size = new System.Drawing.Size(136, 20);
+            this.checkBoxEntrenador1.TabIndex = 18;
+            this.checkBoxEntrenador1.Text = "Usar perfil creado";
+            this.checkBoxEntrenador1.UseVisualStyleBackColor = true;
+            this.checkBoxEntrenador1.CheckedChanged += new System.EventHandler(this.checkBoxEntrenador1_CheckedChanged);
+            // 
+            // checkBoxEntrenador2
+            // 
+            this.checkBoxEntrenador2.AutoSize = true;
+            this.checkBoxEntrenador2.Location = new System.Drawing.Point(901, 273);
+            this.checkBoxEntrenador2.Name = "checkBoxEntrenador2";
+            this.checkBoxEntrenador2.Size = new System.Drawing.Size(136, 20);
+            this.checkBoxEntrenador2.TabIndex = 20;
+            this.checkBoxEntrenador2.Text = "Usar perfil creado";
+            this.checkBoxEntrenador2.UseVisualStyleBackColor = true;
+            this.checkBoxEntrenador2.CheckedChanged += new System.EventHandler(this.checkBoxEntrenador2_CheckedChanged);
+            // 
+            // comboBoxEntrenador2
+            // 
+            this.comboBoxEntrenador2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEntrenador2.FormattingEnabled = true;
+            this.comboBoxEntrenador2.Location = new System.Drawing.Point(774, 271);
+            this.comboBoxEntrenador2.Name = "comboBoxEntrenador2";
+            this.comboBoxEntrenador2.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxEntrenador2.TabIndex = 19;
+            this.comboBoxEntrenador2.Visible = false;
+            // 
             // formEntrenadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1080, 554);
+            this.Controls.Add(this.checkBoxEntrenador2);
+            this.Controls.Add(this.comboBoxEntrenador2);
+            this.Controls.Add(this.checkBoxEntrenador1);
+            this.Controls.Add(this.comboBoxEntrenador1);
             this.Controls.Add(this.buttonVolver);
             this.Controls.Add(this.groupBoxerror);
             this.Controls.Add(this.botonconfirmar);
@@ -302,5 +353,9 @@
         private System.Windows.Forms.Button botonsalirerror;
         private System.Windows.Forms.Label texto1;
         private System.Windows.Forms.Button buttonVolver;
+        private System.Windows.Forms.ComboBox comboBoxEntrenador1;
+        private System.Windows.Forms.CheckBox checkBoxEntrenador1;
+        private System.Windows.Forms.CheckBox checkBoxEntrenador2;
+        private System.Windows.Forms.ComboBox comboBoxEntrenador2;
     }
 }

@@ -219,6 +219,7 @@
             // 
             // buttonCombateSiguiente
             // 
+            this.buttonCombateSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCombateSiguiente.Location = new System.Drawing.Point(491, 535);
             this.buttonCombateSiguiente.Name = "buttonCombateSiguiente";
             this.buttonCombateSiguiente.Size = new System.Drawing.Size(192, 43);
@@ -246,6 +247,7 @@
             this.labelSiguienteCombate.AutoSize = true;
             this.labelSiguienteCombate.BackColor = System.Drawing.Color.Gold;
             this.labelSiguienteCombate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelSiguienteCombate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSiguienteCombate.Location = new System.Drawing.Point(5, 5);
             this.labelSiguienteCombate.Margin = new System.Windows.Forms.Padding(0);
             this.labelSiguienteCombate.Name = "labelSiguienteCombate";

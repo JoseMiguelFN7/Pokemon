@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pokemon
 {
-    public class movimiento   //   ID/NOMBRE/TIPO/POTENCIA/CATEGORIA/PRECISIÓN/ESTADO ALTERATO/EFECTO/DESCRIPCIÓN
+    public class movimiento   //   ID/NOMBRE/TIPO/POTENCIA/CATEGORIA/PRECISIÓN/ESTADO ALTERATO/EFECTO/USOS/DESCRIPCIÓN
     {
         private int id;
         private string nombre;

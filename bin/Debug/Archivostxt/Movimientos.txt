@@ -16,8 +16,8 @@
 16/Golpe Aereo/Volador/60/Físico/100/0/0/20/El usuario crea un remolino de viento que golpea al oponente, infligiendo daño de tipo volador.
 17/Látigo Cepa/Planta/35/Físico/100/0/0/10/El usuario azota al oponente con un látigo hecho de plantas afiladas, infligiendo daño físico de tipo planta. Es un movimiento básico pero efectivo en combate.
 18/Energi Bola/Planta/90/Especial/100/14/10/10/El usuario acumula energía solar y libera un potente rayo de luz y energía, infligiendo un gran daño especial al oponente.
-19/Somnífero/Planta/0/Estado/100/3/75/15/El usuario libera un polvo somnífero que tiene una alta probabilidad de inducir el estado de sueño en el oponente. El sueño hace que el Pokémon afectado no pueda actuar durante varios turnos, lo que puede ser muy útil en combate.
-20/Brazo Pincho/Planta/60/Fisico/100/0/0/10/El usuario baila de manera encantadora, lo que aumenta su Ataque Especial en combate.
+19/Somnífero/Planta/0/Estado/100/3/75/15/El usuario libera un polvo somnífero que tiene una alta probabilidad de inducir el estado de sueño en el oponente.
+20/Brazo Pincho/Planta/60/Físico/100/0/0/10/El usuario baila de manera encantadora, lo que aumenta su Ataque Especial en combate.
 21/Megacuerno/Bicho/120/Físico/85/0/0/10/El usuario realiza un ataque voraz con sus cuernos, infligiendo un gran daño físico.
 22/Tijera X/Bicho/80/Físico/100/0/100/20/El usuario ataca con 2 potentes cuchillas dando la forma de una tijera.
 23/A Defender/Bicho/0/Estado/100/8/0/10/El usuario se enrolla y aumenta su def.
@@ -35,7 +35,7 @@
 35/Pulso Veneno/Veneno/70/Especial/100/5/20/20/Lanza un pulso tóxico hacia el oponente, infligiendo daño considerable.
 36/Ácido/Veneno/40/Especial/100/5/30/30/Lanza ácido corrosivo hacia el oponente, infligiendo un daño especial moderado.
 37/Terremoto/Tierra/100/Físico/100/0/0/10/Sacude el suelo, infligiendo un gran daño físico al oponente.
-38/Hueso Palo/Tierra/50/Fisico/100/0/0/5/Movimiento que tiene una precisión extremadamente baja pero que si golpea con éxito, causa un K.O. instantáneo al oponente.
+38/Hueso Palo/Tierra/50/Físico/100/0/0/5/Movimiento que tiene una precisión extremadamente baja pero que si golpea con éxito, causa un K.O. instantáneo al oponente.
 39/Bofetón Lodo/Tierra/20/Físico/100/0/0/20/Golpea al oponente con una mezcla de lodo, infligiendo un daño físico bajo.
 40/Tierra viva/Tierra/90/Especial/100/0/0/10/Levanta una gran cantidad de arena y la arroja hacia el oponente, infligiendo un gran daño especial.
 41/Roca Afilada/Roca/100/Físico/80/0/0/15/Lanza afiladas rocas hacia el oponente, infligiendo un gran daño físico.

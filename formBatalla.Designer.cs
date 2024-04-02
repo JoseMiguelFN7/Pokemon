@@ -1526,6 +1526,7 @@
             this.pictureBoxConfirmarCambio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxConfirmarCambio.TabIndex = 2;
             this.pictureBoxConfirmarCambio.TabStop = false;
+            this.pictureBoxConfirmarCambio.Visible = false;
             this.pictureBoxConfirmarCambio.Click += new System.EventHandler(this.pictureBoxConfirmarCambio_Click);
             // 
             // tableLayoutPanel12
@@ -2563,7 +2564,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 614);
+            this.ClientSize = new System.Drawing.Size(1659, 614);
             this.Controls.Add(this.panelGanador);
             this.Controls.Add(this.pictureBoxEffect);
             this.Controls.Add(this.pictureBoxBlueSpark);
