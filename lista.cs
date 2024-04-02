@@ -410,7 +410,7 @@ namespace Pokemon
 
         public void llenarComboBox(ComboBox CB)
         {
-            if (esVacia())
+            if (esVacia() || CB.Items.Count>0)
             {
                 return;
             }

@@ -21,6 +21,8 @@ namespace Pokemon
             labelclub.Parent = fondoprincipalent;
             labelENT1.Parent = fondoprincipalent;
             labelENT2.Parent = fondoprincipalent;
+            checkBoxEntrenador1.Parent = fondoprincipalent;
+            checkBoxEntrenador2.Parent = fondoprincipalent;
             groupBoxerror.Visible = false;
 
             formInicio.jugadores.llenarComboBox(comboBoxEntrenador1);
@@ -154,7 +156,6 @@ namespace Pokemon
                 if (formInicio.jugadores.existeJNombre(Entrenador2))
                 {
                     groupBoxerror.Visible = true;
-                    texto1.Text = "Ya hay un perfil\r\ncon este nombre.";
 
                     if (checkBoxEntrenador2.Checked)
                     {

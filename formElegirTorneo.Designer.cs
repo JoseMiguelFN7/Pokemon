@@ -62,6 +62,22 @@
             this.fondoprincipalt = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonVolverMenu = new System.Windows.Forms.Button();
+            this.checkBoxEntrenador1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxEntrenador2 = new System.Windows.Forms.CheckBox();
+            this.checkBoxEntrenador3 = new System.Windows.Forms.CheckBox();
+            this.checkBoxEntrenador4 = new System.Windows.Forms.CheckBox();
+            this.checkBoxEntrenador5 = new System.Windows.Forms.CheckBox();
+            this.checkBoxEntrenador6 = new System.Windows.Forms.CheckBox();
+            this.checkBoxEntrenador7 = new System.Windows.Forms.CheckBox();
+            this.checkBoxEntrenador8 = new System.Windows.Forms.CheckBox();
+            this.comboBoxEntrenador1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxEntrenador2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxEntrenador3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxEntrenador4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxEntrenador5 = new System.Windows.Forms.ComboBox();
+            this.comboBoxEntrenador6 = new System.Windows.Forms.ComboBox();
+            this.comboBoxEntrenador7 = new System.Windows.Forms.ComboBox();
+            this.comboBoxEntrenador8 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.torneo)).BeginInit();
             this.groupBox2nombres.SuspendLayout();
             this.groupBoxerror.SuspendLayout();
@@ -157,6 +173,22 @@
             // 
             this.groupBox2nombres.BackColor = System.Drawing.Color.MidnightBlue;
             this.groupBox2nombres.Controls.Add(this.groupBoxerror);
+            this.groupBox2nombres.Controls.Add(this.comboBoxEntrenador8);
+            this.groupBox2nombres.Controls.Add(this.comboBoxEntrenador7);
+            this.groupBox2nombres.Controls.Add(this.comboBoxEntrenador6);
+            this.groupBox2nombres.Controls.Add(this.comboBoxEntrenador5);
+            this.groupBox2nombres.Controls.Add(this.comboBoxEntrenador4);
+            this.groupBox2nombres.Controls.Add(this.comboBoxEntrenador3);
+            this.groupBox2nombres.Controls.Add(this.comboBoxEntrenador2);
+            this.groupBox2nombres.Controls.Add(this.comboBoxEntrenador1);
+            this.groupBox2nombres.Controls.Add(this.checkBoxEntrenador8);
+            this.groupBox2nombres.Controls.Add(this.checkBoxEntrenador7);
+            this.groupBox2nombres.Controls.Add(this.checkBoxEntrenador6);
+            this.groupBox2nombres.Controls.Add(this.checkBoxEntrenador5);
+            this.groupBox2nombres.Controls.Add(this.checkBoxEntrenador4);
+            this.groupBox2nombres.Controls.Add(this.checkBoxEntrenador3);
+            this.groupBox2nombres.Controls.Add(this.checkBoxEntrenador2);
+            this.groupBox2nombres.Controls.Add(this.checkBoxEntrenador1);
             this.groupBox2nombres.Controls.Add(this.botonconfirmar);
             this.groupBox2nombres.Controls.Add(this.textBoxnombre8);
             this.groupBox2nombres.Controls.Add(this.textBoxnombre7);
@@ -237,7 +269,7 @@
             this.botonconfirmar.BackColor = System.Drawing.Color.Transparent;
             this.botonconfirmar.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonconfirmar.ForeColor = System.Drawing.Color.Navy;
-            this.botonconfirmar.Location = new System.Drawing.Point(447, 519);
+            this.botonconfirmar.Location = new System.Drawing.Point(23, 519);
             this.botonconfirmar.Margin = new System.Windows.Forms.Padding(4);
             this.botonconfirmar.Name = "botonconfirmar";
             this.botonconfirmar.Size = new System.Drawing.Size(116, 31);
@@ -248,7 +280,7 @@
             // 
             // textBoxnombre8
             // 
-            this.textBoxnombre8.Location = new System.Drawing.Point(164, 519);
+            this.textBoxnombre8.Location = new System.Drawing.Point(164, 518);
             this.textBoxnombre8.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxnombre8.Name = "textBoxnombre8";
             this.textBoxnombre8.Size = new System.Drawing.Size(220, 22);
@@ -257,7 +289,7 @@
             // 
             // textBoxnombre7
             // 
-            this.textBoxnombre7.Location = new System.Drawing.Point(164, 468);
+            this.textBoxnombre7.Location = new System.Drawing.Point(164, 467);
             this.textBoxnombre7.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxnombre7.Name = "textBoxnombre7";
             this.textBoxnombre7.Size = new System.Drawing.Size(220, 22);
@@ -266,7 +298,7 @@
             // 
             // textBoxnombre6
             // 
-            this.textBoxnombre6.Location = new System.Drawing.Point(164, 416);
+            this.textBoxnombre6.Location = new System.Drawing.Point(164, 411);
             this.textBoxnombre6.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxnombre6.Name = "textBoxnombre6";
             this.textBoxnombre6.Size = new System.Drawing.Size(220, 22);
@@ -306,7 +338,7 @@
             this.labelnombre8.BackColor = System.Drawing.Color.Transparent;
             this.labelnombre8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelnombre8.ForeColor = System.Drawing.Color.White;
-            this.labelnombre8.Location = new System.Drawing.Point(144, 498);
+            this.labelnombre8.Location = new System.Drawing.Point(144, 497);
             this.labelnombre8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelnombre8.Name = "labelnombre8";
             this.labelnombre8.Size = new System.Drawing.Size(284, 17);
@@ -334,7 +366,7 @@
             this.labelnombre7.BackColor = System.Drawing.Color.Transparent;
             this.labelnombre7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelnombre7.ForeColor = System.Drawing.Color.White;
-            this.labelnombre7.Location = new System.Drawing.Point(144, 445);
+            this.labelnombre7.Location = new System.Drawing.Point(144, 444);
             this.labelnombre7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelnombre7.Name = "labelnombre7";
             this.labelnombre7.Size = new System.Drawing.Size(292, 17);
@@ -348,7 +380,7 @@
             this.labelnombre6.BackColor = System.Drawing.Color.Transparent;
             this.labelnombre6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelnombre6.ForeColor = System.Drawing.Color.White;
-            this.labelnombre6.Location = new System.Drawing.Point(144, 394);
+            this.labelnombre6.Location = new System.Drawing.Point(144, 389);
             this.labelnombre6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelnombre6.Name = "labelnombre6";
             this.labelnombre6.Size = new System.Drawing.Size(274, 17);
@@ -491,6 +523,188 @@
             this.buttonVolverMenu.UseVisualStyleBackColor = false;
             this.buttonVolverMenu.Click += new System.EventHandler(this.buttonVolverMenu_Click);
             // 
+            // checkBoxEntrenador1
+            // 
+            this.checkBoxEntrenador1.AutoSize = true;
+            this.checkBoxEntrenador1.ForeColor = System.Drawing.Color.White;
+            this.checkBoxEntrenador1.Location = new System.Drawing.Point(415, 127);
+            this.checkBoxEntrenador1.Name = "checkBoxEntrenador1";
+            this.checkBoxEntrenador1.Size = new System.Drawing.Size(136, 20);
+            this.checkBoxEntrenador1.TabIndex = 27;
+            this.checkBoxEntrenador1.Text = "Usar perfil creado";
+            this.checkBoxEntrenador1.UseVisualStyleBackColor = true;
+            this.checkBoxEntrenador1.CheckedChanged += new System.EventHandler(this.checkBoxEntrenador1_CheckedChanged);
+            // 
+            // checkBoxEntrenador2
+            // 
+            this.checkBoxEntrenador2.AutoSize = true;
+            this.checkBoxEntrenador2.ForeColor = System.Drawing.Color.White;
+            this.checkBoxEntrenador2.Location = new System.Drawing.Point(415, 186);
+            this.checkBoxEntrenador2.Name = "checkBoxEntrenador2";
+            this.checkBoxEntrenador2.Size = new System.Drawing.Size(136, 20);
+            this.checkBoxEntrenador2.TabIndex = 28;
+            this.checkBoxEntrenador2.Text = "Usar perfil creado";
+            this.checkBoxEntrenador2.UseVisualStyleBackColor = true;
+            this.checkBoxEntrenador2.CheckedChanged += new System.EventHandler(this.checkBoxEntrenador2_CheckedChanged);
+            // 
+            // checkBoxEntrenador3
+            // 
+            this.checkBoxEntrenador3.AutoSize = true;
+            this.checkBoxEntrenador3.ForeColor = System.Drawing.Color.White;
+            this.checkBoxEntrenador3.Location = new System.Drawing.Point(415, 245);
+            this.checkBoxEntrenador3.Name = "checkBoxEntrenador3";
+            this.checkBoxEntrenador3.Size = new System.Drawing.Size(136, 20);
+            this.checkBoxEntrenador3.TabIndex = 29;
+            this.checkBoxEntrenador3.Text = "Usar perfil creado";
+            this.checkBoxEntrenador3.UseVisualStyleBackColor = true;
+            this.checkBoxEntrenador3.Visible = false;
+            this.checkBoxEntrenador3.CheckedChanged += new System.EventHandler(this.checkBoxEntrenador3_CheckedChanged);
+            // 
+            // checkBoxEntrenador4
+            // 
+            this.checkBoxEntrenador4.AutoSize = true;
+            this.checkBoxEntrenador4.ForeColor = System.Drawing.Color.White;
+            this.checkBoxEntrenador4.Location = new System.Drawing.Point(415, 300);
+            this.checkBoxEntrenador4.Name = "checkBoxEntrenador4";
+            this.checkBoxEntrenador4.Size = new System.Drawing.Size(136, 20);
+            this.checkBoxEntrenador4.TabIndex = 30;
+            this.checkBoxEntrenador4.Text = "Usar perfil creado";
+            this.checkBoxEntrenador4.UseVisualStyleBackColor = true;
+            this.checkBoxEntrenador4.Visible = false;
+            this.checkBoxEntrenador4.CheckedChanged += new System.EventHandler(this.checkBoxEntrenador4_CheckedChanged);
+            // 
+            // checkBoxEntrenador5
+            // 
+            this.checkBoxEntrenador5.AutoSize = true;
+            this.checkBoxEntrenador5.ForeColor = System.Drawing.Color.White;
+            this.checkBoxEntrenador5.Location = new System.Drawing.Point(415, 359);
+            this.checkBoxEntrenador5.Name = "checkBoxEntrenador5";
+            this.checkBoxEntrenador5.Size = new System.Drawing.Size(136, 20);
+            this.checkBoxEntrenador5.TabIndex = 31;
+            this.checkBoxEntrenador5.Text = "Usar perfil creado";
+            this.checkBoxEntrenador5.UseVisualStyleBackColor = true;
+            this.checkBoxEntrenador5.Visible = false;
+            this.checkBoxEntrenador5.CheckedChanged += new System.EventHandler(this.checkBoxEntrenador5_CheckedChanged);
+            // 
+            // checkBoxEntrenador6
+            // 
+            this.checkBoxEntrenador6.AutoSize = true;
+            this.checkBoxEntrenador6.ForeColor = System.Drawing.Color.White;
+            this.checkBoxEntrenador6.Location = new System.Drawing.Point(415, 418);
+            this.checkBoxEntrenador6.Name = "checkBoxEntrenador6";
+            this.checkBoxEntrenador6.Size = new System.Drawing.Size(136, 20);
+            this.checkBoxEntrenador6.TabIndex = 32;
+            this.checkBoxEntrenador6.Text = "Usar perfil creado";
+            this.checkBoxEntrenador6.UseVisualStyleBackColor = true;
+            this.checkBoxEntrenador6.Visible = false;
+            this.checkBoxEntrenador6.CheckedChanged += new System.EventHandler(this.checkBoxEntrenador6_CheckedChanged);
+            // 
+            // checkBoxEntrenador7
+            // 
+            this.checkBoxEntrenador7.AutoSize = true;
+            this.checkBoxEntrenador7.ForeColor = System.Drawing.Color.White;
+            this.checkBoxEntrenador7.Location = new System.Drawing.Point(415, 470);
+            this.checkBoxEntrenador7.Name = "checkBoxEntrenador7";
+            this.checkBoxEntrenador7.Size = new System.Drawing.Size(136, 20);
+            this.checkBoxEntrenador7.TabIndex = 33;
+            this.checkBoxEntrenador7.Text = "Usar perfil creado";
+            this.checkBoxEntrenador7.UseVisualStyleBackColor = true;
+            this.checkBoxEntrenador7.Visible = false;
+            this.checkBoxEntrenador7.CheckedChanged += new System.EventHandler(this.checkBoxEntrenador7_CheckedChanged);
+            // 
+            // checkBoxEntrenador8
+            // 
+            this.checkBoxEntrenador8.AutoSize = true;
+            this.checkBoxEntrenador8.ForeColor = System.Drawing.Color.White;
+            this.checkBoxEntrenador8.Location = new System.Drawing.Point(415, 521);
+            this.checkBoxEntrenador8.Name = "checkBoxEntrenador8";
+            this.checkBoxEntrenador8.Size = new System.Drawing.Size(136, 20);
+            this.checkBoxEntrenador8.TabIndex = 34;
+            this.checkBoxEntrenador8.Text = "Usar perfil creado";
+            this.checkBoxEntrenador8.UseVisualStyleBackColor = true;
+            this.checkBoxEntrenador8.Visible = false;
+            this.checkBoxEntrenador8.CheckedChanged += new System.EventHandler(this.checkBoxEntrenador8_CheckedChanged);
+            // 
+            // comboBoxEntrenador1
+            // 
+            this.comboBoxEntrenador1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEntrenador1.FormattingEnabled = true;
+            this.comboBoxEntrenador1.Location = new System.Drawing.Point(164, 127);
+            this.comboBoxEntrenador1.Name = "comboBoxEntrenador1";
+            this.comboBoxEntrenador1.Size = new System.Drawing.Size(220, 24);
+            this.comboBoxEntrenador1.TabIndex = 35;
+            this.comboBoxEntrenador1.Visible = false;
+            // 
+            // comboBoxEntrenador2
+            // 
+            this.comboBoxEntrenador2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEntrenador2.FormattingEnabled = true;
+            this.comboBoxEntrenador2.Location = new System.Drawing.Point(164, 186);
+            this.comboBoxEntrenador2.Name = "comboBoxEntrenador2";
+            this.comboBoxEntrenador2.Size = new System.Drawing.Size(220, 24);
+            this.comboBoxEntrenador2.TabIndex = 36;
+            this.comboBoxEntrenador2.Visible = false;
+            // 
+            // comboBoxEntrenador3
+            // 
+            this.comboBoxEntrenador3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEntrenador3.FormattingEnabled = true;
+            this.comboBoxEntrenador3.Location = new System.Drawing.Point(164, 243);
+            this.comboBoxEntrenador3.Name = "comboBoxEntrenador3";
+            this.comboBoxEntrenador3.Size = new System.Drawing.Size(220, 24);
+            this.comboBoxEntrenador3.TabIndex = 37;
+            this.comboBoxEntrenador3.Visible = false;
+            // 
+            // comboBoxEntrenador4
+            // 
+            this.comboBoxEntrenador4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEntrenador4.FormattingEnabled = true;
+            this.comboBoxEntrenador4.Location = new System.Drawing.Point(164, 300);
+            this.comboBoxEntrenador4.Name = "comboBoxEntrenador4";
+            this.comboBoxEntrenador4.Size = new System.Drawing.Size(220, 24);
+            this.comboBoxEntrenador4.TabIndex = 38;
+            this.comboBoxEntrenador4.Visible = false;
+            // 
+            // comboBoxEntrenador5
+            // 
+            this.comboBoxEntrenador5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEntrenador5.FormattingEnabled = true;
+            this.comboBoxEntrenador5.Location = new System.Drawing.Point(164, 357);
+            this.comboBoxEntrenador5.Name = "comboBoxEntrenador5";
+            this.comboBoxEntrenador5.Size = new System.Drawing.Size(220, 24);
+            this.comboBoxEntrenador5.TabIndex = 39;
+            this.comboBoxEntrenador5.Visible = false;
+            // 
+            // comboBoxEntrenador6
+            // 
+            this.comboBoxEntrenador6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEntrenador6.FormattingEnabled = true;
+            this.comboBoxEntrenador6.Location = new System.Drawing.Point(164, 411);
+            this.comboBoxEntrenador6.Name = "comboBoxEntrenador6";
+            this.comboBoxEntrenador6.Size = new System.Drawing.Size(220, 24);
+            this.comboBoxEntrenador6.TabIndex = 40;
+            this.comboBoxEntrenador6.Visible = false;
+            // 
+            // comboBoxEntrenador7
+            // 
+            this.comboBoxEntrenador7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEntrenador7.FormattingEnabled = true;
+            this.comboBoxEntrenador7.Location = new System.Drawing.Point(164, 467);
+            this.comboBoxEntrenador7.Name = "comboBoxEntrenador7";
+            this.comboBoxEntrenador7.Size = new System.Drawing.Size(220, 24);
+            this.comboBoxEntrenador7.TabIndex = 41;
+            this.comboBoxEntrenador7.Visible = false;
+            // 
+            // comboBoxEntrenador8
+            // 
+            this.comboBoxEntrenador8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEntrenador8.FormattingEnabled = true;
+            this.comboBoxEntrenador8.Location = new System.Drawing.Point(164, 518);
+            this.comboBoxEntrenador8.Name = "comboBoxEntrenador8";
+            this.comboBoxEntrenador8.Size = new System.Drawing.Size(220, 24);
+            this.comboBoxEntrenador8.TabIndex = 42;
+            this.comboBoxEntrenador8.Visible = false;
+            // 
             // formElegirTorneo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -561,5 +775,21 @@
         private System.Windows.Forms.PictureBox pictureequis;
         private System.Windows.Forms.Button botonsalirerror;
         private System.Windows.Forms.Button buttonVolverMenu;
+        private System.Windows.Forms.CheckBox checkBoxEntrenador8;
+        private System.Windows.Forms.CheckBox checkBoxEntrenador7;
+        private System.Windows.Forms.CheckBox checkBoxEntrenador6;
+        private System.Windows.Forms.CheckBox checkBoxEntrenador5;
+        private System.Windows.Forms.CheckBox checkBoxEntrenador4;
+        private System.Windows.Forms.CheckBox checkBoxEntrenador3;
+        private System.Windows.Forms.CheckBox checkBoxEntrenador2;
+        private System.Windows.Forms.CheckBox checkBoxEntrenador1;
+        private System.Windows.Forms.ComboBox comboBoxEntrenador8;
+        private System.Windows.Forms.ComboBox comboBoxEntrenador7;
+        private System.Windows.Forms.ComboBox comboBoxEntrenador6;
+        private System.Windows.Forms.ComboBox comboBoxEntrenador5;
+        private System.Windows.Forms.ComboBox comboBoxEntrenador4;
+        private System.Windows.Forms.ComboBox comboBoxEntrenador3;
+        private System.Windows.Forms.ComboBox comboBoxEntrenador2;
+        private System.Windows.Forms.ComboBox comboBoxEntrenador1;
     }
 }
