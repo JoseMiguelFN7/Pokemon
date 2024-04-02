@@ -16,11 +16,11 @@ namespace Pokemon
     {
         public static formEntrenadores entrenadores;
         public static formElegirTorneo torneo;
-        public static bool exitForm = false;
+        public static bool exitForm;
 
         public formMenuPrincipal()
         {
-            formBatalla.ganador = null;
+            exitForm = false;
 
             actualizarArchivoJugadores();
 

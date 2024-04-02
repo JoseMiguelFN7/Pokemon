@@ -1776,5 +1776,14 @@
   <ItemGroup>
     <None Include="Resources\Caja_1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\torneo2jugadoresGanador.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\torneo8jugadoresGanador.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\torneo4jugadoresGanador.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

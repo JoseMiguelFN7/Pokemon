@@ -5293,6 +5293,16 @@ namespace Pokemon.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap torneo2jugadoresGanador {
+            get {
+                object obj = ResourceManager.GetObject("torneo2jugadoresGanador", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap torneo4jugadores {
             get {
                 object obj = ResourceManager.GetObject("torneo4jugadores", resourceCulture);
@@ -5303,9 +5313,29 @@ namespace Pokemon.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap torneo4jugadoresGanador {
+            get {
+                object obj = ResourceManager.GetObject("torneo4jugadoresGanador", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap torneo8jugadores {
             get {
                 object obj = ResourceManager.GetObject("torneo8jugadores", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap torneo8jugadoresGanador {
+            get {
+                object obj = ResourceManager.GetObject("torneo8jugadoresGanador", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

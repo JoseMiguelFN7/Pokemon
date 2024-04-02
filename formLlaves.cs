@@ -16,6 +16,8 @@ namespace Pokemon
         AVL llaves = new AVL();
         public static cola rivales = new cola();
         public nodo batallaActual = new nodo();
+        Image fondoGanador;
+
         public formLlaves()
         {
             jugador[] vacios = new jugador[7];
@@ -36,6 +38,8 @@ namespace Pokemon
             }
 
             InitializeComponent();
+
+            labelGanador.Parent = fondo;
             
             switch (formElegirTorneo.listaJtorneo.getTamanio())
             {
@@ -53,6 +57,7 @@ namespace Pokemon
                     clasificado_bracket3.Visible = false;
                     clasificado_bracket4.Visible = false;
                     fondo.Image = Properties.Resources.torneo2jugadores;
+                    fondoGanador = Properties.Resources.torneo2jugadoresGanador;
 
                     llaves.insertarJugador(vacios[0]);
 
@@ -77,6 +82,7 @@ namespace Pokemon
                     jugador8.Visible = false;
 
                     fondo.Image = Properties.Resources.torneo4jugadores;
+                    fondoGanador = Properties.Resources.torneo4jugadoresGanador;
 
                     for (int i = 0; i < 3; i++)
                     {
@@ -102,6 +108,7 @@ namespace Pokemon
                 case 8:
 
                     fondo.Image = Properties.Resources.torneo8jugadores;
+                    fondoGanador = Properties.Resources.torneo8jugadoresGanador;
 
                     for (int i = 0; i < vacios.Length; i++)
                     {
@@ -145,6 +152,7 @@ namespace Pokemon
         {
             if (formElegirTorneo.listaJtorneo.getTamanio() >= 2)
             {
+                labelGanador.Text = llaves.getRaiz().getValorJugador().getNombre();
                 Clasificado_final1.Text = llaves.getRaiz().getDer().getValorJugador().getNombre();
                 Clasificado_final2.Text = llaves.getRaiz().getIzq().getValorJugador().getNombre();
             }
@@ -228,7 +236,7 @@ namespace Pokemon
                 return proximoCombate;
             }
 
-            if (Clasificado_final1.Text != "" && Clasificado_final2.Text != "")
+            if (Clasificado_final1.Text != "" && Clasificado_final2.Text != "" && labelGanador.Text == "")
             {
                 proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getDer().getValorJugador());
                 proximoCombate.agregarJugadorEnCola(llaves.getRaiz().getIzq().getValorJugador());
@@ -237,7 +245,9 @@ namespace Pokemon
                 return proximoCombate;
             }
 
-            labelSiguienteCombate.Text = "El ganador es:\n" + llaves.getRaiz().getValorJugador().getNombre();    //agregar label ganador
+            labelGanador.Visible = true;
+            fondo.Image = fondoGanador;
+            labelSiguienteCombate.Text = "El ganador es:\n" + llaves.getRaiz().getValorJugador().getNombre();
             buttonCombateSiguiente.Text = "SALIR AL MENU";
             return null;
         }
@@ -260,6 +270,7 @@ namespace Pokemon
             }
             else
             {
+                llaves.getRaiz().getValorJugador().setTGanados(llaves.getRaiz().getValorJugador().getTGanados()+1);
                 exitForm = true;
                 formMenuPrincipal FMP = new formMenuPrincipal();
                 FMP.Visible = true;

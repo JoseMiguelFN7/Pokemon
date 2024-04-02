@@ -66,6 +66,7 @@
             // Clasificado_final2
             // 
             this.Clasificado_final2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.Clasificado_final2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clasificado_final2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Clasificado_final2.Location = new System.Drawing.Point(704, 302);
             this.Clasificado_final2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -77,6 +78,7 @@
             // clasificado_bracket3
             // 
             this.clasificado_bracket3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.clasificado_bracket3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clasificado_bracket3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.clasificado_bracket3.Location = new System.Drawing.Point(857, 124);
             this.clasificado_bracket3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -88,6 +90,7 @@
             // jugador5
             // 
             this.jugador5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.jugador5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jugador5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.jugador5.Location = new System.Drawing.Point(1041, 32);
             this.jugador5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -99,6 +102,7 @@
             // clasificado_bracket4
             // 
             this.clasificado_bracket4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.clasificado_bracket4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clasificado_bracket4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.clasificado_bracket4.Location = new System.Drawing.Point(857, 457);
             this.clasificado_bracket4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -110,6 +114,7 @@
             // jugador6
             // 
             this.jugador6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.jugador6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jugador6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.jugador6.Location = new System.Drawing.Point(1029, 222);
             this.jugador6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -121,6 +126,7 @@
             // jugador7
             // 
             this.jugador7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.jugador7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jugador7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.jugador7.Location = new System.Drawing.Point(1029, 362);
             this.jugador7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -132,6 +138,7 @@
             // jugador8
             // 
             this.jugador8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.jugador8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jugador8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.jugador8.Location = new System.Drawing.Point(1029, 550);
             this.jugador8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -143,6 +150,7 @@
             // Clasificado_final1
             // 
             this.Clasificado_final1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.Clasificado_final1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clasificado_final1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Clasificado_final1.Location = new System.Drawing.Point(383, 302);
             this.Clasificado_final1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -154,6 +162,7 @@
             // clasificado_bracket1
             // 
             this.clasificado_bracket1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.clasificado_bracket1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clasificado_bracket1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.clasificado_bracket1.Location = new System.Drawing.Point(223, 124);
             this.clasificado_bracket1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -165,6 +174,7 @@
             // jugador1
             // 
             this.jugador1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.jugador1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jugador1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.jugador1.Location = new System.Drawing.Point(31, 32);
             this.jugador1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -176,6 +186,7 @@
             // jugador2
             // 
             this.jugador2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.jugador2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jugador2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.jugador2.Location = new System.Drawing.Point(31, 222);
             this.jugador2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -187,6 +198,7 @@
             // clasificado_bracket2
             // 
             this.clasificado_bracket2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.clasificado_bracket2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clasificado_bracket2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.clasificado_bracket2.Location = new System.Drawing.Point(223, 457);
             this.clasificado_bracket2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -198,6 +210,7 @@
             // jugador3
             // 
             this.jugador3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.jugador3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jugador3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.jugador3.Location = new System.Drawing.Point(31, 362);
             this.jugador3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -209,6 +222,7 @@
             // jugador4
             // 
             this.jugador4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.jugador4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jugador4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.jugador4.Location = new System.Drawing.Point(31, 550);
             this.jugador4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -258,14 +272,16 @@
             // 
             // labelGanador
             // 
-            this.labelGanador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.labelGanador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelGanador.Location = new System.Drawing.Point(542, 180);
+            this.labelGanador.BackColor = System.Drawing.SystemColors.Control;
+            this.labelGanador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGanador.ForeColor = System.Drawing.Color.Transparent;
+            this.labelGanador.Location = new System.Drawing.Point(488, 138);
             this.labelGanador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGanador.Name = "labelGanador";
-            this.labelGanador.Size = new System.Drawing.Size(100, 28);
+            this.labelGanador.Size = new System.Drawing.Size(186, 46);
             this.labelGanador.TabIndex = 17;
             this.labelGanador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelGanador.Visible = false;
             // 
             // formLlaves
             // 

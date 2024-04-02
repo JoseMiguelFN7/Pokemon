@@ -34,7 +34,7 @@ namespace Pokemon
 
         public formBatalla()
         {
-
+            ganador = null;
             jugadores = FormSeleccionarEquipo.colaEntrenadores;
 
             P1 = jugadores.sacarJugadorDeLaCola();
@@ -1475,7 +1475,6 @@ namespace Pokemon
             ganador.setPGanadas(ganador.getPGanadas() + 1);
             if (FormSeleccionarEquipo.torneo)
             {
-                ganador.setTGanados(ganador.getTGanados() + 1);
                 FLL.batallaActual.setValorJugador(ganador);
                 FLL.Visible = true;
 

@@ -50,6 +50,14 @@ namespace Pokemon
                     equipoJugador1.agregarPokemonAlFinal(Jugador_1.getPokemones()[i]);
                 }
             }
+
+            if (Jugador_2.getPokemones()[0] != null)
+            {
+                for (int i = 0; i < Jugador_2.getPokemones().Length; i++)
+                {
+                    equipoJugador2.agregarPokemonAlFinal(Jugador_2.getPokemones()[i]);
+                }
+            }
         }
         private lista CargarPokemonDisponibles()
         {
