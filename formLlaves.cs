@@ -28,14 +28,6 @@ namespace Pokemon
 
             formElegirTorneo.listaJtorneo = formElegirTorneo.listaJtorneo.randomizeJugadores(formElegirTorneo.listaJtorneo.getArrayJugadores());
 
-            jugador[] test = new jugador[formElegirTorneo.listaJtorneo.getTamanio()];
-
-            test = formElegirTorneo.listaJtorneo.getArrayJugadores();
-
-            for (int i = 0; i < test.Length; i++)
-            {
-                Console.WriteLine(test[i].getID());
-            }
 
             InitializeComponent();
 
@@ -66,10 +58,6 @@ namespace Pokemon
                     Clasificado_final1.Text = formElegirTorneo.listaJtorneo.getInicio().getValorJugador().getNombre();
                     Clasificado_final2.Text = formElegirTorneo.listaJtorneo.getInicio().getSiguiente().getValorJugador().getNombre();
 
-                    /*Console.WriteLine(llaves.getRaiz().getValorJugador().getID());
-                    Console.WriteLine(llaves.getRaiz().getDer().getValorJugador().getID());
-                    Console.WriteLine(llaves.getRaiz().getIzq().getValorJugador().getID());*/
-
                     break;
                 case 4:
                     jugador1.Visible = false;
@@ -96,14 +84,6 @@ namespace Pokemon
                     clasificado_bracket3.Text = llaves.getRaiz().getIzq().getDer().getValorJugador().getNombre();
                     clasificado_bracket4.Text = llaves.getRaiz().getIzq().getIzq().getValorJugador().getNombre();
 
-                    /*Console.WriteLine(llaves.getRaiz().getValorJugador().getID());                          //B
-                    Console.WriteLine(llaves.getRaiz().getDer().getValorJugador().getID());                 //B
-                    Console.WriteLine(llaves.getRaiz().getIzq().getValorJugador().getID());                 //B
-                    Console.WriteLine(llaves.getRaiz().getDer().getDer().getValorJugador().getID());        //1
-                    Console.WriteLine(llaves.getRaiz().getDer().getIzq().getValorJugador().getID());        //2
-                    Console.WriteLine(llaves.getRaiz().getIzq().getDer().getValorJugador().getID());        //3
-                    Console.WriteLine(llaves.getRaiz().getIzq().getIzq().getValorJugador().getID());        //4*/
-
                     break;
                 case 8:
 
@@ -126,22 +106,6 @@ namespace Pokemon
                     jugador7.Text = llaves.getRaiz().getIzq().getIzq().getDer().getValorJugador().getNombre();
                     jugador8.Text = llaves.getRaiz().getIzq().getIzq().getIzq().getValorJugador().getNombre();
 
-
-                    /*Console.WriteLine(llaves.getRaiz().getValorJugador().getID());                              //B
-                    Console.WriteLine(llaves.getRaiz().getDer().getValorJugador().getID());                     //B
-                    Console.WriteLine(llaves.getRaiz().getIzq().getValorJugador().getID());                     //B
-                    Console.WriteLine(llaves.getRaiz().getIzq().getDer().getValorJugador().getID());            //B
-                    Console.WriteLine(llaves.getRaiz().getIzq().getIzq().getValorJugador().getID());            //B
-                    Console.WriteLine(llaves.getRaiz().getDer().getDer().getValorJugador().getID());            //B
-                    Console.WriteLine(llaves.getRaiz().getDer().getIzq().getValorJugador().getID());            //B
-                    Console.WriteLine(llaves.getRaiz().getDer().getDer().getDer().getValorJugador().getID());   //1
-                    Console.WriteLine(llaves.getRaiz().getDer().getDer().getIzq().getValorJugador().getID());   //2
-                    Console.WriteLine(llaves.getRaiz().getDer().getIzq().getDer().getValorJugador().getID());   //3
-                    Console.WriteLine(llaves.getRaiz().getDer().getIzq().getIzq().getValorJugador().getID());   //4
-                    Console.WriteLine(llaves.getRaiz().getIzq().getDer().getDer().getValorJugador().getID());   //5
-                    Console.WriteLine(llaves.getRaiz().getIzq().getDer().getIzq().getValorJugador().getID());   //6
-                    Console.WriteLine(llaves.getRaiz().getIzq().getIzq().getDer().getValorJugador().getID());   //7
-                    Console.WriteLine(llaves.getRaiz().getIzq().getIzq().getIzq().getValorJugador().getID());   //8*/
                     break;
             }
 

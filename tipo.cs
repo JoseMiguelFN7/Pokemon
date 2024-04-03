@@ -129,8 +129,6 @@ namespace Pokemon
                 case "Hada":
                     return 16;
                 default:
-                    Console.WriteLine("EEEEERROOOOOOOOOOOOOOOOOOOOOOOOOR");
-                    Console.WriteLine(s);
                     return 17;
             }
         }
@@ -189,9 +187,6 @@ namespace Pokemon
                     break;
                 case "Hada":
                     PB.Image = Properties.Resources.MovHada;
-                    break;
-                default:
-                    Console.WriteLine("EEEEERROOOOOOOOOOOOOOOOOOOOOOOOOR");
                     break;
             }
         }

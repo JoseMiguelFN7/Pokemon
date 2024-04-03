@@ -1,0 +1,1821 @@
+// CLASE ANTIDOTO----------------------------------------------------------
+namespace Pokemon
+{
+    // Declaración de la clase antidoto que hereda de objeto
+    clase antidoto hereda_de objeto {
+    
+        // Constructor de la clase antidoto
+        función antidoto() {
+            // Asignación de valores a las propiedades de la clase
+            esto.ID = 5;
+            esto.nombre = "Antídoto";
+            esto.descripcion = "Cura el veneno del Pokémon.";
+            esto.icono = Resources.antidoto;
+        }
+
+        // Método para usar el antidoto en un Pokémon
+        función usarAntidoto(pokemon PKM) {
+            // Declaración e inicialización de la variable para el mensaje de salida
+            cadena s = " usó un Antídoto. ";
+
+            // Verificar si el Pokémon está envenenado
+            si (PKM.getEstadoAlterado() == 5) {
+                // Si está envenenado, curarlo
+                PKM.setEstadoAlterado(0);
+                s += "¡" + PKM.getNombre() + " ya no está envenenado!.";
+            }
+            sino {
+                // Si no está envenenado, indicar que el antidoto no tuvo efecto
+                s += "No hizo efecto.";
+            }
+
+            // Devolver el mensaje de salida
+            devolver s;
+        }
+    }
+}
+
+//CLASE ANTIPARALISIS------------------------------------------------
+namespace Pokemon {
+    // Declaración de la clase antiParalisis que hereda de objeto
+    clase antiParalisis hereda_de objeto {
+        // Constructor de la clase antiParalisis
+        función antiParalisis() {
+            // Asignación de valores a las propiedades de la clase
+            esto.ID = 4;
+            esto.nombre = "Antiparálisis";
+            esto.descripcion = "Cura la parálisis del Pokémon.";
+            esto.icono = Resources.antiparalisis;
+        }
+
+        // Método para usar el antiparalisis en un Pokémon
+        función usarAntiparalisis(pokemon PKM) {
+            // Declaración e inicialización de la variable para el mensaje de salida
+            cadena s = " usó un Antiparálisis. ";
+
+            // Verificar si el Pokémon está paralizado
+            si (PKM.getEstadoAlterado() == 1) {
+                // Si está paralizado, curarlo
+                PKM.setEstadoAlterado(0);
+                s += "¡" + PKM.getNombre() + " ya no está paralizado!.";
+            }
+            sino {
+                // Si no está paralizado, indicar que el antiparalisis no tuvo efecto
+                s += "No hizo efecto.";
+            }
+
+            // Devolver el mensaje de salida
+            devolver s;
+        }
+    }
+}
+
+//CLASE ARCHIVO--------------------------------------------------
+namespace Pokemon {
+    // Declaración de la clase archivo
+    clase archivo {
+        // Método estático para leer un archivo
+        función leerArchivo(cadena file) -> cadena {
+            // Verificar si el archivo existe
+            si (File.Exists(file)) {
+                // Abrir el archivo para lectura
+                StreamReader sr = nuevo StreamReader(file);
+                cadena texto, line;
+                // Leer la primera línea del archivo
+                line = sr.ReadLine();
+                texto = line;
+                // Leer las líneas restantes del archivo
+                mientras ((line = sr.ReadLine()) no sea nulo) {
+                    texto += "\n" + line;
+                }
+                // Cerrar el lector
+                sr.Close();
+                // Devolver el texto leído
+                devolver texto;
+            }
+            // Devolver nulo si el archivo no existe
+            devolver nulo;
+        }
+
+        // Método estático para escribir en un archivo
+        función escribirArchivo(cadena texto, cadena file) {
+            // Abrir el archivo para escritura
+            StreamWriter sw = nuevo StreamWriter(file);
+            // Escribir el texto en el archivo
+            sw.WriteLine(texto);
+            // Cerrar el escritor
+            sw.Close();
+        }
+    }
+}
+
+// CLASE AVL--------------------------------------------------------
+namespace Pokemon {
+    // Declaración de la clase AVL
+    clase AVL {
+        // Declaración de variables privadas
+        privado nodo raiz;
+
+        // Constructor de la clase AVL
+        función AVL() {
+            this.raiz = nulo;
+        }
+
+        // Método para obtener la raíz del árbol AVL
+        función getRaiz() -> nodo {
+            devolver raiz;
+        }
+
+        // Método privado para obtener el factor de equilibrio de un nodo
+        privado función obtenerFE(nodo nodo) -> entero {
+            si (nodo == nulo) {
+                devolver 0;
+            }
+            devolver nodo.getAltura(nodo.getIzq()) - nodo.getAltura(nodo.getDer());
+        }
+
+        // Método privado para actualizar la altura de un nodo
+        privado función actualizarAltura(nodo nodo) {
+            si (nodo != nulo) {
+                nodo.setAltura(Math.Max(nodo.getAltura(nodo.getIzq()), nodo.getAltura(nodo.getDer())) + 1);
+            }
+        }
+
+        // Método privado para realizar una rotación hacia la derecha
+        privado función rotacionDerecha(nodo a) -> nodo {
+            nodo b = a.getIzq();
+            nodo aux = b.getDer();
+
+            b.setDer(a);
+            a.setIzq(aux);
+
+            actualizarAltura(a);
+            actualizarAltura(b);
+
+            devolver b;
+        }
+
+        // Método privado para realizar una rotación hacia la izquierda
+        privado función rotacionIzquierda(nodo b) -> nodo {
+            nodo a = b.getDer();
+            nodo aux = a.getIzq();
+
+            a.setIzq(b);
+            b.setDer(aux);
+
+            actualizarAltura(b);
+            actualizarAltura(a);
+
+            devolver a;
+        }
+
+        // Método público para insertar un jugador en el árbol AVL
+        función insertarJugador(jugador jugador) {
+            raiz = insertarJ(raiz, jugador);
+        }
+
+        // Método privado para insertar un jugador en el árbol AVL
+        privado función insertarJ(nodo nodo, jugador jugador) -> nodo {
+            si (nodo == nulo) {
+                nodo n = nuevo nodo();
+                n.setValorJugador(jugador);
+                devolver n;
+            }
+
+            si (jugador.getID() < nodo.getValorJugador().getID()) {
+                nodo.setIzq(insertarJ(nodo.getIzq(), jugador));
+            }
+            sino si (jugador.getID() > nodo.getValorJugador().getID()) {
+                nodo.setDer(insertarJ(nodo.getDer(), jugador));
+            }
+            sino {
+                devolver nodo;
+            }
+
+            actualizarAltura(nodo);
+
+            entero FE = obtenerFE(nodo);
+
+            si (FE > 1 y jugador.getID() < nodo.getIzq().getValorJugador().getID()) {
+                devolver rotacionDerecha(nodo);
+            }
+
+            si (FE < -1 y jugador.getID() > nodo.getDer().getValorJugador().getID()) {
+                devolver rotacionIzquierda(nodo);
+            }
+
+            si (FE > 1 y jugador.getID() > nodo.getIzq().getValorJugador().getID()) {
+                nodo.setIzq(rotacionIzquierda(nodo.getIzq()));
+                devolver rotacionDerecha(nodo);
+            }
+
+            si (FE < -1 y jugador.getID() < nodo.getDer().getValorJugador().getID()) {
+                nodo.setDer(rotacionDerecha(nodo.getDer()));
+                devolver rotacionIzquierda(nodo);
+            }
+
+            devolver nodo;
+        }
+
+        // Método público para insertar al final de la lista en cada nodo del árbol
+        función insertarFinal(lista l) {
+            raiz.setDer(l.getInicio());
+            raiz.setIzq(l.getInicio().getSiguiente());
+        }
+
+        // Método público para insertar en la posición semi-final en cada nodo del árbol
+        función insertarSemi(lista l) {
+            raiz.getDer().setDer(l.getInicio());
+            raiz.getDer().setIzq(l.getInicio().getSiguiente());
+            raiz.getIzq().setDer(l.getInicio().getSiguiente().getSiguiente());
+            raiz.getIzq().setIzq(l.getInicio().getSiguiente().getSiguiente().getSiguiente());
+        }
+
+        // Método público para insertar en la posición de cuartos en cada nodo del árbol
+        función insertarCuartos(lista l) {
+            raiz.getDer().getDer().setDer(l.getInicio());
+            raiz.getDer().getDer().setIzq(l.getInicio().getSiguiente());
+            raiz.getDer().getIzq().setDer(l.getInicio().getSiguiente().getSiguiente());
+            raiz.getDer().getIzq().setIzq(l.getInicio().getSiguiente().getSiguiente().getSiguiente());
+            raiz.getIzq().getDer().setDer(l.getInicio().getSiguiente().getSiguiente().getSiguiente().getSiguiente());
+            raiz.getIzq().getDer().setIzq(l.getInicio().getSiguiente().getSiguiente().getSiguiente().getSiguiente().getSiguiente());
+            raiz.getIzq().getIzq().setDer(l.getInicio().getSiguiente().getSiguiente().getSiguiente().getSiguiente().getSiguiente().getSiguiente());
+            raiz.getIzq().getIzq().setIzq(l.getInicio().getSiguiente().getSiguiente().getSiguiente().getSiguiente().getSiguiente().getSiguiente().getSiguiente());
+        }
+    }
+}
+
+// CLASE COLA----------------------------------------------------------------------
+namespace Pokemon {
+    // Declaración de la clase cola
+    clase cola {
+        // Declaración de variables privadas
+        privado nodo inicio;
+        privado nodo fin;
+        privado entero tamanio;
+
+        // Constructor de la clase cola
+        función cola() {
+            esto.inicio = nulo;
+            esto.fin = nulo;
+            esto.tamanio = 0;
+        }
+
+        // Método para obtener el tamaño de la cola
+        función getTamanio() -> entero {
+            devolver esto.tamanio;
+        }
+
+        // Método para determinar si la cola está vacía
+        función esVacia() -> booleano {
+            devolver inicio == nulo;
+        }
+
+        // Método para agregar un jugador a la cola
+        función agregarJugadorEnCola(jugador datoJugador) {
+            nodo nuevo = nuevo nodo();
+            nuevo.setValorJugador(datoJugador);
+            si (esVacia()) {
+                inicio = fin = nuevo;
+            } sino {
+                fin.setSiguiente(nuevo);
+                fin = nuevo;
+            }
+            tamanio++;
+        }
+
+        // Método para sacar un jugador de la cola
+        función sacarJugadorDeLaCola() -> jugador {
+            jugador valorJugador = nulo;
+            si (!esVacia()) {
+                valorJugador = inicio.getValorJugador();
+                inicio = inicio.getSiguiente();
+                si (esVacia()) {
+                    fin = nulo;
+                }
+                tamanio--;
+            }
+            devolver valorJugador;
+        }
+
+        // Método para ver al jugador al inicio de la cola
+        función verInicio() -> jugador {
+            devolver inicio.getValorJugador();
+        }
+
+        // Método para verificar si todos los jugadores están listos
+        función todosListos() -> booleano {
+            si (esVacia()) {
+                devolver falso;
+            }
+            sino {
+                nodo aux = inicio;
+                mientras (aux no sea nulo) {
+                    si (aux.getValorJugador().GetTurno().estaActivo()) {
+                        devolver falso;
+                    }
+                    aux = aux.getSiguiente();
+                }
+                devolver verdadero;
+            }
+        }
+    }
+}
+
+// CLASE CURATOTAL------------------------------------------------------------
+namespace Pokemon {
+    // Declaración de la clase curaTotal que hereda de objeto
+    clase curaTotal hereda_de objeto {
+        // Constructor de la clase curaTotal
+        función curaTotal() {
+            // Asignación de valores a las propiedades de la clase
+            esto.ID = 7;
+            esto.nombre = "Cura Total";
+            esto.descripcion = "Cura todos los PS del Pokémon y elimina todos los problemas de estado.";
+            esto.icono = Resources.curatotal;
+        }
+
+        // Método para usar la curaTotal en un Pokémon
+        función usarCuraTotal(pokemon PKM) -> cadena {
+            // Declaración e inicialización de la variable para el mensaje de salida
+            cadena s = " usó una Cura Total. ¡" + PKM.getNombre() + " ha recuperado todos sus PS";
+            // Verificar si el Pokémon tiene un estado alterado
+            si (PKM.getEstadoAlterado() == 0) {
+                s += "!.";
+            } sino {
+                s += " y ya no posee estados alterados!.";
+            }
+            // Establecer los puntos de salud del Pokémon al máximo
+            PKM.setHP(PKM.getHP(1), 2);
+            // Eliminar el estado alterado del Pokémon
+            PKM.setEstadoAlterado(0);
+            // Restablecer la probabilidad de recuperación del Pokémon
+            PKM.setProbRecuperar(0);
+
+            // Devolver el mensaje de salida
+            devolver s;
+        }
+    }
+}
+
+// CLASE DESPERTAR
+namespace Pokemon {
+    // Declaración de la clase despertar que hereda de objeto
+    clase despertar hereda_de objeto {
+        // Constructor de la clase despertar
+        función despertar() {
+            // Asignación de valores a las propiedades de la clase
+            esto.ID = 6;
+            esto.nombre = "Despertar";
+            esto.descripcion = "Despierta al Pokémon dormido.";
+            esto.icono = Resources.awakening;
+        }
+
+        // Método para usar el despertar en un Pokémon
+        función usarDespertar(pokemon PKM) -> cadena {
+            // Declaración e inicialización de la variable para el mensaje de salida
+            cadena s = " usó un Despertar. ";
+            // Verificar si el Pokémon está dormido
+            si (PKM.getEstadoAlterado() == 3) {
+                // Si está dormido, despiértalo
+                PKM.setEstadoAlterado(0);
+                PKM.setProbRecuperar(0);
+                s += "¡" + PKM.getNombre() + " ya no tiene sueño!.";
+            } sino {
+                // Si no está dormido, indicar que el despertar no tuvo efecto
+                s += "No hizo efecto.";
+            }
+
+            // Devolver el mensaje de salida
+            devolver s;
+        }
+    }
+}
+
+//FORMBARRADECARGA-------------------------------------
+namespace Pokemon {
+    // Declaración de la clase formBarradecarga que hereda de Form
+    clase formBarradecarga hereda_de Form {
+        // Declaración de variables privadas
+        privado booleano teclaPresionada = falso;
+        privado booleano exitform = falso;
+
+        // Constructor de la clase formBarradecarga
+        función formBarradecarga() {
+            // Inicialización de componentes
+            InicializarComponente();
+            // Obtener la ruta del video de la barra de carga
+            cadena ruta = CombinarRuta(Application.StartupPath, "videos\\barradecarga.mp4");
+            // Asignar la URL del video a la instancia del control AxWindowsMediaPlayer
+            videoCarga.URL = ruta;
+            // Configuración para que el video se reproduzca automáticamente
+            videoCarga.settings.autoStart = verdadero;
+            // Ocultar la interfaz del reproductor de video
+            videoCarga.uiMode = "none";
+        }
+
+        // Manejador de evento para el cambio de estado de reproducción del video
+        función videoCarga_PlayStateChange(objeto sender, _WMPOCXEvents_PlayStateChangeEvent e) {
+            // Verificar si el nuevo estado de reproducción es 'MediaEnded' y ninguna tecla ha sido presionada
+            si (e.newState == (int)WMPLib.WMPPlayState.wmppsMediaEnded && !teclaPresionada) {
+                // Indicar que se debe cerrar el formulario de carga
+                exitform = verdadero;
+                // Silenciar el video
+                videoCarga.settings.mute = verdadero;
+                // Crear una instancia del formulario de batalla
+                formBatalla FB = nuevo formBatalla();
+                // Mostrar el formulario de batalla
+                FB.Visible = verdadero;
+                // Cerrar el formulario de carga
+                este.Cerrar();
+            }
+        }
+
+        // Manejador de evento para el cierre del formulario de carga
+        función formBarradecarga_FormClosing(objeto sender, FormClosingEventArgs e) {
+            // Verificar si el formulario se está cerrando y no se ha indicado la salida del formulario
+            si (!exitform) {
+                // Salir de la aplicación
+                Aplicación.Salir();
+            }
+        }
+    }
+}
+
+//HIPERPOCION-------------------------------------------
+Clase hiperPoción hereda de objeto
+    Método hiperPoción
+        Asignar ID = 3
+        Asignar nombre = "Hiperpoción"
+        Asignar descripción = "Cura 200 PS al Pokémon."
+        Asignar icono = Resources.hiperpoción
+
+    Método usarHiperPoción(PKM)
+        PKM.setHP(PKM.getHP(2) + 200, 2)
+        Si PKM.getHP(2) > PKM.getHP(1) Entonces
+            PKM.setHP(PKM.getHP(1), 2)
+        Devolver " usó una Hiper Poción. ¡" + PKM.getNombre() + " ha recuperado 200 PS!."
+
+// CLASE JUGADOR---------------------------------------------------
+namespace Pokemon {
+    // Declaración de la clase jugador
+    clase jugador {
+        // Declaración de variables privadas
+        privado entero ID;
+        privado cadena nombre;
+        privado pila[] bolsa;
+        privado pokemon[] pokemones;
+        privado entero pJugadas;
+        privado entero pGanadas;
+        privado entero tGanados;
+        privado turno turno;
+
+        // Constructor de la clase jugador
+        función jugador(entero iD, cadena nombre, entero pJugadas, entero pGanadas, entero tGanados) {
+            // Inicialización de variables
+            ID = iD;
+            este.nombre = nombre;
+            este.bolsa = nuevo pila[9];
+            este.pokemones = nuevo pokemon[6];
+            este.pJugadas = pJugadas;
+            este.pGanadas = pGanadas;
+            este.tGanados = tGanados;
+            este.turno = nuevo turno(este);
+        }
+
+        // Métodos para establecer valores
+        función setID(entero id) {
+            este.ID = id;
+        }
+
+        función setNombre(cadena n) {
+            este.nombre = n;
+        }
+
+        función setBolsa(pila[] b) {
+            este.bolsa = b;
+        }
+
+        función setPokemones(pokemon[] p) {
+            este.pokemones = p;
+        }
+
+        función setPJugadas(entero pj) {
+            este.pJugadas = pj;
+        }
+
+        función setPGanadas(entero pg) {
+            este.pGanadas = pg;
+        }
+
+        función setTGanados(entero tg) {
+            este.tGanados = tg;
+        }
+
+        // Métodos para obtener valores
+        función getID() : entero {
+            retornar este.ID;
+        }
+
+        función getNombre() : cadena {
+            retornar este.nombre;
+        }
+
+        función getBolsa() : pila[] {
+            retornar este.bolsa;
+        }
+
+        función getPokemones() : pokemon[] {
+            retornar este.pokemones;
+        }
+
+        función getPJugadas() : entero {
+            retornar este.pJugadas;
+        }
+
+        función getPGanadas() : entero {
+            retornar este.pGanadas;
+        }
+
+        función getTGanados() : entero {
+            retornar este.tGanados;
+        }
+
+        función GetTurno() : turno {
+            retornar este.turno;
+        }
+
+        // Método para cambiar de Pokémon
+        función cambiarPKM(entero indice) : pokemon {
+            retornar pokemones[indice];
+        }
+
+        // Método para verificar si hay Pokémon vivos en el equipo
+        función quedaPKMVivo() : booleano {
+            para (entero i = 0; i < pokemones.Longitud; i++) {
+                si (pokemones[i].getHP(2) > 0) {
+                    retornar verdadero;
+                }
+            }
+            retornar falso;
+        }
+
+        // Método para buscar un Pokémon por su ID
+        función buscarPokemon(entero id) : pokemon {
+            para (entero i = 0; i < pokemones.Longitud; i++) {
+                si (pokemones[i].getID() == id) {
+                    retornar pokemones[i];
+                }
+            }
+            retornar nulo;
+        }
+
+        // Método para reiniciar un Pokémon Ditto en el equipo
+        función resetDitto() {
+            para (entero i = 0; i < pokemones.Longitud; i++) {
+                si (pokemones[i].esDitto()) {
+                    pokemones[i] = formInicio.arrPKM[131].crearCopiaPKM();
+                    retornar;
+                }
+            }
+        }
+    }
+}
+
+// CLASE LISTA------------------------------------------------------------------
+namespace Pokemon {
+    // Declaración de la clase lista
+    clase lista {
+        // Declaración de variables privadas
+        privado nodo inicio;
+        privado entero tamanio;
+
+        // Constructor de la clase lista
+        función lista() {
+            // Inicialización de variables
+            este.inicio = nulo;
+            este.tamanio = 0;
+        }
+
+        // Método para obtener el inicio de la lista
+        público nodo getInicio() {
+            retornar inicio;
+        }
+
+        // Método para obtener el tamaño de la lista
+        público entero getTamanio() {
+            retornar tamanio;
+        }
+
+        // Método para verificar si la lista está vacía
+        público booleano esVacia() {
+            retornar inicio == nulo;
+        }
+
+        // Método para agregar un tipo al final de la lista
+        público void agregarTipoAlFinal(tipo t) {
+            nodo nuevo = nuevo nodo();
+            nuevo.setValorTipo(t);
+            si (esVacia()) {
+                inicio = nuevo;
+            } sino {
+                nodo aux = inicio;
+                mientras (aux.getSiguiente() != nulo) {
+                    aux = aux.getSiguiente();
+                }
+                aux.setSiguiente(nuevo);
+            }
+            tamanio++;
+        }
+
+        // Método para agregar el nombre de un tipo al final de la lista
+        público void agregarNombreTipoAlFinal(cadena t) {
+            nodo nuevo = nuevo nodo();
+            nuevo.setValorNombreTipo(t);
+            si (esVacia()) {
+                inicio = nuevo;
+            } sino {
+                nodo aux = inicio;
+                mientras (aux.getSiguiente() != nulo) {
+                    aux = aux.getSiguiente();
+                }
+                aux.setSiguiente(nuevo);
+            }
+            tamanio++;
+        }
+
+        // Método para verificar si existe un nombre de tipo en la lista
+        público booleano existeNombreTipo(cadena n) {
+            si (esVacia()) {
+                retornar falso;
+            } sino {
+                nodo aux = inicio;
+                mientras (aux != nulo) {
+                    si (aux.getValorNombreTipo().Equals(n)) {
+                        retornar verdadero;
+                    }
+                    aux = aux.getSiguiente();
+                }
+                retornar falso;
+            }
+        }
+
+        // Método para agregar un movimiento al final de la lista
+        público void agregarMovimientoAlFinal(movimiento m) {
+            nodo nuevo = nuevo nodo();
+            nuevo.setValorMovimiento(m);
+            si (esVacia()) {
+                inicio = nuevo;
+            } sino {
+                nodo aux = inicio;
+                mientras (aux.getSiguiente() != nulo) {
+                    aux = aux.getSiguiente();
+                }
+                aux.setSiguiente(nuevo);
+            }
+            tamanio++;
+        }
+
+        // Método para obtener un movimiento por su ID
+        público movimiento obtenerMovID(entero id) {
+            si (esVacia()) {
+                retornar nulo;
+            } sino {
+                nodo aux = inicio;
+                mientras (aux != nulo) {
+                    si (aux.getValorMovimiento().getID() == id) {
+                        retornar aux.getValorMovimiento();
+                    }
+                    aux = aux.getSiguiente();
+                }
+                retornar nulo;
+            }
+        }
+
+        // Método para agregar un jugador al final de la lista
+        público void agregarJugadorAlFinal(jugador j) {
+            nodo nuevo = nuevo nodo();
+            nuevo.setValorJugador(j);
+            si (esVacia()) {
+                inicio = nuevo;
+            } sino {
+                nodo aux = inicio;
+                mientras (aux.getSiguiente() != nulo) {
+                    aux = aux.getSiguiente();
+                }
+                aux.setSiguiente(nuevo);
+            }
+            tamanio++;
+        }
+
+        // Método para buscar un jugador por su nombre
+        público jugador buscarJugador(cadena nombreJ) {
+            si (esVacia()) {
+                retornar nulo;
+            } sino {
+                nodo aux = inicio;
+                mientras (aux != nulo) {
+                    si (aux.getValorJugador().getNombre().Equals(nombreJ)) {
+                        retornar aux.getValorJugador();
+                    }
+                    aux = aux.getSiguiente();
+                }
+                retornar nulo;
+            }
+        }
+
+        // Método para verificar si existe un jugador por su nombre
+        público booleano existeJNombre(cadena nombreJ) {
+            si (esVacia()) {
+                retornar falso;
+            } sino {
+                nodo aux = inicio;
+                mientras (aux != nulo) {
+                    si (aux.getValorJugador().getNombre().Equals(nombreJ)) {
+                        retornar verdadero;
+                    }
+                    aux = aux.getSiguiente();
+                }
+                retornar falso;
+            }
+        }
+
+        // Método para agregar un Pokémon al final de la lista
+        público void agregarPokemonAlFinal(pokemon pkm) {
+            nodo nuevo = nuevo nodo();
+            nuevo.setValorPokemon(pkm);
+            si (esVacia()) {
+                inicio = nuevo;
+            } sino {
+                nodo aux = inicio;
+                mientras (aux.getSiguiente() != nulo) {
+                    aux = aux.getSiguiente();
+                }
+                aux.setSiguiente(nuevo);
+            }
+            tamanio++;
+        }
+
+        // Método para eliminar un Pokémon de la lista
+        público void eliminarPokemon(pokemon pkm) {
+            si (!esVacia()) {
+                si (inicio.getValorPokemon().getID() == pkm.getID()) {
+                    inicio = inicio.getSiguiente();
+                    tamanio--;
+                } sino {
+                    nodo aux = inicio;
+                    mientras (aux.getSiguiente() != nulo) {
+                        si (aux.getSiguiente().getValorPokemon().getID() == pkm.getID()) {
+                            aux.setSiguiente(aux.getSiguiente().getSiguiente());
+                            tamanio--;
+                            retornar;
+                        }
+                        aux = aux.getSiguiente();
+                    }
+                }
+            }
+        }
+
+        // Método para obtener un array de Pokémon
+        público pokemon[] getArrayPokemones() {
+            pokemon[] arrayPokemones = nuevo pokemon[tamanio];
+            si (esVacia()) {
+                retornar nulo;
+            } sino {
+                nodo aux = inicio;
+                para (entero i = 0; i < tamanio; i++) {
+                    arrayPokemones[i] = aux.getValorPokemon();
+                    aux = aux.getSiguiente();
+                }
+                retornar arrayPokemones;
+            }
+        }
+
+        // Método para obtener un array de jugadores
+        público jugador[] getArrayJugadores() {
+            jugador[] arrayJugadores = nuevo jugador[tamanio];
+            si (esVacia()) {
+                retornar nulo;
+            } sino {
+                nodo aux = inicio;
+                para (entero i = 0; i < tamanio; i++) {
+                    arrayJugadores[i] = aux.getValorJugador();
+                    aux = aux.getSiguiente();
+                }
+                retornar arrayJugadores;
+            }
+        }
+
+        // Método para aleatorizar jugadores
+        público lista randomizeJugadores(jugador[] j) {
+            ArrayList index = nuevo ArrayList();
+            para (entero i = 0; i < j.Longitud; i++) {
+                index.Add(i);
+            }
+            entero k = j.Longitud;
+            Random num = nuevo Random();
+            entero a;
+            lista ranJug = nuevo lista();
+            hacer {
+                a = num.Next(k);
+                ranJug.agregarJugadorAlFinal(j[(entero)index[a]]);
+                index.RemoveAt(a);
+                k--;
+            } mientras (k > 0);
+            retornar ranJug;
+        }
+
+        // Implementación de la interfaz IEnumerable
+        público IEnumerator GetEnumerator() {
+            nodo nodoActual = inicio;
+            mientras (nodoActual != nulo) {
+                yield return nodoActual.getValorPokemon();
+                nodoActual = nodoActual.getSiguiente();
+            }
+        }
+
+        // Método para limpiar la lista
+        público void limpiarLista() {
+            inicio = nulo;
+            tamanio = 0;
+        }
+
+        // Método para agregar una cola a la lista
+        público void agregarColaALista(cola c) {
+            jugador j;
+            para (entero i = 0; i < c.getTamanio(); i++) {
+                j = c.sacarJugadorDeLaCola();
+                si (!existeID(j.getID())) {
+                    agregarJugadorAlFinal(j);
+                }
+                c.agregarJugadorEnCola(j);
+            }
+        }
+
+        // Método para verificar si existe un ID en la lista
+        público booleano existeID(entero ID) {
+            si (esVacia()) {
+                retornar falso;
+            } sino {
+                nodo aux = inicio;
+                mientras (aux != nulo) {
+                    si (aux.getValorJugador().getID() == ID) {
+                        retornar verdadero;
+                    }
+                    aux = aux.getSiguiente();
+                }
+                retornar falso;
+            }
+        }
+
+        // Método para obtener una representación en cadena de los jugadores en la lista
+        público cadena obtenerStringJugadores() {
+            si (esVacia()) {
+                retornar nulo;
+            } sino {
+                cadena s = "";
+                nodo aux = inicio;
+                mientras (aux != nulo) {
+                    si (aux.getSiguiente() != nulo) {
+                        s += aux.getValorJugador().getID() + "/" + aux.getValorJugador().getNombre() + "/" + aux.getValorJugador().getPJugadas() + "/" + aux.getValorJugador().getPGanadas() + "/" + aux.getValorJugador().getTGanados() + "\n";
+                    } sino {
+                        s += aux.getValorJugador().getID() + "/" + aux.getValorJugador().getNombre() + "/" + aux.getValorJugador().getPJugadas() + "/" + aux.getValorJugador().getPGanadas() + "/" + aux.getValorJugador().getTGanados();
+                    }
+                    aux = aux.getSiguiente();
+                }
+                retornar s;
+            }
+        }
+
+        // Método para agregar una lista a otra lista
+        público void agregarListaALista(lista l) {
+            nodo nuevo = l.inicio;
+            si (l.esVacia()) {
+                retornar;
+            } sino {
+                si (esVacia()) {
+                    inicio = nuevo;
+                } sino {
+                    mientras (nuevo != nulo) {
+                        si (!existeID(nuevo.getValorJugador().getID())) {
+                            agregarJugadorAlFinal(nuevo.getValorJugador());
+                        }
+                        nuevo = nuevo.getSiguiente();
+                    }
+                }
+            }
+        }
+
+        // Método para llenar un ComboBox con los nombres de los jugadores en la lista
+        público void llenarComboBox(ComboBox CB) {
+            si (esVacia() || CB.Items.Count > 0) {
+                retornar;
+            } sino {
+                nodo aux = inicio;
+                mientras (aux != nulo) {
+                    CB.Items.Add(aux.getValorJugador().getNombre());
+                    aux = aux.getSiguiente();
+                }
+            }
+        }
+    }
+}
+
+// CLASE MOVIMIENTO
+namespace Pokemon {
+    // Declaración de la clase movimiento
+    clase movimiento {
+        // Declaración de variables privadas
+        privado entero id;
+        privado cadena nombre;
+        privado tipo tipo;
+        privado entero potencia;
+        privado cadena categoria;
+        privado entero precision;
+        privado entero estadoAlterado;
+        privado entero efecto;
+        privado entero[] usos;
+        privado cadena descripcion;
+
+        // Constructor de la clase movimiento
+        función movimiento(entero id, cadena nombre, tipo tipo, entero potencia, cadena categoria, entero precision, entero estadoAlterado, entero efecto, entero usos, cadena descripcion) {
+            // Inicialización de variables
+            este.id = id;
+            este.nombre = nombre;
+            este.tipo = tipo;
+            este.potencia = potencia;
+            este.categoria = categoria;
+            este.precision = precision;
+            este.estadoAlterado = estadoAlterado;
+            este.efecto = efecto;
+            este.usos = nuevo entero[2];
+            este.descripcion = descripcion;
+
+            este.usos[0] = usos;
+            este.usos[1] = usos;
+        }
+
+        // Método para obtener el ID del movimiento
+        público entero getID() {
+            retornar id;
+        }
+
+        // Método para obtener el nombre del movimiento
+        público cadena getNombre() {
+            retornar nombre;
+        }
+
+        // Método para obtener el tipo del movimiento
+        público tipo getTipo() {
+            retornar tipo;
+        }
+
+        // Método para obtener la potencia del movimiento
+        público entero getPotencia() {
+            retornar potencia;
+        }
+
+        // Método para obtener la categoría del movimiento
+        público cadena getCategoria() {
+            retornar categoria;
+        }
+
+        // Método para obtener la precisión del movimiento
+        público entero getPrecision() {
+            retornar precision;
+        }
+
+        // Método para obtener el estado alterado del movimiento
+        público entero getEstadoAlterado() {
+            retornar estadoAlterado;
+        }
+
+        // Método para obtener el efecto del movimiento
+        público entero getEfecto() {
+            retornar efecto;
+        }
+
+        // Método para obtener los usos del movimiento en una posición específica del array
+        público entero getUsos(entero pos) {
+            retornar usos[pos];
+        }
+
+        // Método para obtener la descripción del movimiento
+        público cadena getDescripcion() {
+            retornar descripcion;
+        }
+
+        // Método para establecer los usos del movimiento en una posición específica del array
+        público void setUsos(entero valor, entero pos) {
+            usos[pos] = valor;
+        }
+
+        // Método para establecer la precisión del movimiento
+        público void setPrecision(entero valor) {
+            precision = valor;
+        }
+
+        // Método para clonar un movimiento
+        público movimiento clonarMov() {
+            entero id = este.id;
+            cadena nombre = este.nombre;
+            tipo tipo = este.tipo;
+            entero potencia = este.potencia;
+            cadena categoria = este.categoria;
+            entero precision = este.precision;
+            entero estadoAlterado = este.estadoAlterado;
+            entero efecto = este.efecto;
+            entero[] usos = este.usos;
+            cadena descripcion = este.descripcion;
+
+            retornar nuevo movimiento(id, nombre, tipo, potencia, categoria, precision, estadoAlterado, efecto, usos[0], descripcion);
+        }
+
+        // Método para aumentar un stat del Pokémon
+        público void aumentarStat(pokemon PKM, entero n) {
+            seleccionar (n) {
+                caso 6:
+                    PKM.setATK((entero)Math.Round(PKM.getATK(1)*1.5), 2);
+                    romper;
+                caso 7:
+                    PKM.setATKS((entero)Math.Round(PKM.getATKS(1) * 1.5), 2);
+                    romper;
+                caso 8:
+                    PKM.setDEF((entero)Math.Round(PKM.getDEF(1) * 1.5), 2);
+                    romper;
+                caso 9:
+                    PKM.setDEFS((entero)Math.Round(PKM.getDEFS(1) * 1.5), 2);
+                    romper;
+                caso 10:
+                    PKM.setVEL((entero)Math.Round(PKM.getVEL(1) * 1.5), 2);
+                    romper;
+            }
+        }
+
+        // Método para disminuir un stat del Pokémon
+        público void disminuirStat(pokemon PKM, entero n) {
+            seleccionar (n) {
+                caso 11:
+                    PKM.setATK((entero)Math.Round(PKM.getATK(1) / 1.5), 2);
+                    romper;
+                caso 12:
+                    PKM.setATKS((entero)Math.Round(PKM.getATKS(1) / 1.5), 2);
+                    romper;
+                caso 13:
+                    PKM.setDEF((entero)Math.Round(PKM.getDEF(1) / 1.5), 2);
+                    romper;
+                caso 14:
+                    PKM.setDEFS((entero)Math.Round(PKM.getDEFS(1) / 1.5), 2);
+                    romper;
+                caso 15:
+                    PKM.setVEL((entero)Math.Round(PKM.getVEL(1) / 1.5), 2);
+                    romper;
+            }
+        }
+    }
+}
+
+// NODO-----------------------------------------------------------
+namespace Pokemon {
+    // Declaración de la clase nodo
+    clase nodo {
+        // Declaración de variables privadas
+        privado pokemon valorPokemon;
+        privado tipo valorTipo;
+        privado cadena valorNombreTipo;
+        privado movimiento valorMovimiento;
+        privado jugador valorJugador;
+        privado pocion valorPocion;
+        privado superPocion valorSuperPocion;
+        privado hiperPocion valorHiperPocion;
+        privado antiParalisis valorAntiParalisis;
+        privado antidoto valorAntidoto;
+        privado despertar valorDespertar;
+        privado curaTotal valorCuraTotal;
+        privado maxPocion valorMaxPocion;
+        privado precisionX valorPrecisionX;
+        privado nodo siguiente, der, izq;
+        privado entero altura;
+
+        // Constructor de la clase nodo
+        función nodo() {
+            // Inicialización de variables
+            este.valorPokemon = nulo;
+            este.valorTipo = nulo;
+            este.valorNombreTipo = nulo;
+            este.valorMovimiento = nulo;
+            este.valorJugador = nulo;
+            este.valorPocion = nulo;
+            este.valorSuperPocion = nulo;
+            este.valorHiperPocion = nulo;
+            este.valorAntiParalisis = nulo;
+            este.valorAntidoto = nulo;
+            este.valorDespertar = nulo;
+            este.valorCuraTotal = nulo;
+            este.valorMaxPocion = nulo;
+            este.valorPrecisionX = nulo;
+            este.siguiente = nulo;
+            este.der = nulo;
+            este.izq = nulo;
+            este.altura = 1;
+        }
+
+        // Métodos para establecer los nodos derecho e izquierdo
+        público void setDer(nodo der) {
+            este.der = der;
+        }
+
+        público void setIzq(nodo izq) {
+            este.izq = izq;
+        }
+
+        // Métodos para establecer los valores de los nodos
+        público void setValorPokemon(pokemon pkm) {
+            este.valorPokemon = pkm;
+        }
+
+        público void setValorTipo(tipo t) {
+            este.valorTipo = t;
+        }
+
+        público void setValorNombreTipo(cadena n) {
+            este.valorNombreTipo = n;
+        }
+
+        público void setValorMovimiento(movimiento m) {
+            este.valorMovimiento = m;
+        }
+
+        público void setValorJugador(jugador j) {
+            este.valorJugador = j;
+        }
+
+        público void setValorPocion(pocion VP) {
+            este.valorPocion = VP;
+        }
+
+        público void setValorSuperPocion(superPocion VSP) {
+            este.valorSuperPocion = VSP;
+        }
+
+        público void setValorHiperPocion(hiperPocion VHP) {
+            este.valorHiperPocion = VHP;
+        }
+
+        público void setValorAntiparalisis(antiParalisis VAP) {
+            este.valorAntiParalisis = VAP;
+        }
+
+        público void setValorAntidoto(antidoto VA) {
+            este.valorAntidoto = VA;
+        }
+
+        público void setValorDespertar(despertar VD) {
+            este.valorDespertar = VD;
+        }
+
+        público void setValorCuraTotal(curaTotal VCT) {
+            este.valorCuraTotal = VCT;
+        }
+
+        público void setValorMaxPocion(maxPocion VMP) {
+            este.valorMaxPocion = VMP;
+        }
+
+        público void setValorPrecisionX(precisionX VPX) {
+            este.valorPrecisionX = VPX;
+        }
+
+        // Métodos para obtener los valores de los nodos
+        público pokemon getValorPokemon() {
+            retornar este.valorPokemon;
+        }
+
+        público tipo getValorTipo() {
+            retornar este.valorTipo;
+        }
+
+        público cadena getValorNombreTipo() {
+            retornar este.valorNombreTipo;
+        }
+
+        público movimiento getValorMovimiento() {
+            retornar este.valorMovimiento;
+        }
+
+        público jugador getValorJugador() {
+            retornar este.valorJugador;
+        }
+
+        público pocion getValorPocion() {
+            retornar este.valorPocion;
+        }
+
+        público superPocion getValorSuperPocion() {
+            retornar este.valorSuperPocion;
+        }
+
+        público hiperPocion getValorHiperPocion() {
+            retornar este.valorHiperPocion;
+        }
+
+        público antiParalisis getValorAntiparalisis() {
+            retornar este.valorAntiParalisis;
+        }
+
+        público antidoto getValorAntidoto() {
+            retornar este.valorAntidoto;
+        }
+
+        público despertar getValorDespertar() {
+            retornar este.valorDespertar;
+        }
+
+        público curaTotal getValorCuraTotal() {
+            retornar este.valorCuraTotal;
+        }
+
+        público maxPocion getValorMaxPocion() {
+            retornar este.valorMaxPocion;
+        }
+
+        público precisionX getValorPrecisionX() {
+            retornar este.valorPrecisionX;
+        }
+
+        // Métodos para obtener los nodos siguiente, derecho e izquierdo
+        público nodo getSiguiente() {
+            retornar siguiente;
+        }
+
+        público nodo getDer() {
+            retornar der;
+        }
+
+        público nodo getIzq() {
+            retornar izq;
+        }
+
+        // Método para establecer el nodo siguiente
+        público void setSiguiente(nodo siguiente) {
+            este.siguiente = siguiente;
+        }
+
+        // Método para obtener la altura del árbol
+        público entero getAltura(nodo nodo) {
+            si (nodo == nulo) {
+                retornar 0;
+            }
+            retornar nodo.altura;
+        }
+
+        // Método para establecer la altura del árbol
+        público void setAltura(entero altura) {
+            este.altura = altura;
+        }
+    }
+}
+
+// CLASE OBJETO----------------------------------------------------------------
+namespace Pokemon {
+    // Declaración de la clase objeto
+    clase objeto {
+        // Variables protegidas
+        protegido entero ID;
+        protegido cadena nombre;
+        protegido cadena descripcion;
+        protegido Image icono;
+
+        // Métodos para establecer los valores de las variables
+        público vacío setID(entero id) {
+            este.ID = id;
+        }
+
+        público vacío setNombre(cadena n) {
+            este.nombre = n;
+        }
+
+        público vacío setDescripcion(cadena d) {
+            este.descripcion = d;
+        }
+
+        // Métodos para obtener los valores de las variables
+        público entero getID() {
+            retornar este.ID;
+        }
+
+        público cadena getNombre() {
+            retornar este.nombre;
+        }
+
+        público cadena getDescripcion() {
+            retornar este.descripcion;
+        }
+
+        público Image getIcono() {
+            retornar icono;
+        }
+    }
+}
+
+// CLASE PILA
+espacio_de_nombres Pokemon {
+    // Declaración de la clase pila
+    clase pila {
+        // Variables privadas
+        privado nodo tope
+        privado entero tamanio
+
+        // Constructor de la clase pila
+        público pila() {
+            este.tope = nulo
+            este.tamanio = 0
+        }
+
+        // Método para determinar si la pila está vacía
+        público booleano esVacia() {
+            retornar tope == nulo
+        }
+
+        // Método para obtener el tamaño de la pila
+        público entero getTamanio() {
+            retornar tamanio
+        }
+
+        // Métodos para agregar diferentes tipos de elementos a la pila
+
+        público vacío agregarPocionEnLaPila(pocion valorPocion) {
+            nodo nuevo = nuevo nodo()
+            nuevo.setValorPocion(valorPocion)
+            si (esVacia()) {
+                tope = nuevo
+            } sino {
+                nuevo.setSiguiente(tope)
+                tope = nuevo
+            }
+            tamanio++
+        }
+
+        público pocion sacarPocionDePila() {
+            pocion valorPocion = nulo
+            si (!esVacia()) {
+                valorPocion = tope.getValorPocion()
+                tope = tope.getSiguiente()
+                tamanio--
+            }
+            retornar valorPocion
+        }
+
+        // Métodos similares para agregar y sacar otros tipos de elementos de la pila (superPocion, hiperPocion, etc.)
+
+        // Se repite el patrón para agregar y sacar otros tipos de elementos de la pila
+
+        // Agregar y sacar superPocion de la pila
+        // Agregar y sacar hiperPocion de la pila
+        // Agregar y sacar antiParalisis de la pila
+        // Agregar y sacar antidoto de la pila
+        // Agregar y sacar despertar de la pila
+        // Agregar y sacar curaTotal de la pila
+        // Agregar y sacar maxPocion de la pila
+        // Agregar y sacar precisionX de la pila
+    }
+}
+
+//CLASE POCION
+espacio_de_nombres Pokemon {
+    // Declaración de la clase pocion que hereda de objeto
+    clase pocion : objeto {
+        
+        // Constructor de la clase pocion
+        público pocion() {
+            // Inicialización de los valores predeterminados de la poción
+            este.ID = 1
+            este.nombre = "Poción"
+            este.descripcion = "Cura 20 PS al Pokémon."
+            este.icono = Resources.pocion // Suponiendo que Resources.pocion es la imagen de la poción
+        }
+
+        // Método para usar la poción en un Pokémon dado
+        público cadena usarPocion(pokemon PKM) {
+            // Aumentar los puntos de salud (PS) del Pokémon en 20
+            PKM.setHP(PKM.getHP(2) + 20, 2)
+            // Verificar si los PS del Pokémon exceden su máximo
+            si (PKM.getHP(2) > PKM.getHP(1)) {
+                PKM.setHP(PKM.getHP(1), 2)
+            }
+            // Retornar un mensaje indicando que se usó la poción y cuántos PS recuperó el Pokémon
+            retornar " usó una Poción. ¡" + PKM.getNombre() + " ha recuperado 20 PS!."
+        }
+    }
+}
+
+// CLASE PRECISIONX
+espacio_de_nombres Pokemon {
+    // Declaración de la clase precisionX que hereda de objeto
+    clase precisionX : objeto {
+        
+        // Constructor de la clase precisionX
+        público precisionX() {
+            // Inicialización de los valores predeterminados de la precisión X
+            este.ID = 9
+            este.nombre = "Precisión X"
+            este.descripcion = "Este objeto aumenta la precisión de todos los movimientos del Pokémon que lo lleva en un nivel, hasta un máximo de 6 niveles. Cada nivel aumenta la precisión en un 33%."
+            este.icono = Resources.precisionx // Suponiendo que Resources.precisionx es la imagen de la precisión X
+        }
+
+        // Método para usar la precisión X en un Pokémon dado
+        público cadena usarPrecisionX(pokemon PKM, Random ran) {
+            // Generar un número aleatorio entre 1 y 6 para representar el nivel de aumento de precisión
+            entero nvl = ran.Next(1, 7)
+            entero aumento
+            // Iterar sobre los movimientos del Pokémon
+            por cada movimiento en PKM.getMovimientos() {
+                // Calcular el aumento de precisión para el movimiento actual
+                aumento = redondear(movimiento.getPrecision() * 0.33)
+                // Aplicar el aumento de precisión según el nivel obtenido aleatoriamente
+                para (entero j = 0; j < nvl; j++) {
+                    movimiento.setPrecision(movimiento.getPrecision() + aumento)
+                }
+                // Verificar si la precisión supera el límite máximo (100)
+                si (movimiento.getPrecision() > 100) {
+                    movimiento.setPrecision(100)
+                }
+            }
+            // Retornar un mensaje indicando que se usó la precisión X y cuánto aumentó la precisión
+            retornar " usó una PrecisionX. ¡Los movimientos de " + PKM.getNombre() + " son un " + nvl * 33 + "% más precisos!."
+        }
+    }
+}
+
+// CLASE SUPERPOCION
+espacio_de_nombres Pokemon {
+    // Declaración de la clase superPocion que hereda de objeto
+    clase superPocion : objeto {
+        
+        // Constructor de la clase superPocion
+        público superPocion() {
+            // Inicialización de los valores predeterminados de la superpoción
+            este.ID = 2
+            este.nombre = "Superpoción"
+            este.descripcion = "Cura 50 PS al Pokémon."
+            este.icono = Resources.superpocion // Suponiendo que Resources.superpocion es la imagen de la superpoción
+        }
+
+        // Método para usar la superpoción en un Pokémon dado
+        público cadena usarSuperPocion(pokemon PKM) {
+            // Aumentar los puntos de salud (PS) del Pokémon en 50
+            PKM.setHP(PKM.getHP(2) + 50, 2)
+            // Verificar si los PS actuales superan el máximo
+            si (PKM.getHP(2) > PKM.getHP(1)) {
+                // Restaurar los PS al máximo si superan el máximo permitido
+                PKM.setHP(PKM.getHP(1), 2)
+            }
+
+            // Retornar un mensaje indicando que se usó la superpoción y cuántos PS se recuperaron
+            retornar " usó una Super Poción. ¡" + PKM.getNombre() + " ha recuperado 50 PS!."
+        }
+    }
+}
+
+// CLASE TIPO-----------------------------------------------
+espacio_de_nombres Pokemon {
+    // Declaración de la clase tipo
+    clase tipo {
+        // Variables privadas
+        privado cadena nombre;
+        privado lista eficazContra;
+        privado lista noEfectivoContra;
+        privado lista debilContra;
+        privado lista inmuneA;
+
+        // Constructor de la clase tipo
+        público tipo(cadena nombre, cadena eficazContra, cadena noEfectivoContra, cadena debilContra, cadena inmuneA) {
+            // Inicialización de las listas
+            este.nombre = nombre;
+            este.eficazContra = nueva lista();
+            este.noEfectivoContra = nueva lista();
+            este.debilContra = nueva lista();
+            este.inmuneA = nueva lista();
+
+            // División de las cadenas y asignación a las listas correspondientes
+            cadena[] arr = eficazContra.Split('/');
+            si (!arr[0].Equals("no")) {
+                foreach (cadena name en arr) {
+                    este.eficazContra.agregarNombreTipoAlFinal(name);
+                }
+            }
+
+            arr = noEfectivoContra.Split('/');
+            si (!arr[0].Equals("no")) {
+                foreach (cadena name en arr) {
+                    este.noEfectivoContra.agregarNombreTipoAlFinal(name);
+                }
+            }
+
+            arr = debilContra.Split('/');
+            si (!arr[0].Equals("no")) {
+                foreach (cadena name en arr) {
+                    este.debilContra.agregarNombreTipoAlFinal(name);
+                }
+            }
+
+            arr = inmuneA.Split('/');
+            si (!arr[0].Equals("no")) {
+                foreach (cadena name en arr) {
+                    este.inmuneA.agregarNombreTipoAlFinal(name);
+                }
+            }
+        }
+
+        // Método para establecer el nombre del tipo
+        público vacío setNombre(cadena n) {
+            este.nombre = n;
+        }
+
+        // Método para obtener el nombre del tipo
+        público cadena getNombre() {
+            retornar este.nombre;
+        }
+
+        // Métodos para obtener las listas de tipos
+        público lista getEficazContra() {
+            retornar eficazContra;
+        }
+
+        público lista getNoEfectivoContra() {
+            retornar noEfectivoContra;
+        }
+
+        público lista getDebilContra() {
+            retornar debilContra;
+        }
+
+        público lista getInmuneA() {
+            retornar inmuneA;
+        }
+
+        // Método estático para determinar el tipo según su nombre
+        público estático entero determinarTipo(cadena s) {
+            seleccionar (s) {
+                caso "Normal":
+                    retornar 0;
+                caso "Fuego":
+                    retornar 1;
+                caso "Agua":
+                    retornar 2;
+                caso "Volador":
+                    retornar 3;
+                caso "Planta":
+                    retornar 4;
+                caso "Bicho":
+                    retornar 5;
+                caso "Eléctrico":
+                    retornar 6;
+                caso "Psíquico":
+                    retornar 7;
+                caso "Veneno":
+                    retornar 8;
+                caso "Tierra":
+                    retornar 9;
+                caso "Roca":
+                    retornar 10;
+                caso "Hielo":
+                    retornar 11;
+                caso "Lucha":
+                    retornar 12;
+                caso "Dragón":
+                    retornar 13;
+                caso "Fantasma":
+                    retornar 14;
+                caso "Acero":
+                    retornar 15;
+                caso "Hada":
+                    retornar 16;
+                defecto:
+                    Consola.EscribirLinea("EEEEERROOOOOOOOOOOOOOOOOOOOOOOOOR");
+                    Consola.EscribirLinea(s);
+                    retornar 17;
+            }
+        }
+
+        // Método estático para asignar la imagen del tipo a un control PictureBox
+        público estático vacío asignarImagenTipo(tipo T, PictureBox PB) {
+            seleccionar (T.getNombre()) {
+                caso "Normal":
+                    PB.Imagen = Resources.MovNormal;
+                    romper;
+                caso "Fuego":
+                    PB.Imagen = Resources.MovFuego;
+                    romper;
+                caso "Agua":
+                    PB.Imagen = Resources.MovAgua;
+                    romper;
+                caso "Volador":
+                    PB.Imagen = Resources.MovVolador;
+                    romper;
+                caso "Planta":
+                    PB.Imagen = Resources.MovPlanta;
+                    romper;
+                caso "Bicho":
+                    PB.Imagen = Resources.MovBicho;
+                    romper;
+                caso "Eléctrico":
+                    PB.Imagen = Resources.MovElectrico;
+                    romper;
+                caso "Psíquico":
+                    PB.Imagen = Resources.MovPsiquico;
+                    romper;
+                caso "Veneno":
+                    PB.Imagen = Resources.MovVeneno;
+                    romper;
+                caso "Tierra":
+                    PB.Imagen = Resources.MovTierra;
+                    romper;
+                caso "Roca":
+                    PB.Imagen = Resources.MovRoca;
+                    romper;
+                caso "Hielo":
+                    PB.Imagen = Resources.MovHielo;
+                    romper;
+                caso "Lucha":
+                    PB.Imagen = Resources.MovLucha;
+                    romper;
+                caso "Dragón":
+                    PB.Imagen = Resources.MovDragon;
+                    romper;
+                caso "Fantasma":
+                    PB.Imagen = Resources.MovFantasma;
+                    romper;
+                caso "Acero":
+                    PB.Imagen = Resources.MovAcero;
+                    romper;
+                caso "Hada":
+                    PB.Imagen = Resources.MovHada;
+                    romper;
+                defecto:
+                    Consola.EscribirLinea("EEEEERROOOOOOOOOOOOOOOOOOOOOOOOOR");
+                    romper;
+            }
+        }
+    }
+}
+// CLASE TURNO
+espacio_de_nombres Pokemon {
+    // Declaración de la clase turno
+    clase turno {
+        // Variables privadas
+        privado jugador jugador;
+        privado booleano activo;
+        privado entero accion;
+
+        // Constructor de la clase turno
+        público turno(jugador jugador) {
+            este.activo = falso;
+            este.accion = 0;
+            este.jugador = jugador;
+        }
+
+        // Método para establecer el jugador
+        público vacío setJugador(jugador j) {
+            este.jugador = j;
+        }
+
+        // Método para establecer el estado activo
+        público vacío setActivo(booleano b) {
+            este.activo = b;
+        }
+
+        // Método para establecer la acción
+        público vacío setAccion(entero a) {
+            este.accion = a;
+        }
+
+        // Método para obtener el jugador
+        público jugador getJugador() {
+            retornar jugador;
+        }
+
+        // Método para verificar si está activo
+        público booleano estaActivo() {
+            retornar activo;
+        }
+
+        // Método para obtener la acción
+        público entero getAccion() {
+            retornar accion;
+        }
+
+        // Método para usar el turno
+        público cadena usarTurno(pokemon PKM, pokemon PKMRival, entero op, Random ran, PictureBox PB) {
+            cadena s = cadena.Vacío;
+            seleccionar (op) {
+                caso 0: caso 1: caso 2: caso 3: caso 19:
+                    s = este.usarMovimiento(PKM, PKMRival, op, ran);
+                    romper;
+                caso 4: caso 5: caso 6: caso 7: caso 8: caso 9: caso 10: caso 11: caso 12:
+                    s = este.usarObjeto(op - 3, PKM, ran);
+                    romper;
+                caso 13: caso 14: caso 15: caso 16: caso 17: caso 18:
+                    s = este.cambiarPKM(op - 13);
+                    romper;
+            }
+            retornar s;
+        }
+
+        // Método para usar un movimiento
+        público cadena usarMovimiento(pokemon PKM, pokemon PKMRival, entero indexMov, Random ran) {
+            cadena s = cadena.Vacío;
+
+            si ((PKM.getEstadoAlterado() == 3) || (PKM.getEstadoAlterado() == 4)) {
+                si (PKM.getProbRecuperar() >= ran.Next(1, 101)) {
+                    s += "¡" + PKM.getNombre() + " se ha ";
+                    si (PKM.getEstadoAlterado() == 3) {
+                        s += "despertado!. ";
+                    }
+                    sino {
+                        s += "descongelado!. ";
+                    }
+                    PKM.setEstadoAlterado(0);
+                    PKM.setProbRecuperar(0);
+                }
+                sino {
+                    s += PKM.getNombre() + " está ";
+                    si (PKM.getEstadoAlterado() == 3) {
+                        s += "dormido. ";
+                    }
+                    sino {
+                        s += "congelado. ";
+                    }
+                    s += " ¡El movimiento no hizo ningún efecto!.";
+                    PKM.setProbRecuperar(PKM.getProbRecuperar() + 20);
+                }
+            }
+
+            si (!estaActivo() && (PKM.getEstadoAlterado() != 1) && (PKM.getEstadoAlterado() != 3) && (PKM.getEstadoAlterado() != 4)) {
+                retornar PKM.ejecutarMovimiento(PKMRival, indexMov, ran);
+            }
+            sino {
+                si (PKM.getEstadoAlterado() == 1) {
+                    s += PKM.getNombre() + " está paralizado. ¡El movimiento no hizo ningún efecto!.";
+                }
+            }
+
+            retornar s;
+        }
+
+        // Método para usar un objeto
+        público cadena usarObjeto(entero IDObj, pokemon PKM, Random ran) {
+            cadena s = cadena.Vacío;
+
+            si (!estaActivo()) {
+                seleccionar (IDObj) {
+                    caso 1:
+                        s += este.jugador.getNombre() + este.jugador.getBolsa()[IDObj-1].sacarPocionDePila().usarPocion(PKM);
+                        romper;
+                    caso 2:
+                        s += este.jugador.getNombre() + este.jugador.getBolsa()[IDObj - 1].sacarSuperPocionDePila().usarSuperPocion(PKM);
+                        romper;
+                    caso 3:
+                        s += este.jugador.getNombre() + este.jugador.getBolsa()[IDObj - 1].sacarHiperPocionDePila().usarHiperPocion(PKM);
+                        romper;
+                    caso 4:
+                        s += este.jugador.getNombre() + este.jugador.getBolsa()[IDObj - 1].sacarAntiParalisisDePila().usarAntiparalisis(PKM);
+                        romper;
+                    caso 5:
+                        s += este.jugador.getNombre() + este.jugador.getBolsa()[IDObj - 1].sacarAntidotoDePila().usarAntidoto(PKM);
+                        romper;
+                    caso 6:
+                        s += este.jugador.getNombre() + este.jugador.getBolsa()[IDObj - 1].sacarDespertarDePila().usarDespertar(PKM);
+                        romper;
+                    caso 7:
+                        s += este.jugador.getNombre() + este.jugador.getBolsa()[IDObj - 1].sacarCuraTotalDePila().usarCuraTotal(PKM);
+                        romper;
+                    caso 8:
+                        s += este.jugador.getNombre() + este.jugador.getBolsa()[IDObj - 1].sacarMaxPocionDePila().usarMaxPocion(PKM);
+                        romper;
+                    caso 9:
+                        s += este.jugador.getNombre() + este.jugador.getBolsa()[IDObj - 1].sacarPrecisionXDePila().usarPrecisionX(PKM, ran);
+                        romper;
+                }
+            }
+            retornar s;
+        }
+
+        // Método para cambiar de Pokémon
+        público cadena cambiarPKM(entero index) {
+            cadena s = este.jugador.getNombre() + " ha cambiado a ";
+
+            si (este.jugador.Equals(formBatalla.P1)) {
+                s += formBatalla.pokemon1.getNombre();
+                formBatalla.pokemon1 = este.jugador.getPokemones()[index];
+            }
+            sino {
+                s += formBatalla.pokemon2.getNombre();
+                formBatalla.pokemon2 = este.jugador.getPokemones()[index];
+            }
+
+            s += " por " + este.jugador.getPokemones()[index].getNombre() + ".";
+            retornar s;
+        }
+    }
+}
