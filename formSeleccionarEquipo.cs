@@ -29,9 +29,6 @@ namespace Pokemon
             {
                 Jugador_1 = formLlaves.rivales.sacarJugadorDeLaCola();
                 Jugador_2 = formLlaves.rivales.sacarJugadorDeLaCola();
-
-                Console.WriteLine(Jugador_1.getNombre());
-                Console.WriteLine(Jugador_2.getNombre());
             }
             else
             {
@@ -50,6 +47,35 @@ namespace Pokemon
                 {
                     equipoJugador1.agregarPokemonAlFinal(Jugador_1.getPokemones()[i]);
                 }
+
+                pokemon[] arrPKM1 = equipoJugador1.getArrayPokemones();
+
+                for (int i = 0; i < arrPKM1.Length; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            pictureBoxPKM1.Image = arrPKM1[i].getImg()[2];
+                            break;
+                        case 1:
+                            pictureBoxPKM2.Image = arrPKM1[i].getImg()[2];
+                            break;
+                        case 2:
+                            pictureBoxPKM3.Image = arrPKM1[i].getImg()[2];
+                            break;
+                        case 3:
+                            pictureBoxPKM4.Image = arrPKM1[i].getImg()[2];
+                            break;
+                        case 4:
+                            pictureBoxPKM5.Image = arrPKM1[i].getImg()[2];
+                            break;
+                        case 5:
+                            pictureBoxPKM6.Image = arrPKM1[i].getImg()[2];
+                            break;
+                    }
+                }
+
+                button1.Visible = true;
             }
 
             if (Jugador_2.getPokemones()[0] != null)
@@ -649,6 +675,36 @@ namespace Pokemon
                 pictureBoxPKM6.Image = null;
                 elegirEquipoJugador1 = false; // Cambiar al turno del Jugador 2
                 button1.Visible = false;
+
+                if (Jugador_2.getPokemones()[0] != null)
+                {
+                    pokemon[] arrPKM1 = equipoJugador2.getArrayPokemones();
+
+                    for (int i = 0; i < arrPKM1.Length; i++)
+                    {
+                        switch (i)
+                        {
+                            case 0:
+                                pictureBoxPKM1.Image = arrPKM1[i].getImg()[2];
+                                break;
+                            case 1:
+                                pictureBoxPKM2.Image = arrPKM1[i].getImg()[2];
+                                break;
+                            case 2:
+                                pictureBoxPKM3.Image = arrPKM1[i].getImg()[2];
+                                break;
+                            case 3:
+                                pictureBoxPKM4.Image = arrPKM1[i].getImg()[2];
+                                break;
+                            case 4:
+                                pictureBoxPKM5.Image = arrPKM1[i].getImg()[2];
+                                break;
+                            case 5:
+                                pictureBoxPKM6.Image = arrPKM1[i].getImg()[2];
+                                break;
+                        }
+                    }
+                }
             }
         }
 
