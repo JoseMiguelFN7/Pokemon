@@ -42,8 +42,6 @@ namespace Pokemon
             P2 = jugadores.sacarJugadorDeLaCola();
             jugadores.agregarJugadorEnCola(P2);
 
-            Console.WriteLine(FormSeleccionarEquipo.colaEntrenadores.getTamanio());
-
             llenarBolsas(P1, P2);
 
             pokemon1 = P1.getPokemones()[0];
@@ -581,10 +579,10 @@ namespace Pokemon
                     pictureBoxEffect.Image = Properties.Resources.volador;
                     break;
                 case 6:
-                    pictureBoxEffect.Image = Properties.Resources.Normal; //CAMBIAR A PLANTA
+                    pictureBoxEffect.Image = Properties.Resources.planta;
                     break;
                 case 7:
-                    pictureBoxEffect.Image = Properties.Resources.Normal; //CAMBIAR A BICHO
+                    pictureBoxEffect.Image = Properties.Resources.bicho;
                     break;
                 case 8:
                     pictureBoxEffect.Image = Properties.Resources.electrico;

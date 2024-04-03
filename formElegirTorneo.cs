@@ -53,7 +53,6 @@ namespace Pokemon
             {
                 pictitulo.Visible = true;
                 botonconfirmar.Visible = true;
-                botonconfirmar.Location = new Point(159, 195);
             }
 
             if (radio4jugadores.Checked)
@@ -72,7 +71,6 @@ namespace Pokemon
                 {
                     comboBoxEntrenador4.Visible = true;
                 }
-                botonconfirmar.Location = new Point(159, 282);
 
                 botonconfirmar.Visible = true;
                 pictitulo.Visible = true;
@@ -125,7 +123,6 @@ namespace Pokemon
                 {
                     comboBoxEntrenador8.Visible = true;
                 }
-                botonconfirmar.Location = new Point(17, 422);
 
                 botonconfirmar.Visible = true;
                 pictitulo.Visible = true;

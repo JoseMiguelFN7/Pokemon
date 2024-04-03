@@ -11,7 +11,7 @@ namespace Pokemon
         private nodo tope;
         private int tamanio;
 
-        public void Pila()
+        public pila()
         {
             this.tope = null;
             this.tamanio = 0;

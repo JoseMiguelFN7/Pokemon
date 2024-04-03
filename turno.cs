@@ -9,9 +9,9 @@ namespace Pokemon
 {
     public class turno
     {
-        jugador jugador;
-        bool activo;
-        int accion;
+        private jugador jugador;
+        private bool activo;
+        private int accion;
 
         public turno(jugador jugador)
         {

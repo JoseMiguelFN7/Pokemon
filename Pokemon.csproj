@@ -53,6 +53,12 @@
     <Compile Include="cola.cs" />
     <Compile Include="curaTotal.cs" />
     <Compile Include="despertar.cs" />
+    <Compile Include="formBarradecarga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formBarradecarga.Designer.cs">
+      <DependentUpon>formBarradecarga.cs</DependentUpon>
+    </Compile>
     <Compile Include="formBatalla.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
       <DependentUpon>formLlaves.cs</DependentUpon>
     </Compile>
     <Compile Include="turno.cs" />
+    <EmbeddedResource Include="formBarradecarga.resx">
+      <DependentUpon>formBarradecarga.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formBatalla.resx">
       <DependentUpon>formBatalla.cs</DependentUpon>
     </EmbeddedResource>
@@ -1784,6 +1793,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\torneo4jugadoresGanador.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoEntrenadores.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoMP.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planta.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bicho.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

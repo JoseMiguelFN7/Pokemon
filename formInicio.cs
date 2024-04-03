@@ -16,7 +16,6 @@ namespace Pokemon
 {
     public partial class formInicio : Form
     {
-        
         public static tipo[] arrTipos = new tipo[18];
         public static pokemon[] arrPKM = new pokemon[151];
         public static objeto[] arrObj = new objeto[9];
@@ -32,7 +31,7 @@ namespace Pokemon
             leerPokemon();
             llenarArrObj();
             InitializeComponent();
-            string ruta = Path.Combine(Application.StartupPath, "intro\\intro.mp4");
+            string ruta = Path.Combine(Application.StartupPath, "videos\\intro.mp4");
             videoIntro.URL = ruta;
             videoIntro.settings.autoStart = true;
             videoIntro.uiMode = "none";
@@ -149,8 +148,6 @@ namespace Pokemon
         public static void reproducir(int i)
         {
             string ruta;
-            SoundPlayer bgMusic;
-            SoundPlayer soundEffect;
             switch (i)
             {
                 case 0:
@@ -163,17 +160,9 @@ namespace Pokemon
                     ruta = string.Empty;
                     break;
             }
-            
-            if (i == 0 || i == 1)
-            {
-                bgMusic = new SoundPlayer(ruta);
-                bgMusic.PlayLooping();
-            }
-            else
-            {
-                soundEffect = new SoundPlayer(ruta);
-                soundEffect.Play();
-            }
+
+            SoundPlayer bgMusic = new SoundPlayer(ruta);
+            bgMusic.PlayLooping();
         }
     }
 }

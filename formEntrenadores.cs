@@ -14,10 +14,7 @@ namespace Pokemon
         public formEntrenadores()
         {
             InitializeComponent();
-            pictureentrenador1.Parent = fondoprincipalent;
-            pictureentrenadora2.Parent = fondoprincipalent;
             picturepokemon.Parent = fondoprincipalent;
-            picturepok1.Parent = fondoprincipalent;
             labelclub.Parent = fondoprincipalent;
             labelENT1.Parent = fondoprincipalent;
             labelENT2.Parent = fondoprincipalent;

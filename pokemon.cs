@@ -25,7 +25,7 @@ namespace Pokemon
         private int[] VEL;
         private int estadoAlterado;
         private double probRecuperar;
-        bool ditto;
+        private bool ditto;
 
         public pokemon(int iD, string nombre, int nivel, string tipos, int hP, int aTK, int dEF, int aTKS, int dEFS, int vEL, string movs)
         {
@@ -88,6 +88,21 @@ namespace Pokemon
         public void setNivel(int n)
         {
             nivel = n;
+
+            int ajuste = n - 50;
+
+            HP[1] += 50 * ajuste;
+            HP[2] = HP[1];
+            ATK[1] += 2 * ajuste;
+            ATK[2] = ATK[1];
+            DEF[1] += 2 * ajuste;
+            DEF[2] = DEF[1];
+            ATKS[1] += 2 * ajuste;
+            ATKS[2] = ATKS[1];
+            DEFS[1] += 2 * ajuste;
+            DEFS[2] = DEFS[1];
+            VEL[1] += 2 * ajuste;
+            VEL[2] = VEL[1];
         }
 
         public void setTipos(lista t)

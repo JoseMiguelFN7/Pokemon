@@ -20,7 +20,8 @@ namespace Pokemon
         private pokemon[] arrPKM;
         private pokemon pokemonSeleccionado;
         private bool hayPokemonSeleccionado = false;
-        public static bool elegirEquipoJugador1 = true;
+        public bool elegirEquipoJugador1 = true;
+        Random r = new Random();
 
         public FormSeleccionarEquipo()
         {
@@ -277,6 +278,8 @@ namespace Pokemon
                 listaPokemonDisponibles = CargarPokemonDisponibles();
                 MostrarPokemonDisponibles();
             }
+
+            labelCaja.Text = paginaActual.ToString();
         }
 
         private void btnPaginaAnterior_Click(object sender, EventArgs e)
@@ -295,6 +298,8 @@ namespace Pokemon
                 listaPokemonDisponibles = CargarPokemonDisponibles();
                 MostrarPokemonDisponibles();
             }
+
+            labelCaja.Text = paginaActual.ToString();
         }
 
         private void btnCerrarCaja_Click(object sender, EventArgs e)
@@ -309,26 +314,7 @@ namespace Pokemon
                 for (int i = 0; i < colaEntrenadores.getTamanio(); i++)
                 {
                     jugador j = colaEntrenadores.sacarJugadorDeLaCola();
-                    Console.WriteLine(j.getNombre());
                     colaEntrenadores.agregarJugadorEnCola(j);
-                }
-                Console.WriteLine("Pokemones jugador 1:");
-                foreach (var pokemon in Jugador_1.getPokemones())
-                {
-                    if (pokemon != null)
-                    {
-                        Console.WriteLine(pokemon.getNombre());
-                    }
-                }
-
-                Console.WriteLine("Pokemones jugador 2:");
-                foreach (var pokemon in Jugador_2.getPokemones())
-                {
-                    if (pokemon != null)
-                    {
-
-                        Console.WriteLine(pokemon.getNombre());
-                    }
                 }
 
                 formMenuPrincipal.exitForm = true;
@@ -343,8 +329,8 @@ namespace Pokemon
                 }
 
                 exitForm = true;
-                formBatalla FB = new formBatalla();
-                FB.Visible = true;
+                formBarradecarga FBC = new formBarradecarga();
+                FBC.Visible = true;
                 this.Close();
             }
             else
@@ -410,27 +396,85 @@ namespace Pokemon
             // Verificar si el equipo del Jugador 1 está lleno
             if (!equipoLleno(equipoJugador1) && elegirEquipoJugador1)
             {
-                equipoJugador1.agregarPokemonAlFinal(pokemonSeleccionado.crearCopiaPKM());
-                MessageBox.Show($"¡{pokemonSeleccionado.getNombre()} ha sido agregado al equipo del Jugador 1!");
+                button1.Visible = false;
+                pokemon PKMAgregado = pokemonSeleccionado.crearCopiaPKM();
+                PKMAgregado.setNivel(r.Next(50, 61));
+                equipoJugador1.agregarPokemonAlFinal(PKMAgregado);
+                pokemon[] arrPKM1 = equipoJugador1.getArrayPokemones();
+
+                for (int i = 0; i < arrPKM1.Length; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            pictureBoxPKM1.Image = arrPKM1[i].getImg()[2];
+                            break;
+                        case 1:
+                            pictureBoxPKM2.Image = arrPKM1[i].getImg()[2];
+                            break;
+                        case 2:
+                            pictureBoxPKM3.Image = arrPKM1[i].getImg()[2];
+                            break;
+                        case 3:
+                            pictureBoxPKM4.Image = arrPKM1[i].getImg()[2];
+                            break;
+                        case 4:
+                            pictureBoxPKM5.Image = arrPKM1[i].getImg()[2];
+                            break;
+                        case 5:
+                            pictureBoxPKM6.Image = arrPKM1[i].getImg()[2];
+                            break;
+
+                    }
+                }
+                MessageBox.Show($"¡{pokemonSeleccionado.getNombre()} ha sido agregado al equipo de {Jugador_1.getNombre()}!");
 
                 // Verificar si el equipo del Jugador 1 ahora está lleno
                 if (equipoLleno(equipoJugador1))
                 {
-                    MessageBox.Show("¡El equipo del Jugador 1 está completo! Ahora es el turno del Jugador 2.");
-                    elegirEquipoJugador1 = false; // Cambiar al turno del Jugador 2
+                    MessageBox.Show($"¡El equipo de {Jugador_1.getNombre()} está completo!");
+                    button1.Visible = true;
                 }
             }
             // Verificar si el equipo del Jugador 2 está lleno
             else if (!equipoLleno(equipoJugador2) && !elegirEquipoJugador1)
             {
-                equipoJugador2.agregarPokemonAlFinal(pokemonSeleccionado.crearCopiaPKM());
-                MessageBox.Show($"¡{pokemonSeleccionado.getNombre()} ha sido agregado al equipo del Jugador 2!");
+                pokemon PKMAgregado = pokemonSeleccionado.crearCopiaPKM();
+                PKMAgregado.setNivel(r.Next(50, 61));
+                equipoJugador2.agregarPokemonAlFinal(PKMAgregado);
+                MessageBox.Show($"¡{pokemonSeleccionado.getNombre()} ha sido agregado al equipo del {Jugador_2.getNombre()}!");
+
+                pokemon[] arrPKM2 = equipoJugador2.getArrayPokemones();
+
+                for (int i = 0; i < arrPKM2.Length; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            pictureBoxPKM1.Image = arrPKM2[i].getImg()[2];
+                            break;
+                        case 1:
+                            pictureBoxPKM2.Image = arrPKM2[i].getImg()[2];
+                            break;
+                        case 2:
+                            pictureBoxPKM3.Image = arrPKM2[i].getImg()[2];
+                            break;
+                        case 3:
+                            pictureBoxPKM4.Image = arrPKM2[i].getImg()[2];
+                            break;
+                        case 4:
+                            pictureBoxPKM5.Image = arrPKM2[i].getImg()[2];
+                            break;
+                        case 5:
+                            pictureBoxPKM6.Image = arrPKM2[i].getImg()[2];
+                            break;
+                    }
+                }
 
                 // Verificar si el equipo del Jugador 2 ahora está lleno
                 if (equipoLleno(equipoJugador2))
                 {
                     MessageBox.Show("¡Ambos equipos están completos! Ahora puedes cerrar la caja");
-                    elegirEquipoJugador1 = true; // Cambiar al turno del Jugador 1
                 }
             }
             else
@@ -458,6 +502,819 @@ namespace Pokemon
             LimpiarEtiquetasDeTipo(pictureBoxTipo1);
             LimpiarEtiquetasDeTipo(pictureBoxTipo2);
             OcultarTiposPokemon(pictureBoxTipo1, pictureBoxTipo2);
+        }
+
+        private void pictureBoxPKM1_Click(object sender, EventArgs e)
+        {
+            if (pictureBoxPKM1.Image != null)
+            {
+                if (elegirEquipoJugador1)
+                {
+                    button1.Visible = false;
+                    equipoJugador1.eliminarPokemon(equipoJugador1.getArrayPokemones()[0]);
+                    pokemon[] arrPKM = equipoJugador1.getArrayPokemones();
+
+                    if (arrPKM == null)
+                    {
+                        pictureBoxPKM1.Image = null;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arrPKM.Length; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = arrPKM[i].getImg()[2];
+                                    break;
+                            }
+                        }
+
+                        for (int i = 5; i >= arrPKM.Length; i--)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = null;
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = null;
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = null;
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = null;
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = null;
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = null;
+                                    break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    equipoJugador2.eliminarPokemon(equipoJugador2.getArrayPokemones()[0]);
+
+                    pokemon[] arrPKM = equipoJugador2.getArrayPokemones();
+
+                    if (arrPKM == null)
+                    {
+                        pictureBoxPKM1.Image = null;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arrPKM.Length; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = arrPKM[i].getImg()[2];
+                                    break;
+                            }
+                        }
+
+                        for (int i = 5; i >= arrPKM.Length; i--)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = null;
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = null;
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = null;
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = null;
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = null;
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = null;
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (equipoLleno(equipoJugador1) && elegirEquipoJugador1)
+            {
+                pictureBoxPKM1.Image = null;
+                pictureBoxPKM2.Image = null;
+                pictureBoxPKM3.Image = null;
+                pictureBoxPKM4.Image = null;
+                pictureBoxPKM5.Image = null;
+                pictureBoxPKM6.Image = null;
+                elegirEquipoJugador1 = false; // Cambiar al turno del Jugador 2
+                button1.Visible = false;
+            }
+        }
+
+        private void pictureBoxPKM2_Click(object sender, EventArgs e)
+        {
+            if (pictureBoxPKM1.Image != null)
+            {
+                if (elegirEquipoJugador1)
+                {
+                    button1.Visible = false;
+                    equipoJugador1.eliminarPokemon(equipoJugador1.getArrayPokemones()[1]);
+                    pokemon[] arrPKM = equipoJugador1.getArrayPokemones();
+
+                    if (arrPKM == null)
+                    {
+                        pictureBoxPKM1.Image = null;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arrPKM.Length; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = arrPKM[i].getImg()[2];
+                                    break;
+                            }
+                        }
+
+                        for (int i = 5; i >= arrPKM.Length; i--)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = null;
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = null;
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = null;
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = null;
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = null;
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = null;
+                                    break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    equipoJugador2.eliminarPokemon(equipoJugador2.getArrayPokemones()[1]);
+
+                    pokemon[] arrPKM = equipoJugador2.getArrayPokemones();
+
+                    if (arrPKM == null)
+                    {
+                        pictureBoxPKM1.Image = null;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arrPKM.Length; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = arrPKM[i].getImg()[2];
+                                    break;
+                            }
+                        }
+
+                        for (int i = 5; i >= arrPKM.Length; i--)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = null;
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = null;
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = null;
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = null;
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = null;
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = null;
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void pictureBoxPKM3_Click(object sender, EventArgs e)
+        {
+            if (pictureBoxPKM1.Image != null)
+            {
+                if (elegirEquipoJugador1)
+                {
+                    button1.Visible = false;
+                    equipoJugador1.eliminarPokemon(equipoJugador1.getArrayPokemones()[2]);
+                    pokemon[] arrPKM = equipoJugador1.getArrayPokemones();
+
+                    if (arrPKM == null)
+                    {
+                        pictureBoxPKM1.Image = null;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arrPKM.Length; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = arrPKM[i].getImg()[2];
+                                    break;
+                            }
+                        }
+
+                        for (int i = 5; i >= arrPKM.Length; i--)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = null;
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = null;
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = null;
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = null;
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = null;
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = null;
+                                    break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    equipoJugador2.eliminarPokemon(equipoJugador2.getArrayPokemones()[2]);
+
+                    pokemon[] arrPKM = equipoJugador2.getArrayPokemones();
+
+                    if (arrPKM == null)
+                    {
+                        pictureBoxPKM1.Image = null;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arrPKM.Length; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = arrPKM[i].getImg()[2];
+                                    break;
+                            }
+                        }
+
+                        for (int i = 5; i >= arrPKM.Length; i--)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = null;
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = null;
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = null;
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = null;
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = null;
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = null;
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void pictureBoxPKM4_Click(object sender, EventArgs e)
+        {
+            if (pictureBoxPKM1.Image != null)
+            {
+                if (elegirEquipoJugador1)
+                {
+                    button1.Visible = false;
+                    equipoJugador1.eliminarPokemon(equipoJugador1.getArrayPokemones()[3]);
+                    pokemon[] arrPKM = equipoJugador1.getArrayPokemones();
+
+                    if (arrPKM == null)
+                    {
+                        pictureBoxPKM1.Image = null;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arrPKM.Length; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = arrPKM[i].getImg()[2];
+                                    break;
+                            }
+                        }
+
+                        for (int i = 5; i >= arrPKM.Length; i--)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = null;
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = null;
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = null;
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = null;
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = null;
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = null;
+                                    break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    equipoJugador2.eliminarPokemon(equipoJugador2.getArrayPokemones()[3]);
+
+                    pokemon[] arrPKM = equipoJugador2.getArrayPokemones();
+
+                    if (arrPKM == null)
+                    {
+                        pictureBoxPKM1.Image = null;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arrPKM.Length; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = arrPKM[i].getImg()[2];
+                                    break;
+                            }
+                        }
+
+                        for (int i = 5; i >= arrPKM.Length; i--)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = null;
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = null;
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = null;
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = null;
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = null;
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = null;
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void pictureBoxPKM5_Click(object sender, EventArgs e)
+        {
+            if (pictureBoxPKM1.Image != null)
+            {
+                if (elegirEquipoJugador1)
+                {
+                    button1.Visible = false;
+                    equipoJugador1.eliminarPokemon(equipoJugador1.getArrayPokemones()[4]);
+                    pokemon[] arrPKM = equipoJugador1.getArrayPokemones();
+
+                    if (arrPKM == null)
+                    {
+                        pictureBoxPKM1.Image = null;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arrPKM.Length; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = arrPKM[i].getImg()[2];
+                                    break;
+                            }
+                        }
+
+                        for (int i = 5; i >= arrPKM.Length; i--)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = null;
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = null;
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = null;
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = null;
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = null;
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = null;
+                                    break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    equipoJugador2.eliminarPokemon(equipoJugador2.getArrayPokemones()[4]);
+
+                    pokemon[] arrPKM = equipoJugador2.getArrayPokemones();
+
+                    if (arrPKM == null)
+                    {
+                        pictureBoxPKM1.Image = null;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arrPKM.Length; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = arrPKM[i].getImg()[2];
+                                    break;
+                            }
+                        }
+
+                        for (int i = 5; i >= arrPKM.Length; i--)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = null;
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = null;
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = null;
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = null;
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = null;
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = null;
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void pictureBoxPKM6_Click(object sender, EventArgs e)
+        {
+            if (pictureBoxPKM1.Image != null)
+            {
+                if (elegirEquipoJugador1)
+                {
+                    button1.Visible = false;
+                    equipoJugador1.eliminarPokemon(equipoJugador1.getArrayPokemones()[5]);
+                    pokemon[] arrPKM = equipoJugador1.getArrayPokemones();
+
+                    if (arrPKM == null)
+                    {
+                        pictureBoxPKM1.Image = null;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arrPKM.Length; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = arrPKM[i].getImg()[2];
+                                    break;
+                            }
+                        }
+
+                        for (int i = 5; i >= arrPKM.Length; i--)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = null;
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = null;
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = null;
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = null;
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = null;
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = null;
+                                    break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    equipoJugador2.eliminarPokemon(equipoJugador2.getArrayPokemones()[5]);
+
+                    pokemon[] arrPKM = equipoJugador2.getArrayPokemones();
+
+                    if (arrPKM == null)
+                    {
+                        pictureBoxPKM1.Image = null;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arrPKM.Length; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = arrPKM[i].getImg()[2];
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = arrPKM[i].getImg()[2];
+                                    break;
+                            }
+                        }
+
+                        for (int i = 5; i >= arrPKM.Length; i--)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    pictureBoxPKM1.Image = null;
+                                    break;
+                                case 1:
+                                    pictureBoxPKM2.Image = null;
+                                    break;
+                                case 2:
+                                    pictureBoxPKM3.Image = null;
+                                    break;
+                                case 3:
+                                    pictureBoxPKM4.Image = null;
+                                    break;
+                                case 4:
+                                    pictureBoxPKM5.Image = null;
+                                    break;
+                                case 5:
+                                    pictureBoxPKM6.Image = null;
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

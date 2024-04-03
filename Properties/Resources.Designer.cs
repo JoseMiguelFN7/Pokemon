@@ -4643,6 +4643,16 @@ namespace Pokemon.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bicho {
+            get {
+                object obj = ResourceManager.GetObject("bicho", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap blueSpark {
             get {
                 object obj = ResourceManager.GetObject("blueSpark", resourceCulture);
@@ -4803,9 +4813,29 @@ namespace Pokemon.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fondoEntrenadores {
+            get {
+                object obj = ResourceManager.GetObject("fondoEntrenadores", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondoMenuPrincipal {
             get {
                 object obj = ResourceManager.GetObject("fondoMenuPrincipal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fondoMP {
+            get {
+                object obj = ResourceManager.GetObject("fondoMP", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -5106,6 +5136,16 @@ namespace Pokemon.Properties {
         internal static System.Drawing.Bitmap PKMContainer {
             get {
                 object obj = ResourceManager.GetObject("PKMContainer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap planta {
+            get {
+                object obj = ResourceManager.GetObject("planta", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

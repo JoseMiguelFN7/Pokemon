@@ -19,3 +19,4 @@ C:\Users\José Ferreira\Desktop\Proyectos\C#\Pokemon\bin\Debug\Interop.WMPLib.dl
 C:\Users\José Ferreira\Desktop\Proyectos\C#\Pokemon\bin\Debug\AxInterop.WMPLib.dll
 C:\Users\José Ferreira\Desktop\Proyectos\C#\Pokemon\obj\Debug\Pokemon.formLlaves.resources
 C:\Users\José Ferreira\Desktop\Proyectos\C#\Pokemon\obj\Debug\Pokemon.FormSeleccionarEquipo.resources
+C:\Users\José Ferreira\Desktop\Proyectos\C#\Pokemon\obj\Debug\Pokemon.formBarradecarga.resources

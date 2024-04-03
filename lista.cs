@@ -226,6 +226,7 @@ namespace Pokemon
                 if (inicio.getValorPokemon().getID() == pkm.getID())
                 {
                     inicio = inicio.getSiguiente();
+                    tamanio--;
                 }
                 else
                 {
@@ -235,6 +236,7 @@ namespace Pokemon
                         if (aux.getSiguiente().getValorPokemon().getID() == pkm.getID())
                         {
                             aux.setSiguiente(aux.getSiguiente().getSiguiente());
+                            tamanio--;
                             return;
                         }
                         aux = aux.getSiguiente();

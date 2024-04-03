@@ -36,23 +36,21 @@
             this.inferior = new System.Windows.Forms.Label();
             this.pokemon = new System.Windows.Forms.Label();
             this.unimar = new System.Windows.Forms.PictureBox();
-            this.picpokemon = new System.Windows.Forms.PictureBox();
             this.labpartida = new System.Windows.Forms.Label();
             this.labeltorneo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fondoprincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.titulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unimar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picpokemon)).BeginInit();
             this.SuspendLayout();
             // 
             // fondoprincipal
             // 
-            this.fondoprincipal.Image = ((System.Drawing.Image)(resources.GetObject("fondoprincipal.Image")));
-            this.fondoprincipal.Location = new System.Drawing.Point(-5, 0);
-            this.fondoprincipal.Margin = new System.Windows.Forms.Padding(4);
+            this.fondoprincipal.Image = global::Pokemon.Properties.Resources.fondoMP;
+            this.fondoprincipal.Location = new System.Drawing.Point(-3, -2);
+            this.fondoprincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fondoprincipal.Name = "fondoprincipal";
-            this.fondoprincipal.Size = new System.Drawing.Size(1088, 564);
-            this.fondoprincipal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.fondoprincipal.Size = new System.Drawing.Size(1089, 565);
+            this.fondoprincipal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.fondoprincipal.TabIndex = 0;
             this.fondoprincipal.TabStop = false;
             // 
@@ -60,10 +58,10 @@
             // 
             this.titulo.BackColor = System.Drawing.Color.Transparent;
             this.titulo.Image = ((System.Drawing.Image)(resources.GetObject("titulo.Image")));
-            this.titulo.Location = new System.Drawing.Point(-3, 59);
-            this.titulo.Margin = new System.Windows.Forms.Padding(4);
+            this.titulo.Location = new System.Drawing.Point(36, 48);
+            this.titulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.titulo.Name = "titulo";
-            this.titulo.Size = new System.Drawing.Size(621, 209);
+            this.titulo.Size = new System.Drawing.Size(356, 122);
             this.titulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.titulo.TabIndex = 1;
             this.titulo.TabStop = false;
@@ -86,12 +84,12 @@
             // 
             this.salir.AutoSize = true;
             this.salir.BackColor = System.Drawing.Color.Navy;
-            this.salir.Font = new System.Drawing.Font("Showcard Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salir.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salir.ForeColor = System.Drawing.Color.Gold;
-            this.salir.Location = new System.Drawing.Point(160, 428);
+            this.salir.Location = new System.Drawing.Point(73, 298);
             this.salir.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.salir.Name = "salir";
-            this.salir.Size = new System.Drawing.Size(292, 43);
+            this.salir.Size = new System.Drawing.Size(260, 37);
             this.salir.TabIndex = 5;
             this.salir.Text = "SALIR DEL JUEGO";
             this.salir.Click += new System.EventHandler(this.salir_Click);
@@ -104,7 +102,7 @@
             this.inferior.BackColor = System.Drawing.Color.LightGray;
             this.inferior.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inferior.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.inferior.Location = new System.Drawing.Point(795, 503);
+            this.inferior.Location = new System.Drawing.Point(61, 534);
             this.inferior.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.inferior.Name = "inferior";
             this.inferior.Size = new System.Drawing.Size(203, 18);
@@ -117,7 +115,7 @@
             this.pokemon.BackColor = System.Drawing.Color.LightGray;
             this.pokemon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pokemon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pokemon.Location = new System.Drawing.Point(809, 528);
+            this.pokemon.Location = new System.Drawing.Point(65, 513);
             this.pokemon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pokemon.Name = "pokemon";
             this.pokemon.Size = new System.Drawing.Size(188, 18);
@@ -127,36 +125,24 @@
             // unimar
             // 
             this.unimar.Image = ((System.Drawing.Image)(resources.GetObject("unimar.Image")));
-            this.unimar.Location = new System.Drawing.Point(967, 15);
-            this.unimar.Margin = new System.Windows.Forms.Padding(4);
+            this.unimar.Location = new System.Drawing.Point(1007, 15);
+            this.unimar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.unimar.Name = "unimar";
-            this.unimar.Size = new System.Drawing.Size(97, 78);
+            this.unimar.Size = new System.Drawing.Size(57, 49);
             this.unimar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.unimar.TabIndex = 8;
             this.unimar.TabStop = false;
-            // 
-            // picpokemon
-            // 
-            this.picpokemon.BackColor = System.Drawing.Color.Transparent;
-            this.picpokemon.Image = ((System.Drawing.Image)(resources.GetObject("picpokemon.Image")));
-            this.picpokemon.Location = new System.Drawing.Point(583, 133);
-            this.picpokemon.Margin = new System.Windows.Forms.Padding(4);
-            this.picpokemon.Name = "picpokemon";
-            this.picpokemon.Size = new System.Drawing.Size(569, 351);
-            this.picpokemon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picpokemon.TabIndex = 11;
-            this.picpokemon.TabStop = false;
             // 
             // labpartida
             // 
             this.labpartida.AutoSize = true;
             this.labpartida.BackColor = System.Drawing.Color.Navy;
-            this.labpartida.Font = new System.Drawing.Font("Showcard Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labpartida.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labpartida.ForeColor = System.Drawing.Color.Gold;
-            this.labpartida.Location = new System.Drawing.Point(161, 334);
+            this.labpartida.Location = new System.Drawing.Point(77, 218);
             this.labpartida.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labpartida.Name = "labpartida";
-            this.labpartida.Size = new System.Drawing.Size(281, 43);
+            this.labpartida.Size = new System.Drawing.Size(248, 37);
             this.labpartida.TabIndex = 12;
             this.labpartida.Text = "NUEVA PARTIDA";
             this.labpartida.Click += new System.EventHandler(this.labpartida_Click);
@@ -167,12 +153,12 @@
             // 
             this.labeltorneo.AutoSize = true;
             this.labeltorneo.BackColor = System.Drawing.Color.Navy;
-            this.labeltorneo.Font = new System.Drawing.Font("Showcard Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeltorneo.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labeltorneo.ForeColor = System.Drawing.Color.Gold;
-            this.labeltorneo.Location = new System.Drawing.Point(221, 380);
+            this.labeltorneo.Location = new System.Drawing.Point(136, 256);
             this.labeltorneo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labeltorneo.Name = "labeltorneo";
-            this.labeltorneo.Size = new System.Drawing.Size(153, 43);
+            this.labeltorneo.Size = new System.Drawing.Size(136, 37);
             this.labeltorneo.TabIndex = 13;
             this.labeltorneo.Text = "TORNEO";
             this.labeltorneo.Click += new System.EventHandler(this.labeltorneo_Click);
@@ -186,17 +172,16 @@
             this.ClientSize = new System.Drawing.Size(1080, 554);
             this.Controls.Add(this.labeltorneo);
             this.Controls.Add(this.labpartida);
-            this.Controls.Add(this.picpokemon);
+            this.Controls.Add(this.salir);
             this.Controls.Add(this.unimar);
             this.Controls.Add(this.pokemon);
             this.Controls.Add(this.inferior);
             this.Controls.Add(this.labelpartida);
-            this.Controls.Add(this.salir);
             this.Controls.Add(this.titulo);
             this.Controls.Add(this.fondoprincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "formMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -205,7 +190,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fondoprincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.titulo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unimar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picpokemon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,7 +204,6 @@
         private System.Windows.Forms.Label inferior;
         private System.Windows.Forms.Label pokemon;
         private System.Windows.Forms.PictureBox unimar;
-        private System.Windows.Forms.PictureBox picpokemon;
         private System.Windows.Forms.Label labpartida;
         private System.Windows.Forms.Label labeltorneo;
     }

@@ -15,11 +15,6 @@ namespace Pokemon
             this.raiz = null;
         }
 
-        public bool esVacio()
-        {
-            return raiz == null;
-        }
-
         public nodo getRaiz()
         {
             return raiz;
@@ -124,41 +119,6 @@ namespace Pokemon
             }
 
             return nodo;
-        }
-
-        private nodo obtenerNodoMinimo(nodo nodo)
-        { //Metodo usado al eliminar un nodo para determinar su reemplazo
-            nodo actual = nodo;
-            while (actual.getIzq() != null)
-            { //consigue el nodo con el valor mas pequeño
-                actual = actual.getIzq();
-            }
-            return actual;
-        }
-
-        public jugador buscarJugador(int numID)
-        { //Para retornar los datos de un jugador dentro del arbol
-            return buscarJ(raiz, numID);
-        }
-
-        private jugador buscarJ(nodo n, int numID)
-        {
-            if (n == null)
-            {
-                return null;
-            }
-            if (n.getValorJugador().getID() == numID)
-            {
-                return n.getValorJugador();
-            }
-            if (numID > n.getValorJugador().getID())
-            {
-                return buscarJ(n.getDer(), numID);
-            }
-            else
-            {
-                return buscarJ(n.getIzq(), numID);
-            }
         }
 
         public void insertarFinal(lista l)
